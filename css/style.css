@@ -1316,3 +1316,30 @@ kbd {
 /* Medbring er den længste værdi og lander alene på anden række, når
    Version er kommet til. Den får hele rækken i stedet for én smal kolonne. */
 .facts__wide { grid-column: 1 / -1; }
+
+/* --------------------------------------------------------------------------
+   Kursus 2 · Statusbanner på programmet
+
+   Samme greb som versionskravet: status skal ses, før man læser tiderne, så
+   ingen tager et udkast for bindende. Rust-ramme, ikke amber: det er
+   information, ikke en handling.
+   -------------------------------------------------------------------------- */
+
+.status {
+  margin: var(--s4) 0 0;
+  padding: var(--s3) var(--s4);
+  max-width: 40rem;
+  border: 2px solid var(--rust);
+  border-radius: 14px;
+  background: var(--surface);
+}
+.status__label {
+  margin: 0;
+  font-size: clamp(1.125rem, 1rem + 0.6vw, 1.375rem);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rust);
+}
+.status__body { margin: var(--s1) 0 0; color: var(--ink); }
+.status__meta { margin: var(--s2) 0 0; font-size: 0.8125rem; color: var(--ink-dim); }
