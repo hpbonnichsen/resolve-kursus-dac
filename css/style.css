@@ -1,0 +1,1318 @@
+/* ==========================================================================
+   Fra redigering til færdig film – onboarding før kursusdagen.
+
+   Én side, fem sektioner, ingen navigation. Kursisten skal kunne installere
+   programmet og lave sine lektier uden at træffe et eneste valg om hvor på
+   siden man skal hen.
+
+   Amber betyder handling og intet andet. Rust strukturerer: trin-numre,
+   annotationer, skillelinjer. Ingen af dem bruges som store flader.
+   ========================================================================== */
+
+:root {
+  --bg:       #171717;
+  --surface:  #1e1e1e;
+  --petrol:   #0E3D42;
+
+  --amber:    #FF9E00;   /* 8,66:1 mod --bg · primær accent, kun handling */
+  --rust:     #E9967A;   /* 7,78:1 mod --bg · sekundær, kun struktur */
+
+  --ink:      #ece3d6;   /* 14,11:1 mod --bg */
+  --ink-dim:  #9c9287;   /*  5,87:1 mod --bg */
+  --ink-soft: #b8aea2;   /*  5,45:1 mod --petrol · kickeren i hero står på
+                            cirklen, hvor --ink-dim kun når 3,9:1 */
+
+  --line:     rgba(236, 227, 214, 0.12);
+
+  --font: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Én afstandsskala. Alt lodret rytme er et af disse tal. */
+  --s1: 0.5rem;
+  --s2: 1rem;
+  --s3: 1.5rem;
+  --s4: 2.5rem;
+  --s5: 4rem;
+  --s6: 6rem;
+
+  --measure: 62ch;    /* maks linjelængde på brødtekst */
+  --wrap: 1100px;     /* tekstspaltens bredde inde i skallen */
+
+  /* Skallen er hele sidens bredde: hero, skillelinjer og footer-kant med.
+     Cirka 3/4 af skærmen. Bunden på 680px undgår et spring lige over
+     mobil-brydepunktet, loftet holder den fra at løbe løbsk på brede skærme. */
+  --shell: clamp(680px, 76vw, 1500px);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+.wrap {
+  width: min(100% - 2 * var(--s3), var(--wrap));
+  margin-inline: auto;
+}
+
+/* På desktop trækkes hele siden ind i en centreret spalte, så heroen,
+   skillelinjerne og footer-kanten stopper samme sted i stedet for at løbe
+   ud i vinduskanten. På telefon fylder siden fortsat hele bredden. */
+@media (min-width: 721px) {
+  body {
+    width: var(--shell);
+    margin-inline: auto;
+  }
+}
+
+/* Skip-link: første tabstop, usynlig indtil den får fokus. */
+.skip {
+  position: absolute;
+  left: var(--s2);
+  top: -4rem;
+  z-index: 10;
+  padding: var(--s1) var(--s3);
+  background: var(--amber);
+  color: var(--bg);
+  font-weight: 600;
+  border-radius: 999px;
+  transition: top 0.15s var(--ease);
+}
+.skip:focus { top: var(--s2); }
+
+/* --------------------------------------------------------------------------
+   Typografi
+   -------------------------------------------------------------------------- */
+
+h1, h2, h3 { line-height: 1.15; margin: 0; text-wrap: balance; }
+
+.kicker {
+  margin: 0 0 var(--s2);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+
+.hero .kicker { color: var(--ink-soft); }
+
+.section__title {
+  font-size: clamp(1.5rem, 1.2rem + 1.5vw, 2.125rem);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.section__intro {
+  max-width: var(--measure);
+  margin: var(--s2) 0 0;
+  color: var(--ink-dim);
+}
+
+.section { padding-block: var(--s6); }
+
+/* Første skærmbillede skal indeholde heroen og de praktiske oplysninger og
+   ikke mere end det: ser man begyndelsen på næste sektion, ser man en opgave
+   man endnu ikke har fået at vide man skal løse. Afstanden er sat i vh frem
+   for px, fordi hele pointen afhænger af skærmens højde. */
+#installer { padding-top: clamp(var(--s6), 34vh, 30rem); }
+
+a { color: var(--amber); text-underline-offset: 0.2em; }
+a:hover { color: var(--ink); }
+
+/* Én fokusmarkering på hele siden, så tastaturbrugere altid ved hvor de er. */
+:focus-visible {
+  outline: 3px solid var(--amber);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   Knap – sidens eneste handlingsform
+   -------------------------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s1);
+  padding: 0.85rem 2rem;
+  background: var(--amber);
+  color: var(--bg);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 999px;
+  transition: transform 0.18s var(--ease), box-shadow 0.18s var(--ease);
+}
+.btn:hover {
+  color: var(--bg);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(255, 158, 0, 0.28);
+}
+.btn:active { transform: translateY(0); }
+
+.btn__icon { width: 1.1em; height: 1.1em; fill: currentColor; }
+
+/* --------------------------------------------------------------------------
+   Navigation
+
+   Siden var oprindeligt en onepager uden navigation. Den begrundelse holdt så
+   længe der kun var én side; med program- og lektionssider ville fraværet af
+   navigation være en blindgyde, ikke en forenkling.
+
+   Farven er --ink-soft og ikke --ink-dim. På forsiden ligger linjen oven på
+   heroen, og på lave skærme kan petroleum-cirklens overkant nå op under den.
+   --ink-soft er det ene token der klarer AA mod både --bg og --petrol.
+
+   Aktiv side markeres i rust, ikke amber: "hvor du er" er struktur, ikke en
+   handling. Amber ejer fortsat kun det, der beder om et klik.
+   -------------------------------------------------------------------------- */
+
+.nav__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s3);
+  list-style: none;
+  margin: 0;
+  padding-block: var(--s3);
+}
+
+.nav__link {
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+.nav__link:hover { color: var(--ink); text-decoration: underline; }
+
+.nav__link[aria-current="page"] {
+  color: var(--rust);
+  text-decoration: underline;
+  text-underline-offset: 0.35em;
+  text-decoration-thickness: 2px;
+}
+
+/* På forsiden lægger linjen sig oven på heroen i stedet for at skubbe den ned.
+   Ellers skrider beregningen af første skærmbillede længere nede. */
+.hero .nav {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 5;
+}
+
+/* --------------------------------------------------------------------------
+   Hero
+   -------------------------------------------------------------------------- */
+
+.hero {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: min(88vh, 780px);
+  /* Mere luft over end under: kompositionen har sin vægt lavt, fordi
+     kameraets stativ trækker nedad, så symmetrisk padding ville se
+     topmast ud. Toppen er sat i vh, så høje skærme får den luft, de
+     har plads til. */
+  padding-block: clamp(var(--s5), 11vh, 10rem) var(--s5);
+  overflow: hidden;
+}
+
+.hero__stage {
+  position: relative;
+  width: min(100% - 2 * var(--s3), 980px);
+  display: grid;
+  place-items: center;
+}
+
+/* Petroleum-cirklen er et element, ikke et billede: skarp i alle størrelser
+   og fri til at blive en ellipse når skærmen bliver smal. */
+.hero__circle {
+  grid-area: 1 / 1;
+  position: relative;
+  width: min(80vw, 660px);
+  aspect-ratio: 1;
+  background: var(--petrol);
+  border-radius: 50%;
+  transform: translateX(-8%);
+}
+
+.hero__content {
+  grid-area: 1 / 1;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  /* Tekstblokken sidder lavere end cirklens midte, så figuren får plads
+     foroven: det er kompositionen fra mockuppen. */
+  transform: translate(-8%, 13%);
+}
+
+.hero__title {
+  font-size: clamp(2rem, 1rem + 5.6vw, 4.25rem);
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+.hero__line { display: block; white-space: nowrap; }
+/* Mockuppens vægtskift: let optakt, tungt nøgleord. */
+.hero__light { font-weight: 300; }
+.hero__heavy { font-weight: 800; }
+
+.hero__cta { margin-top: var(--s4); }
+
+/* Figurerne er dekoration. De bærer ingen information, så de er skjult for
+   skærmlæsere, og siden skal stå fuldt læsbar uden dem. */
+.hero__fig {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Målt i procent af cirklen, ikke af scenen, så figuren bliver siddende
+   det rigtige sted i kompositionen uanset skærmbredde. */
+.hero__fig--nosferatu {
+  width: 30%;
+  top: 1%;
+  left: 21%;
+  /* Eksporten har en hård underkant; mockuppens udtoning laves her,
+     så billedfilen kan blive ved med at være ren. */
+  -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 90%);
+  mask-image: linear-gradient(to bottom, #000 55%, transparent 90%);
+}
+
+.hero__fig--kamera {
+  width: min(34vw, 300px);
+  right: -2%;
+  bottom: 2%;
+}
+
+/* --------------------------------------------------------------------------
+   Skillelinje – et ekko af en timeline. Ren dekoration, aldrig klikbar.
+   -------------------------------------------------------------------------- */
+
+.rule {
+  position: relative;
+  height: 1px;
+  background: var(--line);
+  border: 0;
+  margin: 0;
+}
+.rule::after {
+  content: "";
+  position: absolute;
+  inset-block: -2px;
+  left: 0;
+  width: 92px;
+  background: var(--rust);
+  border-radius: 2px;
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .rule::after {
+      animation: slide-clip linear both;
+      animation-timeline: view();
+      animation-range: entry 10% cover 45%;
+    }
+    @keyframes slide-clip {
+      from { transform: translateX(0); }
+      to   { transform: translateX(320px); }
+    }
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Praktisk stribe
+   -------------------------------------------------------------------------- */
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--s3);
+  padding: var(--s4);
+  margin-block: var(--s5);
+  background: var(--surface);
+  border-radius: 16px;
+}
+
+.facts__key {
+  margin: 0 0 var(--s1);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--rust);
+}
+.facts__val { margin: 0; font-weight: 500; }
+
+/* --------------------------------------------------------------------------
+   Trin – bruges til både installation og lektier
+   -------------------------------------------------------------------------- */
+
+.steps {
+  list-style: none;
+  counter-reset: step;
+  margin: var(--s4) 0 0;
+  padding: 0;
+  display: grid;
+  gap: var(--s4);
+}
+
+.step {
+  counter-increment: step;
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: var(--s3);
+  align-items: start;
+}
+
+/* Tallet er rust, ikke amber: det ordner rækkefølgen, men beder ikke om et klik. */
+.step::before {
+  content: counter(step, decimal-leading-zero);
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--rust);
+  line-height: 1.35;
+}
+
+.step__title {
+  margin: 0 0 var(--s1);
+  font-size: 1.1875rem;
+  font-weight: 700;
+}
+.step__body { margin: 0; max-width: var(--measure); color: var(--ink-dim); }
+.step__body + .step__body { margin-top: var(--s2); }
+.step__body strong { color: var(--ink); font-weight: 600; }
+
+.step__action { margin-top: var(--s3); }
+
+.tag {
+  display: inline-block;
+  margin-left: var(--s1);
+  padding: 0.15rem 0.6rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rust);
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  vertical-align: 0.2em;
+}
+
+/* --------------------------------------------------------------------------
+   Screenshots med annotationer
+   -------------------------------------------------------------------------- */
+
+.shot {
+  margin: var(--s4) 0 0;
+  max-width: 760px;
+}
+
+/* Til billeder der er meget bredere end de er høje. 760 px er rigtigt for de
+   nogenlunde kvadratiske dialogbilleder, men gør en 1800x62 bundlinje til en
+   streg. Denne variant giver hele tekstspalten. */
+.shot--wide { max-width: none; }
+
+.shot__frame {
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Annotationerne ligger som SVG oven på billedet frem for at være brændt ind
+   i filen: de forbliver skarpe og kan rettes uden billedredigering. */
+.shot__marks {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.shot__marks .ring {
+  fill: none;
+  stroke: var(--rust);
+  stroke-width: 6;
+}
+.shot__marks .box {
+  fill: none;
+  stroke: var(--rust);
+  stroke-width: 6;
+  stroke-dasharray: 14 12;
+}
+
+.shot__caption {
+  margin: var(--s2) 0 0;
+  font-size: 0.875rem;
+  color: var(--ink-dim);
+}
+
+/* --------------------------------------------------------------------------
+   Inspiration
+   -------------------------------------------------------------------------- */
+
+.film { margin: var(--s4) 0 0; max-width: 760px; }
+.film video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  background: #000;
+}
+.film figcaption {
+  margin-top: var(--s2);
+  font-size: 0.875rem;
+  color: var(--ink-dim);
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+
+.footer {
+  padding-block: var(--s5);
+  border-top: 1px solid var(--line);
+  color: var(--ink-dim);
+  font-size: 0.9375rem;
+}
+.footer p { margin: 0 0 var(--s1); max-width: var(--measure); }
+
+/* --------------------------------------------------------------------------
+   Indtoning ved scroll
+   -------------------------------------------------------------------------- */
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 60%;
+    }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: none; }
+    }
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Smalle skærme. Linket kommer fra en mail, så telefonen er hovedsagen.
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 720px) {
+  :root { --s5: 3rem; --s6: 4rem; }
+
+  /* Topvattet ekstra, så den absolut placerede Menu-knap (se .nav__toggle
+     længere nede) ikke klipper ind i kicker-teksten under sig. */
+  .hero { min-height: auto; padding-block: var(--s5); padding-top: 4.75rem; }
+
+  /* Gitteroverlejringen giver ikke mening på en smal skærm. Cirklen bliver en
+     baggrundsform bag teksten, og kameraet lægger sig under overskriften i
+     normalt flow i stedet for at klemme den. */
+  .hero__stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Forankret til toppen frem for midten, så cirklen omslutter tekstblokken
+     og ikke skærer gennem overskriften. */
+  .hero__circle {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: min(124vw, 520px);
+    transform: translate(-50%, -18%);
+  }
+
+  .hero__content { order: 1; transform: none; }
+  .hero__line { white-space: normal; }
+
+  /* Nosferatu falder væk: for lille til at læses som en figur på telefon. */
+  .hero__fig--nosferatu { display: none; }
+
+  /* relative frem for static, så z-index stadig holder kameraet foran cirklen. */
+  .hero__fig--kamera {
+    order: 2;
+    position: relative;
+    inset: auto;
+    width: min(50vw, 180px);
+    margin-top: var(--s4);
+  }
+
+  .facts { padding: var(--s3); }
+  .step { grid-template-columns: 2.25rem 1fr; gap: var(--s2); }
+}
+
+/* ==========================================================================
+   INDERSIDER – program og lektioner
+   Alt herunder bruges ikke på forsiden. Forsiden er fortsat en onepager uden
+   navigation; indersiderne er opslagsværk man vender tilbage til på dagen.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Sidehoved. Ingen hero: man er kommet hertil med et ærinde.
+   -------------------------------------------------------------------------- */
+
+.pagehead { padding-block: var(--s5) var(--s3); }
+
+.pagehead__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+.pagehead__back::before { content: "\2190"; }
+.pagehead__back:hover { text-decoration: underline; }
+
+.pagehead__title {
+  margin: var(--s3) 0 0;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.pagehead__intro {
+  margin: var(--s3) 0 0;
+  max-width: var(--measure);
+  color: var(--ink-dim);
+  font-size: 1.0625rem;
+}
+
+/* --------------------------------------------------------------------------
+   Dagens program. Ikke en tabel: rækkerne skal kunne reflowe på en telefon,
+   og tid + navn hører sammen som ét udsagn, ikke som to celler.
+   -------------------------------------------------------------------------- */
+
+.sked { list-style: none; margin: var(--s4) 0 0; padding: 0; }
+
+.sked__row {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  gap: var(--s3);
+  padding-block: var(--s3);
+  border-top: 1px solid var(--line);
+}
+.sked__row:last-child { border-bottom: 1px solid var(--line); }
+
+.sked__time {
+  color: var(--rust);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.sked__name { margin: 0; font-size: 1.0625rem; font-weight: 600; }
+.sked__name a { text-decoration: none; }
+.sked__name a:hover { text-decoration: underline; }
+
+/* Underordnet linje, til Edit L1/L2/L3 under selve Edit-blokken. Mindre luft,
+   ingen øverste streg, og navnet er ikke fremhævet, så de læses som en del af
+   blokken ovenfor og ikke som selvstændige punkter på linje med resten. */
+.sked__row--sub {
+  padding-block: var(--s2);
+  border-top: none;
+  grid-template-columns: 5.5rem 1fr;
+}
+.sked__row--sub .sked__name { font-size: 0.9375rem; font-weight: 500; color: var(--ink-dim); }
+.sked__row--sub .sked__name a { color: var(--ink); }
+.sked__row--sub .sked__time { font-weight: 500; color: var(--ink-dim); }
+
+.sked__note {
+  margin: var(--s1) 0 0;
+  max-width: var(--measure);
+  color: var(--ink-dim);
+  font-size: 0.9375rem;
+}
+
+/* Pauser skal kunne springes over med øjet. */
+.sked__row--break .sked__name { font-weight: 400; color: var(--ink-dim); }
+.sked__row--break .sked__time { color: var(--ink-dim); }
+
+/* --------------------------------------------------------------------------
+   Materialepakken
+   -------------------------------------------------------------------------- */
+
+.download {
+  margin-block: var(--s4);
+  padding: var(--s4);
+  background: var(--surface);
+  border-radius: 16px;
+}
+.download__title { margin: 0; font-size: 1.25rem; font-weight: 700; }
+.download__body {
+  margin: var(--s2) 0 0;
+  max-width: var(--measure);
+  color: var(--ink-dim);
+}
+.download__action { margin: var(--s3) 0 0; }
+.download__meta {
+  margin: var(--s2) 0 0;
+  font-size: 0.875rem;
+  color: var(--ink-dim);
+  font-variant-numeric: tabular-nums;
+}
+
+/* --------------------------------------------------------------------------
+   Genvejstabeller. Her er tabel det rigtige: tre parallelle kolonner der
+   skal kunne sammenlignes vandret. Derfor scroller den i stedet for at reflowe.
+   -------------------------------------------------------------------------- */
+
+.keys-scroll { overflow-x: auto; margin-top: var(--s4); }
+
+/* table-layout: fixed er det der får de tre tabeller til at flugte. Uden den
+   beregner hver tabel sin egen kolonnebredde ud fra sit eget indhold, og
+   Windows-kolonnen lander tre forskellige steder ned gennem siden.
+   min-width udløser vandret scroll i .keys-scroll på smalle skærme frem for at
+   presse tastekombinationerne sammen. */
+.keys {
+  width: 100%;
+  min-width: 620px;
+  max-width: 820px;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+.keys th:nth-child(1) { width: 46%; }
+.keys th:nth-child(2),
+.keys th:nth-child(3) { width: 27%; }
+.keys caption {
+  text-align: left;
+  padding-bottom: var(--s2);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--rust);
+}
+.keys th, .keys td {
+  text-align: left;
+  padding: 0.6rem var(--s2) 0.6rem 0;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+.keys th { font-weight: 600; color: var(--ink); }
+.keys td:first-child { color: var(--ink-dim); white-space: normal; }
+
+kbd {
+  display: inline-block;
+  padding: 0.15em 0.45em;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: var(--surface);
+  font: inherit;
+  font-size: 0.9em;
+  color: var(--ink);
+}
+
+/* --------------------------------------------------------------------------
+   Lektionsoversigt
+   -------------------------------------------------------------------------- */
+
+.lessons { list-style: none; margin: var(--s4) 0 0; padding: 0; display: grid; gap: var(--s2); }
+
+.lessons__item {
+  padding: var(--s3);
+  background: var(--surface);
+  border-radius: 12px;
+}
+.lessons__item--todo { opacity: 0.55; }
+
+.lessons__name { margin: 0; font-size: 1.0625rem; font-weight: 600; }
+.lessons__name a { text-decoration: none; }
+.lessons__name a:hover { text-decoration: underline; }
+.lessons__note { margin: var(--s1) 0 0; color: var(--ink-dim); font-size: 0.9375rem; }
+
+/* --------------------------------------------------------------------------
+   Frihedsgrad – viser hvor meget hånden holdes i den enkelte lektion
+   -------------------------------------------------------------------------- */
+
+.scaffold {
+  display: inline-block;
+  margin-top: var(--s2);
+  padding: 0.2em 0.7em;
+  border: 1px solid var(--rust);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--rust);
+}
+
+/* --------------------------------------------------------------------------
+   Sidder du fast? Foldes med <details>, så det virker uden JavaScript.
+   -------------------------------------------------------------------------- */
+
+.hint { margin-top: var(--s3); border-left: 2px solid var(--rust); padding-left: var(--s3); }
+.hint > summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--ink);
+  list-style-position: outside;
+}
+.hint > summary:hover { color: var(--amber); }
+.hint > p { margin: var(--s2) 0 0; max-width: var(--measure); color: var(--ink-dim); }
+
+@media (max-width: 720px) {
+  .sked__row { grid-template-columns: 1fr; gap: var(--s1); }
+  .download { padding: var(--s3); }
+}
+
+/* --------------------------------------------------------------------------
+   Lektionsnavigation – forrige og næste, i bunden af hver lektionsside.
+   Placeret efter indholdet og ikke før: man skal igennem lektionen, ikke
+   vælge sig rundt i den.
+   -------------------------------------------------------------------------- */
+
+.lesson-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s3);
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--s5);
+  padding-top: var(--s4);
+  border-top: 1px solid var(--line);
+}
+
+.lesson-nav__where {
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rust);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Deaktiveret pil er et span uden href, ikke et link der ikke gør noget. */
+.lesson-nav__spacer { color: var(--ink-dim); opacity: 0.4; font-size: 0.9375rem; }
+
+/* --------------------------------------------------------------------------
+   Lektionens hovedtal – kort stribe under overskriften
+   -------------------------------------------------------------------------- */
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s4);
+  margin-top: var(--s4);
+  padding-top: var(--s3);
+  border-top: 1px solid var(--line);
+}
+.meta__key {
+  margin: 0 0 0.2em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--rust);
+}
+.meta__val { margin: 0; font-weight: 500; }
+
+/* --------------------------------------------------------------------------
+   Det siges / det de gør – adskiller oplæg fra håndens arbejde
+   -------------------------------------------------------------------------- */
+
+.lead-in {
+  margin: var(--s4) 0 0;
+  padding-left: var(--s3);
+  border-left: 2px solid var(--line);
+  max-width: var(--measure);
+  color: var(--ink);
+}
+.lead-in p { margin: 0 0 var(--s2); }
+.lead-in p:last-child { margin-bottom: 0; }
+
+/* --------------------------------------------------------------------------
+   Selvtjek
+
+   Genkaldelse er det virksomme element: at forsøge at huske svaret virker
+   bedre end at læse det igen. Derfor er spørgsmålet synligt og svaret foldet
+   væk, og ikke omvendt.
+
+   Bygget på <details>, så det virker uden JavaScript, på touch og med
+   tastatur. <summary> er allerede en knap i browserens øjne.
+   -------------------------------------------------------------------------- */
+
+.check { display: grid; gap: var(--s2); margin-top: var(--s4); }
+
+.check__item {
+  background: var(--surface);
+  border-radius: 12px;
+}
+
+.check__item > summary {
+  display: flex;
+  gap: var(--s2);
+  align-items: baseline;
+  padding: var(--s3);
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--ink);
+  list-style: none;              /* Firefox og Chrome */
+}
+.check__item > summary::-webkit-details-marker { display: none; }  /* Safari */
+
+/* Spørgsmålstegnet bliver til et udråbstegn, når svaret foldes ud. */
+.check__item > summary::before {
+  content: "?";
+  flex: none;
+  width: 1em;
+  color: var(--rust);
+  font-weight: 700;
+}
+.check__item[open] > summary::before { content: "!"; }
+
+.check__item > summary:hover { color: var(--amber); }
+
+.check__answer {
+  margin: 0;
+  padding: 0 var(--s3) var(--s3) calc(var(--s3) + 1em + var(--s2));
+  max-width: var(--measure);
+  color: var(--ink-dim);
+}
+
+/* --------------------------------------------------------------------------
+   Sideoversigt
+
+   Ikonet er hovedsagen: det er dét, de skal genkende i bundlinjen, og det er
+   skarpt i alle størrelser. Helskærmsbilledet ligger foldet væk under, fordi
+   otte næsten ens grå flader efter hinanden er svære at skelne og gør listen
+   umulig at skimme.
+   -------------------------------------------------------------------------- */
+
+.pages { display: grid; gap: var(--s2); margin-top: var(--s4); }
+
+.pages__item {
+  padding: var(--s3);
+  background: var(--surface);
+  border-radius: 12px;
+}
+
+.pages__head { display: flex; align-items: center; gap: var(--s3); }
+
+.pages__icon { width: 40px; height: 40px; flex: none; }
+
+/* Photo-siden har intet ikon i sættet. Feltet holdes tomt, så navnene flugter. */
+.pages__icon--tom { visibility: hidden; }
+
+.pages__name { margin: 0; font-size: 1.0625rem; font-weight: 600; }
+
+.pages__body {
+  margin: var(--s2) 0 0;
+  max-width: var(--measure);
+  color: var(--ink-dim);
+}
+
+.pages__shot { margin-top: var(--s3); }
+.pages__shot > summary {
+  cursor: pointer;
+  font-size: 0.875rem;
+  color: var(--ink-dim);
+  list-style: none;
+}
+.pages__shot > summary::-webkit-details-marker { display: none; }
+.pages__shot > summary::before { content: "+ "; color: var(--rust); font-weight: 700; }
+.pages__shot[open] > summary::before { content: "\2212 "; }
+.pages__shot > summary:hover { color: var(--amber); }
+.pages__shot img { margin-top: var(--s2); border-radius: 8px; }
+
+/* Markerer om siden bruges på dagen. Arver .tag fra forsiden. */
+.pages__item .tag { margin-left: auto; flex: none; }
+
+/* --------------------------------------------------------------------------
+   Unfold: en stor, tydelig foldning til hele afsnit, ikke kun et FAQ-svar.
+   Bruges hvor pointen er at skjule facit for en øvelse, indtil man beder om
+   det: pilen er amber, fordi klikket er en handling, ikke bare struktur.
+   -------------------------------------------------------------------------- */
+
+.unfold {
+  margin-top: var(--s4);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.unfold > summary {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  padding: var(--s4);
+  cursor: pointer;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--ink);
+  list-style: none;
+}
+.unfold > summary::-webkit-details-marker { display: none; }
+
+.unfold > summary::before {
+  content: "\25B6";
+  flex: none;
+  font-size: 0.7em;
+  color: var(--amber);
+  transition: transform 0.15s var(--ease);
+}
+.unfold[open] > summary::before { transform: rotate(90deg); }
+
+.unfold > summary:hover { color: var(--amber); }
+
+.unfold__note {
+  margin: 0 0 0 calc(0.7em + var(--s2));
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: var(--ink-dim);
+}
+
+.unfold__body { padding: 0 var(--s4) var(--s4); }
+
+/* --------------------------------------------------------------------------
+   Ideas: valgfrie forslag i en fri-leg-øvelse. Ikke en trinliste (der er
+   ingen rækkefølge eller facit), bare inspiration hvis nogen mangler retning.
+   -------------------------------------------------------------------------- */
+
+.ideas {
+  margin: var(--s3) 0 0;
+  padding-left: 1.2em;
+  max-width: var(--measure);
+  color: var(--ink-dim);
+}
+.ideas li { margin-bottom: var(--s2); }
+.ideas li:last-child { margin-bottom: 0; }
+.ideas strong { color: var(--ink); }
+
+/* --------------------------------------------------------------------------
+   Ikon foran en overskrift, når et emne har et sikkert match i assets/icons/.
+   Bruges sparsomt: kun ved et præcist tematisk match, se README.
+   -------------------------------------------------------------------------- */
+
+.heading-icon {
+  display: inline-block;
+  vertical-align: -5px;
+  margin-right: 0.3em;
+}
+
+/* --------------------------------------------------------------------------
+   Site-navigation, udvidet til at dække alle lektioner
+
+   "03 Edit" er tre sider, ikke én, så den bliver en dropdown i stedet for et
+   almindeligt link: <details>/<summary>, samme foldnings-mekanik som resten
+   af siden, ingen JavaScript. Det virker med både mus og touch, i modsætning
+   til en ren CSS-hover-løsning, som ikke virker på telefon.
+   -------------------------------------------------------------------------- */
+
+.nav__fold > summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  cursor: pointer;
+  list-style: none;
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+.nav__fold > summary::-webkit-details-marker { display: none; }
+
+/* Lille pil, tegnet i CSS, ikke et ikon-billede. Vender når folden åbnes. */
+.nav__fold > summary::after {
+  content: "";
+  width: 0.4em;
+  height: 0.4em;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform 0.15s var(--ease);
+}
+.nav__fold[open] > summary::after { transform: rotate(-135deg) translateY(2px); }
+
+.nav__fold > summary:hover { color: var(--ink); }
+
+/* Aktiv tilstand: rust, ikke amber. At vise hvor man er, er struktur, ikke
+   en handling, samme regel som resten af navigationen. */
+.nav__fold[open] > summary,
+.nav__fold--active > summary { color: var(--rust); }
+
+/* Normalt flow, ikke position: absolute. Grunden er "åben som standard" på
+   Edit-siderne (se nav__fold--active): en absolut positioneret boks ville
+   flyde oven på sidens eget indhold i stedet for at skubbe det ned, når den
+   står åben permanent. Samme opførsel som alt andet foldbart på siden. */
+.nav__sub {
+  margin: var(--s2) 0 0;
+  padding: var(--s2);
+  max-width: 20rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  list-style: none;
+}
+.nav__sub li + li { margin-top: 2px; }
+.nav__sub a {
+  display: block;
+  padding: 0.45em 0.6em;
+  border-radius: 6px;
+  color: var(--ink);
+  font-size: 0.9375rem;
+  text-decoration: none;
+}
+.nav__sub a:hover { color: var(--ink-soft); text-decoration: underline; }
+.nav__sub a[aria-current="page"] { color: var(--rust); font-weight: 600; }
+
+@media (max-width: 720px) {
+  .nav__sub { margin-top: var(--s1); border: none; padding: 0 0 0 var(--s3); }
+}
+
+/* --------------------------------------------------------------------------
+   Mobilmenu – to kopier af nav__list, kun én vist ad gangen.
+
+   .nav__list--desktop er den oprindelige, altid synlige liste, brugt over
+   720px. .nav__toggle er en details/summary med sin egen kopi af listen,
+   brugt under 720px, samme mønster som .nav__fold ovenfor.
+
+   To kopier lyder som dobbeltarbejde, men en lukket details' indhold kan
+   IKKE tvinges til at vises med CSS: hverken display eller content-visibility
+   slår igennem på Chromium, det er afprøvet direkte. Så i stedet for at
+   kæmpe mod den, får hvert breakpoint sin egen liste, og den anden er bare
+   display:none. Uden dette lagde nav sig enten oven på hero-overskriften på
+   forsiden, eller fyldte fem linjer, før man nåede lektionens indhold, alt
+   efter breakpoint.
+   -------------------------------------------------------------------------- */
+
+.nav__toggle > summary {
+  list-style: none;
+  cursor: pointer;
+}
+.nav__toggle > summary::-webkit-details-marker { display: none; }
+
+@media (max-width: 720px) {
+  .nav__list--desktop { display: none; }
+
+  .nav__toggle > summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    margin: var(--s2) 0;
+    padding: 0.5em 1em;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--ink);
+    font-size: 0.9375rem;
+    font-weight: 600;
+  }
+  .nav__toggle-current { color: var(--ink-dim); font-weight: 500; }
+  .nav__toggle > summary::after {
+    content: "";
+    width: 0.4em;
+    height: 0.4em;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(45deg) translateY(-2px);
+    transition: transform 0.15s var(--ease);
+  }
+  .nav__toggle[open] > summary::after { transform: rotate(-135deg) translateY(2px); }
+
+  .nav__toggle .nav__list {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    gap: var(--s2);
+    margin: 0 0 var(--s2);
+    padding: var(--s3);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+  }
+
+  /* Heroens nav er position: absolute (se ovenfor). Lukket fylder knappen
+     næsten intet, men når den åbnes, skal panelet ikke flyde frit oven på
+     figuren uden en synlig baggrund at læse teksten på. */
+  .hero .nav__toggle[open] .nav__list { position: relative; z-index: 6; }
+}
+
+@media (min-width: 721px) {
+  .nav__toggle { display: none; }
+}
+
+/* --------------------------------------------------------------------------
+   Kursus 2 · Før vi går i gang
+
+   Siden vises på projektoren kl. 9:00, så reglerne skal kunne læses fra
+   bagerste række: større tekst end brødteksten, ét udsagn pr. linje.
+   Numre og fasenavne er rust (struktur), kun knappen til Opgave 1 er amber.
+   -------------------------------------------------------------------------- */
+
+.about {
+  display: grid;
+  grid-template-columns: minmax(180px, 280px) 1fr;
+  gap: var(--s4);
+  align-items: center;
+}
+.about__photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+.about__list {
+  margin: var(--s3) 0 0;
+  padding-left: 1.2em;
+  max-width: var(--measure);
+  font-size: 1.125rem;
+}
+.about__list li { margin-bottom: var(--s1); }
+.about__list li::marker { color: var(--rust); }
+
+@media (max-width: 720px) {
+  .about { grid-template-columns: 1fr; }
+  .about__photo { max-width: 240px; }
+}
+
+.film__placeholder {
+  aspect-ratio: 16 / 9;
+  display: grid;
+  place-items: center;
+  border: 2px dashed var(--line);
+  border-radius: 10px;
+  color: var(--ink-dim);
+}
+
+.rules {
+  list-style: none;
+  counter-reset: rule;
+  margin: var(--s4) 0 0;
+  padding: 0;
+  display: grid;
+  gap: var(--s3);
+  font-size: clamp(1.125rem, 1rem + 0.8vw, 1.625rem);
+  line-height: 1.4;
+}
+/* Nummeret er absolut placeret, ikke en grid-kolonne: <strong> og resten af
+   teksten ville ellers lande i hver sin celle. */
+.rules li {
+  counter-increment: rule;
+  position: relative;
+  padding-left: 2.5ch;
+  max-width: 48ch;
+  color: var(--ink-dim);
+}
+.rules li::before {
+  content: counter(rule);
+  position: absolute;
+  left: 0;
+  font-weight: 800;
+  color: var(--rust);
+  font-variant-numeric: tabular-nums;
+}
+.rules strong { color: var(--ink); font-weight: 700; }
+
+.rules__promise {
+  margin: var(--s4) 0 0;
+  padding: var(--s3);
+  max-width: var(--measure);
+  background: var(--surface);
+  border-radius: 12px;
+}
+
+.rhythm {
+  list-style: none;
+  margin: var(--s4) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s4);
+}
+.rhythm__step {
+  position: relative;
+  padding-top: var(--s2);
+  border-top: 2px solid var(--rust);
+}
+/* Pilen mellem faserne. Ren dekoration, rækkefølgen ligger i <ol>. */
+.rhythm__step:not(:last-child)::after {
+  content: "→";
+  position: absolute;
+  top: calc(var(--s2) - 0.1em);
+  right: calc(var(--s3) * -1);
+  transform: translateX(50%);
+  font-size: 1.5rem;
+  color: var(--ink-dim);
+}
+.rhythm__name {
+  margin: 0 0 var(--s1);
+  font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--rust);
+}
+.rhythm__body { margin: 0; color: var(--ink-dim); }
+
+@media (max-width: 720px) {
+  .rhythm { grid-template-columns: 1fr; gap: var(--s3); }
+  .rhythm__step:not(:last-child)::after { content: none; }
+}
+
+/* --------------------------------------------------------------------------
+   Kursus 2 · Versionskrav
+
+   På kursus 1 havde flere en for gammel version, og det kostede tid på
+   dagen. Kravet fremhæves grafisk: størrelse og kontrast, ikke amber, for
+   amber betyder "klik her". Rust-rammen er struktur, ikke en handling.
+   -------------------------------------------------------------------------- */
+
+.facts__val--strong { font-weight: 800; color: var(--ink); }
+
+.version {
+  margin: var(--s3) 0 0;
+  padding: var(--s3) var(--s4);
+  max-width: 34rem;
+  border: 2px solid var(--rust);
+  border-radius: 14px;
+  background: var(--surface);
+}
+.version__label {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--rust);
+}
+.version__num {
+  margin: var(--s1) 0 0;
+  font-size: clamp(2.25rem, 1.6rem + 3vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+}
+.version__num span {
+  font-size: 0.4em;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--ink-dim);
+}
+.version__note { margin: var(--s2) 0 0; color: var(--ink-dim); }
+
+/* Medbring er den længste værdi og lander alene på anden række, når
+   Version er kommet til. Den får hele rækken i stedet for én smal kolonne. */
+.facts__wide { grid-column: 1 / -1; }

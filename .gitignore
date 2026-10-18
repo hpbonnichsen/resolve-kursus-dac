@@ -1,0 +1,25 @@
+# Whitelist: repoet er public og udgives med GitHub Pages, så ALT er udelukket
+# som standard. Kun de sider, der skal være online, og de filer, de bruger,
+# lukkes ind. Arbejdsdokumenter (kursusplan.md, CLAUDE.md, lektioner/,
+# research/, design/) bliver lokale med vilje: de indeholder evaluering af
+# hold 1 og andet, der ikke skal være offentligt.
+#
+# Ny side online: tilføj den og dens assets herunder. velkommen.html venter
+# (kræver også assets/hp-portraet.jpg og assets/hund-poster.jpg).
+*
+!.gitignore
+
+!index.html
+
+!css/
+!css/style.css
+
+!assets/
+!assets/hero-kamera.png
+!assets/hero-nosferatu.png
+!assets/install-1-download.jpg
+!assets/install-2-vaelg-version.jpg
+!assets/kaffe-poster.jpg
+
+# media/ (filmen) hostes som GitHub Release-asset i hpbonnichsen.github.io,
+# release media-v1, ikke i repoet.

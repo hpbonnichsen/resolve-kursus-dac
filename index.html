@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fra redigering til færdig film – kursus i DaVinci Resolve</title>
+<meta name="description" content="Forbered dig inden kursusdagen: installer DaVinci Resolve, tjek din version, se introvideoen og hent kursuspakken.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip" href="#installer">Spring til første opgave</a>
+
+<!-- ===================================================================== -->
+<header class="hero">
+  <nav class="nav" aria-label="Kursets sider">
+    <div class="wrap">
+    <ul class="nav__list nav__list--desktop">
+      <li><a class="nav__link" href="index.html" aria-current="page">Inden dagen</a></li>
+    </ul>
+    <details class="nav__toggle">
+      <summary class="nav__toggle-btn">Menu <span class="nav__toggle-current">&middot; Inden dagen</span></summary>
+      <ul class="nav__list">
+        <li><a class="nav__link" href="index.html" aria-current="page">Inden dagen</a></li>
+      </ul>
+    </details>
+    </div>
+  </nav>
+
+  <div class="hero__stage">
+    <div class="hero__circle" aria-hidden="true">
+      <img class="hero__fig hero__fig--nosferatu" src="assets/hero-nosferatu.png"
+           alt="" width="500" height="653">
+    </div>
+
+    <img class="hero__fig hero__fig--kamera" src="assets/hero-kamera.png"
+         alt="" aria-hidden="true" width="620" height="1081">
+
+    <div class="hero__content">
+      <p class="kicker">Kursus · DaVinci Resolve</p>
+      <h1 class="hero__title">
+        <span class="hero__line"><span class="hero__light">Fra</span> <span class="hero__heavy">redigering</span></span>
+        <span class="hero__line"><span class="hero__light">til færdig</span> <span class="hero__heavy">film</span></span>
+      </h1>
+      <p class="hero__cta">
+        <a class="btn" href="#installer">Start her</a>
+      </p>
+    </div>
+  </div>
+</header>
+
+<hr class="rule">
+
+<!-- ===================================================================== -->
+<div class="wrap">
+  <section class="facts" aria-label="Praktisk information om kursusdagen">
+    <div>
+      <p class="facts__key">Dato</p>
+      <p class="facts__val">26/10 2026</p>
+    </div>
+    <div>
+      <p class="facts__key">Tid</p>
+      <p class="facts__val">9-15</p>
+    </div>
+    <div>
+      <p class="facts__key">Sted</p>
+      <p class="facts__val">DAC, Dansk Arkitektur Center</p>
+    </div>
+    <div>
+      <p class="facts__key">Version</p>
+      <p class="facts__val facts__val--strong">21.1.1 eller nyere</p>
+    </div>
+    <div class="facts__wide">
+      <p class="facts__key">Medbring</p>
+      <p class="facts__val">Bærbar med Resolve installeret, mus med scrollhjul, hovedtelefoner og gerne dine egne optagelser</p>
+    </div>
+  </section>
+</div>
+
+<hr class="rule">
+
+<!-- ===================================================================== -->
+<main>
+<section class="section" id="installer">
+  <div class="wrap">
+    <p class="kicker">Første opgave</p>
+    <h2 class="section__title">Download og installer DaVinci Resolve</h2>
+    <p class="section__intro">
+      DaVinci Resolve er gratis i den version, vi skal bruge. Downloaden er stor,
+      og programmet skal være installeret inden kursusdagen.
+    </p>
+
+    <ol class="steps">
+
+      <li class="step reveal">
+        <div>
+          <h3 class="step__title">Gå til Blackmagics downloadside</h3>
+          <p class="step__body">
+            Der står to knapper ved siden af
+            hinanden: Du skal bruge den øverste, <strong>Free Download Now</strong>.
+            Den nederste er til Studio-versionen som koster 295 dollars.
+          </p>
+          <p class="step__action">
+            <a class="btn" href="https://www.blackmagicdesign.com/products/davinciresolve" target="_blank" rel="noopener">
+              Åbn downloadsiden
+              <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v2h3.6l-9.3 9.3 1.4 1.4L19 6.4V10h2V3h-7zM5 5h5V3H3v18h18v-7h-2v5H5V5z"/></svg>
+            </a>
+          </p>
+
+          <figure class="shot">
+            <div class="shot__frame">
+              <img src="assets/install-1-download.jpg"
+                   alt="Blackmagics produktside. Nederst står to knapper: Free Download Now øverst, og Buy Online Now 295 dollars nedenunder."
+                   width="1200" height="1037" loading="lazy">
+              <svg class="shot__marks" viewBox="0 0 1200 1037" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+                <ellipse class="ring" cx="383" cy="730" rx="325" ry="72"/>
+              </svg>
+            </div>
+            <figcaption class="shot__caption">Den ringede knap er den rigtige.</figcaption>
+          </figure>
+        </div>
+      </li>
+
+      <li class="step reveal">
+        <div>
+          <h3 class="step__title">Vælg den gratis version og ikke Studio</h3>
+          <p class="step__body">
+            Der åbner sig et vindue med to kolonner. Du skal bruge
+            <strong>den venstre</strong>, som hedder DaVinci Resolve.
+            Den højre hedder DaVinci Resolve <em>Studio</em>.
+          </p>
+        </div>
+      </li>
+
+      <li class="step reveal">
+        <div>
+          <h3 class="step__title">Vælg dit styresystem</h3>
+          <p class="step__body">
+            I den venstre kolonne er der fire knapper.
+            Har du en <strong>Mac</strong>, vælger du <em>Mac OS X</em>.
+            Har du <strong>Windows</strong>, vælger du <em>Windows x86</em>.
+            Kun hvis du ved, at din maskine har en ARM-processor, skal du vælge
+            <em>Windows ARM</em>.
+          </p>
+
+          <figure class="shot">
+            <div class="shot__frame">
+              <img src="assets/install-2-vaelg-version.jpg"
+                   alt="Downloadvinduet med to kolonner. Venstre kolonne hedder DaVinci Resolve 21 og har fire knapper: Mac OS X, Linux, Windows x86 og Windows ARM. Højre kolonne hedder DaVinci Resolve Studio 21."
+                   width="1600" height="721" loading="lazy">
+              <svg class="shot__marks" viewBox="0 0 1600 721" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+                <rect class="box" x="18" y="139" width="791" height="566" rx="12"/>
+                <ellipse class="ring" cx="213" cy="574" rx="182" ry="34"/>
+                <ellipse class="ring" cx="213" cy="651" rx="182" ry="34"/>
+                <ellipse class="ring" cx="587" cy="651" rx="182" ry="34"/>
+              </svg>
+            </div>
+            <figcaption class="shot__caption">
+              Den stiplede ramme er den gratis version. Ringene er de tre
+              styresystemer, du kan komme til at skulle vælge imellem.
+            </figcaption>
+          </figure>
+        </div>
+      </li>
+
+      <li class="step reveal">
+        <div>
+          <h3 class="step__title">Udfyld formularen og installer</h3>
+          <p class="step__body">
+            Blackmagic beder om navn, mail og land, før downloaden går i gang.
+            Du behøver ikke oprette nogen konto. Når filen er hentet, installerer
+            du som et hvilket som helst andet program.
+          </p>
+          <p class="step__body">
+            <strong>Åbn programmet en gang bagefter</strong>, så du kan se, at det
+            starter. Det er din opgave at sikre dig, at det virker før kursusdagen.
+            Første gang du åbner programmet, kommer der en opsætningsguide. Følg
+            den, og vælg <strong>DaVinci Resolve</strong> under Keyboard.
+          </p>
+        </div>
+      </li>
+
+      <li class="step reveal">
+        <div>
+          <h3 class="step__title">Tjek din version</h3>
+          <p class="step__body">
+            Klik på menuen <strong>DaVinci Resolve</strong> øverst til venstre, og
+            vælg <strong>About DaVinci Resolve</strong>.
+          </p>
+          <!-- Ikke verificeret: at menuen også hedder "DaVinci Resolve" på Windows. -->
+          <div class="version" role="note" aria-label="Krav til version">
+            <p class="version__label">Der skal stå</p>
+            <p class="version__num">21.1.1 <span>eller nyere</span></p>
+            <p class="version__note">
+              Lavere tal? Hent programmet igen. Kursusprojektet kan ikke åbnes i
+              en ældre version.
+            </p>
+          </div>
+        </div>
+      </li>
+
+    </ol>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ===================================================================== -->
+<section class="section" id="lektier">
+  <div class="wrap">
+    <p class="kicker">Anden opgave</p>
+    <h2 class="section__title">Kom forberedt</h2>
+    <p class="section__intro">
+      Tre små ting. Tilsammen tager de under en time, og de gør, at vi kan
+      begynde at klippe med det samme på dagen.
+    </p>
+
+    <ol class="steps">
+
+      <li class="step reveal">
+        <div>
+          <h3 class="step__title">Se introvideoen</h3>
+          <p class="step__body">
+            En rundtur i programmets overflade.
+          </p>
+          <p class="step__action">
+            <a class="btn" href="https://www.youtube.com/watch?v=znBHzeXpsUw&t=1682s" target="_blank" rel="noopener">
+              Se videoen på YouTube
+              <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v2h3.6l-9.3 9.3 1.4 1.4L19 6.4V10h2V3h-7zM5 5h5V3H3v18h18v-7h-2v5H5V5z"/></svg>
+            </a>
+          </p>
+        </div>
+      </li>
+
+      <li class="step reveal">
+        <div>
+          <h3 class="step__title">Hent kursuspakken</h3>
+          <p class="step__body">
+            Kursuspakken er ét projekt med alt det materiale, vi bruger på dagen.
+            Den kommer i en mail inden kursusdagen. Når du har den, så pak den ud,
+            så den ligger i én mappe på din computer. Vi åbner den sammen på dagen.
+          </p>
+        </div>
+      </li>
+
+      <li class="step reveal">
+        <div>
+          <h3 class="step__title">
+            Optag noget selv <span class="tag">frivilligt</span>
+          </h3>
+          <p class="step__body">
+            Brug telefonen, og lav nogle optagelser, du kan sætte sammen, fx et
+            krus kaffe eller te. Har vi tid til overs, kan du sidde med dem på
+            dagen. Og bagefter har du et projekt at arbejde videre på. Det er det,
+            der får det lærte til at sidde.
+          </p>
+        </div>
+      </li>
+
+    </ol>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ===================================================================== -->
+<section class="section" id="inspiration">
+  <div class="wrap">
+    <p class="kicker">Til sidst</p>
+    <h2 class="section__title">Eksempel på et krus kaffe</h2>
+    <p class="section__intro">
+      Her kan du få inspiration, hvis du savner det til en kaffevideo. 
+    </p>
+
+    <figure class="film reveal">
+      <video controls preload="none" playsinline poster="assets/kaffe-poster.jpg" width="1280" height="720">
+        <source src="https://github.com/hpbonnichsen/hpbonnichsen.github.io/releases/download/media-v1/kaffe.mp4" type="video/mp4">
+        <a href="https://github.com/hpbonnichsen/hpbonnichsen.github.io/releases/download/media-v1/kaffe.mp4">Hent videoen</a>
+      </video>
+      <figcaption>
+        28 sekunder, råklippet på edit page, farvekorrektion på color page, tracking og speed ramps i fusion 
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ===================================================================== -->
+<section class="section" id="paa-dagen">
+  <div class="wrap">
+    <p class="kicker">På selve dagen</p>
+    <h2 class="section__title">Så er du klar</h2>
+    <p class="section__intro">
+      Når du har installeret programmet og fået kursuspakken, er du klar. Resten
+      får du på dagen.
+    </p>
+    <!-- Knap til velkommen.html sættes ind, når den side er online:
+    <p class="step__action">
+      <a class="btn" href="velkommen.html">Se, hvordan vi arbejder</a>
+    </p> -->
+  </div>
+</section>
+</main>
+
+<!-- ===================================================================== -->
+<div class="wrap">
+  <nav class="lesson-nav" aria-label="Mellem sider">
+    <span class="lesson-nav__spacer">Første side</span>
+    <span class="lesson-nav__where">Inden dagen</span>
+    <span class="lesson-nav__spacer">Resten får du på dagen</span>
+  </nav>
+</div>
+
+<!-- ===================================================================== -->
+<footer class="footer">
+  <div class="wrap">
+    <p>
+      Går der noget galt inden, er I velkomne til at skrive til mig på mail. 
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
