@@ -32,128 +32,78 @@
 
 <div class="wrap">
   <header class="pagehead">
-    <h1 class="pagehead__title">Dagens program</h1>
+    <h1 class="pagehead__title">Dagens program <span class="chip">Udkast</span></h1>
+    <!-- Chip og første linje fjernes, når det endelige program er lagt op. -->
     <p class="pagehead__intro">
-      Rækkefølgen på dagen og de genveje, vi kommer til at bruge.
+      Rækkefølgen kan ændre sig. Det endelige program kommer inden kursusdagen.
     </p>
-
-    <!-- Statusbanner: fjernes, når det endelige program er lagt op. -->
-    <div class="status" role="note" aria-label="Programmets status">
-      <p class="status__label">Foreløbigt program</p>
-      <p class="status__body">
-        Rækkefølgen kan ændre sig. Det endelige program kommer inden
-        kursusdagen.
-      </p>
-      <p class="status__meta">Sidst opdateret 18/10 2026</p>
-    </div>
+    <p class="pagehead__facts">
+      <span>26/10 2026</span>
+      <span>Kl. 9-15</span>
+      <span>DAC, Dansk Arkitektur Center</span>
+    </p>
+    <p class="pagehead__updated">Sidst opdateret 18/10 2026</p>
   </header>
-
-  <section class="facts" aria-label="Praktisk information om kursusdagen">
-    <div>
-      <p class="facts__key">Dato</p>
-      <p class="facts__val">26/10 2026</p>
-    </div>
-    <div>
-      <p class="facts__key">Tid</p>
-      <p class="facts__val">9-15</p>
-    </div>
-    <div>
-      <p class="facts__key">Sted</p>
-      <p class="facts__val">DAC, Dansk Arkitektur Center</p>
-    </div>
-  </section>
 </div>
-
-<hr class="rule">
 
 <main>
 
 <!-- ===================================================================== -->
-<section class="section" id="program">
+<section class="section section--tight" id="program">
   <div class="wrap">
-    <p class="kicker">Kl. 9 til 15</p>
-    <h2 class="section__title">Sådan ser dagen ud</h2>
-    <p class="section__intro">
-      Hele dagen arbejder vi på den samme film. Pauserne ligger fast, resten er
-      rækkefølgen.
-    </p>
+    <h2 class="visually-hidden">Sådan ser dagen ud</h2>
+    <!-- Dagen i tre dele. Kun pauserne har tider, resten er rækkefølgen.
+         Opgavenumrene tælles på tværs af delene med én CSS-counter på .plan. -->
+    <div class="plan">
 
-    <ol class="sked">
+      <h3 class="plan__part">Formiddag</h3>
+      <ol class="plan__list">
+        <li class="plan__item">
+          <p class="plan__name">Velkomst og introduktion</p>
+        </li>
+        <li class="plan__item plan__item--task">
+          <p class="plan__name">Åbn projektet</p>
+          <p class="plan__note">Vi gendanner kursuspakken og finder rundt i programmet.</p>
+        </li>
+        <li class="plan__item plan__item--task">
+          <p class="plan__name">Import og udvælgelse</p>
+          <p class="plan__note">Klippene kommer ind, I ser dem igennem og vælger de bedste bidder.</p>
+        </li>
+      </ol>
+      <p class="plan__break"><span class="plan__time">10:20–10:35</span> Kaffepause</p>
+      <h3 class="plan__part">Før frokost</h3>
+      <ol class="plan__list">
+        <li class="plan__item plan__item--task">
+          <p class="plan__name">Genskab introen</p>
+          <p class="plan__note">Starten af filmen bygges op igen, bid for bid.</p>
+        </li>
+      </ol>
+      <p class="plan__break"><span class="plan__time">11:30–12:10</span> Frokost</p>
+      <h3 class="plan__part">Eftermiddag</h3>
+      <ol class="plan__list">
+        <li class="plan__item plan__item--task">
+          <p class="plan__name">Introen får liv</p>
+          <p class="plan__note">Overgange, Inspector og Dynamic Zoom.</p>
+        </li>
+        <li class="plan__item plan__item--task">
+          <p class="plan__name">Titel og credits</p>
+          <p class="plan__note">I laver selv titel og rulletekster på Edit-siden.</p>
+        </li>
+        <li class="plan__item plan__item--task">
+          <p class="plan__name">Eksport</p>
+          <p class="plan__note">Filmen bliver til en fil, I kan tage med hjem.</p>
+        </li>
+        <li class="plan__item plan__item--task">
+          <p class="plan__name">Color</p>
+          <p class="plan__note">Et kig på Color-siden, og en rose skifter farve.</p>
+        </li>
+        <li class="plan__item">
+          <p class="plan__name">Afrunding</p>
+          <p class="plan__note">Ressourcer, fif til undervisningen og evaluering.</p>
+        </li>
+      </ol>
 
-      <li class="sked__row">
-        <span class="sked__time">9:00</span>
-        <div><p class="sked__name">Velkomst og introduktion</p></div>
-      </li>
-      <li class="sked__row">
-        <span class="sked__time">Opgave 1</span>
-        <div>
-          <p class="sked__name">Åbn projektet</p>
-          <p class="sked__note">Vi gendanner kursuspakken og finder rundt i programmet.</p>
-        </div>
-      </li>
-      <li class="sked__row">
-        <span class="sked__time">Opgave 2</span>
-        <div>
-          <p class="sked__name">Import og udvælgelse</p>
-          <p class="sked__note">Klippene kommer ind, I ser dem igennem og vælger de bedste bidder.</p>
-        </div>
-      </li>
-      <li class="sked__row sked__row--break">
-        <span class="sked__time">10:20–10:35</span>
-        <div><p class="sked__name">Kaffepause</p></div>
-      </li>
-      <li class="sked__row">
-        <span class="sked__time">Opgave 3</span>
-        <div>
-          <p class="sked__name">Genskab introen</p>
-          <p class="sked__note">Starten af filmen bygges op igen, bid for bid.</p>
-        </div>
-      </li>
-      <li class="sked__row sked__row--break">
-        <span class="sked__time">11:30–12:10</span>
-        <div><p class="sked__name">Frokost</p></div>
-      </li>
-      <li class="sked__row">
-        <span class="sked__time">Opgave 4</span>
-        <div>
-          <p class="sked__name">Introen får liv</p>
-          <p class="sked__note">Overgange, Inspector og Dynamic Zoom.</p>
-        </div>
-      </li>
-      <li class="sked__row">
-        <span class="sked__time">Opgave 5</span>
-        <div>
-          <p class="sked__name">Titel og credits</p>
-          <p class="sked__note">I laver selv titel og rulletekster på Edit-siden.</p>
-        </div>
-      </li>
-      <li class="sked__row">
-        <span class="sked__time">Opgave 6</span>
-        <div>
-          <p class="sked__name">Eksport</p>
-          <p class="sked__note">Filmen bliver til en fil, I kan tage med hjem.</p>
-        </div>
-      </li>
-      <li class="sked__row">
-        <span class="sked__time">Opgave 7</span>
-        <div>
-          <p class="sked__name">Color</p>
-          <p class="sked__note">Et kig på Color-siden, og en rose skifter farve.</p>
-        </div>
-      </li>
-      <li class="sked__row">
-        <span class="sked__time"></span>
-        <div>
-          <p class="sked__name">Afrunding</p>
-          <p class="sked__note">Ressourcer, fif til undervisningen og evaluering.</p>
-        </div>
-      </li>
-      <li class="sked__row sked__row--break">
-        <span class="sked__time">15:00</span>
-        <div><p class="sked__name">Tak for i dag</p></div>
-      </li>
-
-    </ol>
+    </div>
   </div>
 </section>
 

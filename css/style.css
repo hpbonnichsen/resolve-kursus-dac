@@ -1318,28 +1318,111 @@ kbd {
 .facts__wide { grid-column: 1 / -1; }
 
 /* --------------------------------------------------------------------------
-   Kursus 2 · Statusbanner på programmet
+   Kursus 2 · Programmet
 
-   Samme greb som versionskravet: status skal ses, før man læser tiderne, så
-   ingen tager et udkast for bindende. Rust-ramme, ikke amber: det er
-   information, ikke en handling.
+   Første skærm skal vise selve dagen, ikke rammer om den. Status er en chip
+   ved overskriften i stedet for en boks: synlig før man læser, men den
+   fylder ikke. Chippen har små hjørner, ikke pilleform, for pillen er
+   sidens knapform, og chippen kan ikke klikkes.
+
+   Dagen er tre dele adskilt af pauserne. Pauserne er de eneste faste tider,
+   så det er dem, der står med klokkeslæt. Opgaverne nummereres 01, 02 ...
+   i rust som trinene på "Inden dagen", så venstre kolonne kun betyder én ting.
    -------------------------------------------------------------------------- */
 
-.status {
-  margin: var(--s4) 0 0;
-  padding: var(--s3) var(--s4);
-  max-width: 40rem;
-  border: 2px solid var(--rust);
-  border-radius: 14px;
-  background: var(--surface);
-}
-.status__label {
-  margin: 0;
-  font-size: clamp(1.125rem, 1rem + 0.6vw, 1.375rem);
-  font-weight: 800;
-  letter-spacing: 0.12em;
+.chip {
+  display: inline-block;
+  margin-left: 0.4em;
+  padding: 0.25em 0.6em;
+  vertical-align: 0.45em;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
+  line-height: 1;
+  color: var(--rust);
+  border: 2px solid var(--rust);
+  border-radius: 6px;
+}
+
+.pagehead__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s1) var(--s3);
+  margin: var(--s3) 0 0;
+  font-weight: 600;
+  color: var(--ink);
+}
+.pagehead__facts span + span::before {
+  content: "·";
+  margin-right: var(--s3);
   color: var(--rust);
 }
-.status__body { margin: var(--s1) 0 0; color: var(--ink); }
-.status__meta { margin: var(--s2) 0 0; font-size: 0.8125rem; color: var(--ink-dim); }
+.pagehead__updated { margin: var(--s1) 0 0; font-size: 0.8125rem; color: var(--ink-dim); }
+
+/* På smal skærm ombrydes linjen, og en prik ender forrest. Under hinanden
+   i stedet, uden prikker. */
+@media (max-width: 720px) {
+  .pagehead__facts { flex-direction: column; gap: 0.15rem; }
+  .pagehead__facts span + span::before { content: none; }
+}
+
+.section--tight { padding-top: var(--s4); }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.plan { counter-reset: opgave; max-width: 46rem; }
+
+.plan__part {
+  margin: var(--s4) 0 var(--s2);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+.plan__part:first-child { margin-top: 0; }
+
+.plan__list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s3); }
+
+.plan__item {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  column-gap: var(--s3);
+}
+.plan__item > * { grid-column: 2; }
+.plan__item--task { counter-increment: opgave; }
+.plan__item--task::before {
+  content: counter(opgave, decimal-leading-zero);
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.35;
+  color: var(--rust);
+}
+.plan__name { margin: 0; font-size: 1.125rem; font-weight: 700; }
+.plan__note { margin: 0.15rem 0 0; color: var(--ink-dim); }
+
+/* Pausen er en skillelinje på tværs, med tiden forrest. */
+.plan__break {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  margin: var(--s4) 0 0;
+  padding-block: var(--s2);
+  border-block: 1px solid var(--line);
+  color: var(--ink-dim);
+}
+.plan__time {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+}
