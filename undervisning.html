@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resolve i undervisningen – fif fra kurset i DaVinci Resolve</title>
+<meta name="description" content="Fif til at undervise mediefag C og B i DaVinci Resolve: billedhastighed, optagelse, import, klip, aflevering og relink.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip" href="#ark">Spring til fif'ene</a>
+
+<!-- Forsiden er heroen fra index.html med ny titel. Den er også PDF'ens side 1.
+     PDF'en laves af denne side: tools/pdf/lav_pdf.sh -->
+<header class="hero print-cover">
+  <nav class="nav" aria-label="Kursets sider">
+    <div class="wrap">
+    <ul class="nav__list nav__list--desktop">
+      <li><a class="nav__link" href="index.html">Inden dagen</a></li>
+      <li><a class="nav__link" href="program.html">Program</a></li>
+      <li><a class="nav__link" href="velkommen.html">Før vi går i gang</a></li>
+      <li>
+        <details class="nav__fold">
+          <summary>Opgaver</summary>
+          <ul class="nav__sub">
+            <li><a href="opgave-1-projektet.html">01 Åbn projektet</a></li>
+            <li><a href="opgave-2-import.html">02 Import og udvælgelse</a></li>
+            <li><a href="opgave-3-introen.html">03 Genskab introen</a></li>
+            <li><a href="opgave-4-liv.html">04 Introen får liv</a></li>
+            <li><a href="opgave-5-titler.html">05 Titel og credits</a></li>
+            <li><a href="opgave-6-deliver.html">06 Eksport</a></li>
+            <li><a href="opgave-7-color.html">07 Color</a></li>
+          </ul>
+        </details>
+      </li>
+      <li><a class="nav__link" href="ressourcer.html">Ressourcer</a></li>
+      <li><a class="nav__link" href="undervisning.html" aria-current="page">Fif til undervisningen</a></li>
+    </ul>
+    <details class="nav__toggle">
+      <summary class="nav__toggle-btn">Menu <span class="nav__toggle-current">&middot; Fif til undervisningen</span></summary>
+      <ul class="nav__list">
+        <li><a class="nav__link" href="index.html">Inden dagen</a></li>
+        <li><a class="nav__link" href="program.html">Program</a></li>
+        <li><a class="nav__link" href="velkommen.html">Før vi går i gang</a></li>
+        <li>
+          <details class="nav__fold">
+            <summary>Opgaver</summary>
+            <ul class="nav__sub">
+              <li><a href="opgave-1-projektet.html">01 Åbn projektet</a></li>
+              <li><a href="opgave-2-import.html">02 Import og udvælgelse</a></li>
+              <li><a href="opgave-3-introen.html">03 Genskab introen</a></li>
+              <li><a href="opgave-4-liv.html">04 Introen får liv</a></li>
+              <li><a href="opgave-5-titler.html">05 Titel og credits</a></li>
+              <li><a href="opgave-6-deliver.html">06 Eksport</a></li>
+              <li><a href="opgave-7-color.html">07 Color</a></li>
+            </ul>
+          </details>
+        </li>
+        <li><a class="nav__link" href="ressourcer.html">Ressourcer</a></li>
+        <li><a class="nav__link" href="undervisning.html" aria-current="page">Fif til undervisningen</a></li>
+      </ul>
+    </details>
+    </div>
+  </nav>
+
+  <div class="hero__stage">
+    <div class="hero__circle" aria-hidden="true">
+      <img class="hero__fig hero__fig--nosferatu" src="assets/hero-nosferatu.png"
+           alt="" width="500" height="653">
+    </div>
+
+    <img class="hero__fig hero__fig--kamera" src="assets/hero-kamera.png"
+         alt="" aria-hidden="true" width="620" height="1081">
+
+    <div class="hero__content">
+      <p class="kicker">Fif fra kurset · DaVinci Resolve</p>
+      <h1 class="hero__title">
+        <span class="hero__line"><span class="hero__light">Resolve i</span></span>
+        <span class="hero__line"><span class="hero__heavy">undervisningen</span></span>
+      </h1>
+      <p class="hero__byline">Hans-Peter Bonnichsen · HP's TV-stue · DAC, oktober 2026</p>
+      <p class="hero__cta">
+        <a class="btn" href="assets/resolve-i-undervisningen.pdf" download>
+          Hent som PDF
+          <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16l-6-6h4V3h4v7h4l-6 6zm-8 2h16v3H4v-3z"/></svg>
+        </a>
+      </p>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ===================================================================== -->
+<!-- Side 1 i PDF'en efter forsiden: opslagsarket. -->
+<section class="section print-page" id="ark">
+  <div class="wrap">
+    <p class="kicker">Opslagsark</p>
+    <h2 class="section__title">10 fif til Resolve i mediefag</h2>
+    <p class="section__intro">
+      I den rækkefølge et elevprojekt går. Uddybningen står på de næste sider.
+    </p>
+
+    <h3 class="subhead">Før optagelse</h3>
+    <ol class="steps steps--compact">
+      <li class="step"><div><h4 class="step__title">Vælg én billedhastighed, og hold fast i den</h4>
+        <p class="step__body">25 fps er standard i Europa, 24 er film. Sæt telefonen til det, før der optages.</p></div></li>
+      <li class="step"><div><h4 class="step__title">Slowmotion kræver høj billedhastighed</h4>
+        <p class="step__body">Optag de klip, der skal være slowmotion, i 50 eller 100 fps.</p></div></li>
+    </ol>
+
+    <h3 class="subhead">Optagelse</h3>
+    <ol class="steps steps--compact" style="counter-reset: step 2">
+      <li class="step"><div><h4 class="step__title">Samme billedhastighed på alle kameraer</h4>
+        <p class="step__body">Tjek det, før I går i gang.</p></div></li>
+      <li class="step"><div><h4 class="step__title">Sløjfer: 3-5 sekunder før og efter handlingen</h4>
+        <p class="step__body">Plads til at klippe og til overgange.</p></div></li>
+      <li class="step"><div><h4 class="step__title">Optag rummets lyd</h4>
+        <p class="step__body">30 sekunders stilhed på hver location redder lyden i klipningen.</p></div></li>
+    </ol>
+
+    <h3 class="subhead">Import og projekt</h3>
+    <ol class="steps steps--compact" style="counter-reset: step 5">
+      <li class="step"><div><h4 class="step__title">Én mappe pr. projekt med ALLE optagelser</h4>
+        <p class="step__body">Ikke kun dem, de tror, de skal bruge.</p></div></li>
+      <li class="step"><div><h4 class="step__title">Intet må flyttes eller slettes</h4>
+        <p class="step__body">Før den færdige film er afleveret.</p></div></li>
+    </ol>
+
+    <h3 class="subhead">Klip</h3>
+    <ol class="steps steps--compact" style="counter-reset: step 7">
+      <li class="step"><div><h4 class="step__title">Vis kun den del af programmet, de skal bruge</h4>
+        <p class="step__body">Edit-siden er nok til en hel film.</p></div></li>
+      <li class="step"><div><h4 class="step__title">Filmen er aldrig bedre end optagelserne</h4>
+        <p class="step__body">Klip bliver for lange, når der mangler kontinuitet og komposition.</p></div></li>
+    </ol>
+
+    <h3 class="subhead">Aflevering</h3>
+    <ol class="steps steps--compact" style="counter-reset: step 9">
+      <li class="step"><div><h4 class="step__title">1080p med YouTube-preset</h4>
+        <p class="step__body">Det er mere end rigeligt.</p></div></li>
+    </ol>
+
+    <div class="checkpoint" role="note">
+      <p class="checkpoint__label">Røde klip på timelinen?</p>
+      <p class="checkpoint__body">Optagelserne er flyttet. Se <a href="#relink">Relink</a> sidst i dokumentet.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ===================================================================== -->
+<section class="section print-page" id="optagelse">
+  <div class="wrap">
+    <p class="kicker">Før og under optagelse</p>
+    <h2 class="section__title">Billedhastigheden er det første, der går galt</h2>
+
+    <div class="lead-in">
+      <p>
+        Et projekt i Resolve låser sin billedhastighed, så snart der ligger noget på en
+        timeline. Klip med en anden billedhastighed hakker eller springer billeder
+        over. Derfor skal den besluttes, <strong>før</strong> eleverne filmer, ikke når
+        de klipper.
+      </p>
+    </div>
+
+    <ul class="ideas">
+      <li><strong>25 fps</strong> er standard i Europa og det naturlige valg i Danmark.
+        <strong>24</strong> er filmens. <strong>30</strong> er amerikansk tv-standard og
+        ofte telefonens fabriksindstilling, så tjek den.</li>
+      <li><strong>Flimmer:</strong> lyset i Danmark kører på 50 Hz. Optages der i 30
+        eller 60 fps under lysstofrør eller LED, kan billedet flimre. 25 og 50 fps
+        undgår det.</li>
+      <li><strong>Slowmotion:</strong> optag i 50 eller 100 fps. I Resolve: højreklik
+        på klippet → <strong>Clip Attributes</strong> → sæt Video Frame Rate til
+        timelinens billedhastighed. Så spiller klippet i slowmotion.</li>
+      <li><strong>Flere kameraer:</strong> samme billedhastighed på dem alle, ellers
+        passer de ikke sammen på timelinen.</li>
+    </ul>
+
+    <h3 class="subhead">Optag til klipningen</h3>
+    <ul class="ideas">
+      <li><strong>Sløjfer:</strong> start optagelsen 3-5 sekunder før handlingen, og lad
+        den køre 3-5 sekunder efter. Overgange har brug for billeder på begge sider af
+        klippet, og eleverne har brug for valgmuligheder.</li>
+      <li><strong>Rummets lyd (clean sound):</strong> 30 sekunder, hvor ingen taler, og
+        intet bevæger sig. Den lægges under klip, hvor lyden hakker eller mangler.</li>
+    </ul>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ===================================================================== -->
+<section class="section print-page" id="klip">
+  <div class="wrap">
+    <p class="kicker">Import og klip</p>
+    <h2 class="section__title">Én mappe, alle optagelser, rør ikke ved dem</h2>
+
+    <ul class="ideas">
+      <li>Opret en mappe på computeren med projektets navn. Overfør <strong>alle</strong>
+        optagelser, ikke kun dem, eleverne tror, de skal bruge. Udvælgelsen sker i
+        Resolve.</li>
+      <li>Resolve kopierer ikke optagelserne ind i projektet. Det peger kun på dem.
+        Derfor må de <strong>ikke flyttes, omdøbes eller slettes</strong>, før den
+        færdige film er afleveret.</li>
+      <li><strong>Ét projekt pr. film:</strong> opret et nyt projekt i Project Manager,
+        og importér første klip, før der lægges noget på en timeline. Så følger
+        projektet optagelsernes billedhastighed.</li>
+    </ul>
+
+    <h3 class="subhead">Vis kun det, de skal se</h3>
+    <div class="lead-in">
+      <p>
+        Resolve er overvældende. Lær eleverne kun den del, de skal bruge, og hold den
+        på <strong>Edit-siden</strong>. Den er nok til en hel film: import, sortering,
+        udvælgelse, råklip, finklip og lyddesign. Mere avancerede teknikker kommer i
+        løbet af året, når grundlaget sidder.
+      </p>
+    </div>
+
+    <div class="extra">
+      <p class="extra__label">Eksempel · optageopgaven "Jagten"</p>
+      <p class="extra__body">
+        En kort optageopgave med benspænd, der sikrer, at eleverne kommer rundt om netop
+        de dele af programmet, de skal bruge.
+      </p>
+      <p class="extra__body">
+        <strong>Handling:</strong> En person snupper noget fra en anden, og så går den
+        vilde jagt. (Pas dog på med at løbe for vildt med kameraet, så I får nogle alt
+        for rystede og dårlige billeder.)
+      </p>
+      <p class="extra__body"><strong>Jeres film skal indeholde:</strong></p>
+      <ul class="ideas">
+        <li>Mindst 35 indstillinger.</li>
+        <li>Beskæringerne total, halvtotal, nær og ultranær.</li>
+        <li>Brug af perspektiv i afgørende øjeblikke: normal, fugl, frø eller pov.</li>
+        <li>Klip i blikretning.</li>
+        <li>Klip på bevægelse.</li>
+        <li>Kamerabevægelser: håndholdt.</li>
+        <li>Jagten skal foregå udenfor.</li>
+      </ul>
+      <p class="extra__body"><strong>Før I filmer:</strong> tegn et overordnet storyboard.</p>
+    </div>
+
+    <table class="keys benspaend">
+      <caption>Hvad benspændene øver i Resolve</caption>
+      <thead><tr><th>Benspænd</th><th>Øver i Resolve</th></tr></thead>
+      <tbody>
+        <tr><td>Mindst 35 indstillinger</td><td>Import, sortering og udvælgelse med J, K, L og In/Out</td></tr>
+        <tr><td>Total, halvtotal, nær, ultranær</td><td>Sortering, og at finde det rigtige klip</td></tr>
+        <tr><td>Perspektiv i afgørende øjeblikke</td><td>Udvælgelse: hvilket klip bærer øjeblikket</td></tr>
+        <tr><td>Klip i blikretning og på bevægelse</td><td>Finklip med Trim</td></tr>
+        <tr><td>Håndholdt</td><td>Stabilization, når det bliver for rystet</td></tr>
+        <tr><td>Udenfor</td><td>Lyddesign: rummets lyd, vind og atmosfære</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="subhead">Filmen er aldrig bedre end optagelserne</h3>
+    <div class="lead-in">
+      <p>
+        Svage elevfilm skyldes sjældent klipningen. Klippene bliver for lange, fordi der
+        mangler variation, kontinuitet og komposition i optagelserne, og så bliver
+        flowet kedeligt. Det kan ikke klippes væk bagefter.
+      </p>
+    </div>
+
+    <h3 class="subhead">C og B</h3>
+    <ul class="ideas">
+      <li><strong>C:</strong> tiden er knap, og programmet er nyt. Didaktisér stramt, og
+        forvent, at det tager længere tid, end du tror. Eleverne skal have tid til at
+        føle sig trygge.</li>
+      <li><strong>B:</strong> ældre og mere modne elever med forforståelse og erfaring.
+        Her kan forventningerne til programmet og til filmen være højere.</li>
+    </ul>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ===================================================================== -->
+<section class="section print-page" id="aflevering">
+  <div class="wrap">
+    <p class="kicker">Aflevering og hjælp</p>
+    <h2 class="section__title">Fra timeline til fil</h2>
+
+    <ol class="steps steps--compact">
+      <li class="step"><div><h4 class="step__title">Deliver-siden → preset YouTube 1080p</h4>
+        <p class="step__body">1080p er mere end rigeligt.</p></div></li>
+      <li class="step"><div><h4 class="step__title">Vælg File Name og Location</h4>
+        <p class="step__body">I Render Settings, før der trykkes Render.</p></div></li>
+      <li class="step"><div><h4 class="step__title">Add to Render Queue → Render All</h4>
+        <p class="step__body">Filen lægger sig der, hvor Location peger.</p></div></li>
+    </ol>
+
+    <h3 class="subhead" id="relink">Relink: når klippene er røde</h3>
+    <div class="lead-in">
+      <p>
+        Det sker, når eleverne flytter eller sletter optagelser. Resolve kan ikke finde
+        filerne, og klippene bliver røde: <strong>Media Offline</strong>.
+      </p>
+    </div>
+    <!-- Menunavnet "Relink Selected Clips" er ikke tjekket i 21.1. -->
+    <ol class="steps steps--compact">
+      <li class="step"><div><h4 class="step__title">Find mappen med optagelserne igen</h4>
+        <p class="step__body">Er de slettet, kan de ikke reddes i Resolve.</p></div></li>
+      <li class="step"><div><h4 class="step__title">Marker de røde klip i Media Pool</h4>
+        <p class="step__body">Højreklik, og vælg <strong>Relink Selected Clips</strong>.</p></div></li>
+      <li class="step"><div><h4 class="step__title">Peg på mappen, hvor optagelserne ligger nu</h4>
+        <p class="step__body">Resolve finder dem selv.</p></div></li>
+    </ol>
+
+    <div class="checkpoint" role="note">
+      <p class="checkpoint__label">Det vigtigste råd</p>
+      <p class="checkpoint__body">
+        Giv eleverne tid til at lære programmet og føle sig trygge i det, før der
+        stilles krav til filmen.
+      </p>
+    </div>
+
+    <p class="section__intro print-url">
+      Kursusmaterialet, videoer og ressourcer:
+      <a href="https://hpbonnichsen.github.io/resolve-kursus-dac/">hpbonnichsen.github.io/resolve-kursus-dac</a>
+    </p>
+  </div>
+</section>
+
+</main>
+
+<div class="wrap">
+  <nav class="lesson-nav" aria-label="Mellem siderne">
+    <a class="nav__link" href="ressourcer.html">Forrige: Ressourcer</a>
+    <span class="lesson-nav__where">Resolve i undervisningen</span>
+    <span class="lesson-nav__spacer">Sidste side</span>
+  </nav>
+</div>
+
+<footer class="footer">
+  <div class="wrap">
+    <p>Feedback tager jeg meget gerne imod på mail.</p>
+  </div>
+</footer>
+
+</body>
+</html>

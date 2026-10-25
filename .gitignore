@@ -20,6 +20,7 @@
 !opgave-6-deliver.html
 !opgave-7-color.html
 !ressourcer.html
+!undervisning.html
 
 !assets/
 !assets/icons/
@@ -90,6 +91,7 @@
 !assets/hf-3-hele-filmen.jpg
 !assets/hf-4-hele-filmen.jpg
 !assets/hf-5-hele-filmen.jpg
+!assets/resolve-i-undervisningen.pdf
 
 # Filmen hostes som GitHub Release-asset i hpbonnichsen.github.io (media-v1).
 # Kursuspakken deles via WeTransfer/USB, ikke her.

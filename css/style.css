@@ -1643,3 +1643,66 @@ kbd {
   text-underline-offset: 0.25em;
 }
 .plan__name a:hover { color: var(--amber); text-decoration-color: currentColor; }
+
+/* --------------------------------------------------------------------------
+   Kursus 2 · Resolve i undervisningen (undervisning.html + PDF'en)
+
+   Siden er også kilden til PDF'en (tools/pdf/lav_pdf.sh). Forsiden er heroen
+   fra index.html, så PDF og site ser ens ud.
+   -------------------------------------------------------------------------- */
+
+.hero__byline {
+  margin: var(--s2) 0 0;
+  font-size: 0.9375rem;
+  color: var(--ink-soft);
+}
+
+.steps--compact { margin-top: var(--s2); gap: var(--s2); }
+.steps--compact .step__title { font-size: 1.0625rem; margin-bottom: 0.15rem; }
+
+/* Genvejstabellens udseende, men to kolonner, og tekst må bryde. */
+.benspaend { margin-top: var(--s4); min-width: 0; }
+.benspaend th:nth-child(1) { width: 42%; }
+.benspaend th:nth-child(2) { width: 58%; }
+.benspaend th, .benspaend td { white-space: normal; vertical-align: top; }
+
+.extra .ideas { margin-top: var(--s1); }
+
+/* ---- Print: PDF'en ----------------------------------------------------------
+   Mørk baggrund på hele siden, også i margenen (@page margin 0, luften lægges
+   som padding i sektionerne). Forsiden fylder side 1, hver .print-page starter
+   på en ny side. Alt, der kun giver mening på skærm, skjules. */
+@media print {
+  @page { size: A4; margin: 0; }
+  html, body {
+    background: var(--bg) !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  /* Skærmens skalbredde (--shell, 680 px) uden centrering skubbede alt til
+     venstre på A4. I print fylder body hele siden. */
+  body { width: auto !important; max-width: none; margin: 0 !important; }
+  .print-page { padding-inline: 14mm; }
+  .print-page .wrap { max-width: none; padding: 0; }
+  /* Opslagsarket skal kunne stå på én side. */
+  #ark .subhead { margin-top: var(--s3); }
+  #ark .steps--compact { gap: var(--s1); }
+  #ark .checkpoint { margin-top: var(--s3); }
+  .nav, .skip, .lesson-nav, .footer, .hero__cta, .rule { display: none !important; }
+  html { font-size: 12px; }
+  .print-cover { min-height: 297mm; height: 297mm; padding-block: 0; break-after: page; }
+  /* Forsiden i faste mål: vw-baserede størrelser regnes ud fra A4-bredden og
+     skævvrider kompositionen. */
+  .print-cover .hero__stage { width: 180mm; margin: 0 auto; }
+  .print-cover .hero__circle { width: 150mm; }
+  .print-cover .hero__title { font-size: 30pt; }
+  .print-cover .hero__fig--kamera { width: 58mm; right: 2mm; bottom: 4mm; }
+  .print-cover .hero__byline { font-size: 10pt; }
+  .print-page { break-before: page; padding-block: 16mm 14mm; }
+  .print-cover + main .print-page:first-child { break-before: auto; }
+  .reveal { animation: none !important; opacity: 1 !important; transform: none !important; }
+  .step, .extra, .checkpoint, .benspaend tr, .ideas li { break-inside: avoid; }
+  .subhead { break-after: avoid; }
+  a { color: var(--ink); text-decoration: none; }
+  .print-url a { color: var(--amber); }
+}
