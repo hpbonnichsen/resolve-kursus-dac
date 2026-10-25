@@ -1633,3 +1633,13 @@ kbd {
 .do__how a { font-size: 0.875rem; white-space: nowrap; }
 .do__extra { margin: var(--s3) 0 0; font-size: 0.9375rem; color: var(--ink-dim); }
 .phase__body > .hint { margin-top: var(--s3); }
+
+/* Opgavenavnene i programmet er links. Ni amber-titler i træk ville larme, så de
+   står i brødtekstfarve med en svag understregning og bliver amber ved hover,
+   som navigationen. */
+.plan__name a {
+  color: inherit;
+  text-decoration-color: var(--line);
+  text-underline-offset: 0.25em;
+}
+.plan__name a:hover { color: var(--amber); text-decoration-color: currentColor; }
