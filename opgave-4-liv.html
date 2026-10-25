@@ -91,12 +91,12 @@
 <!-- ===================================================================== -->
 <section class="section" id="del1">
   <div class="wrap">
-    <p class="kicker">Første del · Vis 4</p>
+    <p class="kicker">Første del · Vis 5</p>
     <h2 class="section__title">Inspector</h2>
 
     <div class="phase phase--show">
       <svg class="phase__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
-      <p class="phase__label">Vis · 4 min</p>
+      <p class="phase__label">Vis · 5 min</p>
       <p class="phase__note">Kig med. Hænderne væk fra musen.</p>
     </div>
 
@@ -119,7 +119,34 @@
                    alt="Inspector med sektionen Transform foldet ud."
                    width="413" height="521" loading="lazy">
             </div>
-            <figcaption class="shot__caption">Der er mange sektioner. I dag bruger du kun Transform og Dynamic Zoom.</figcaption>
+            <figcaption class="shot__caption">Der er mange sektioner. I dag bruger du Transform, Stabilization og Dynamic Zoom.</figcaption>
+          </figure>
+        </div>
+      </li>
+
+      <!-- Tilføjet 2026-10-25 efter ønske fra HP: han bruger Stabilization hele
+           tiden. Skærmbillede fra HP (stabilize.png). Kun vist, ikke en GØR-runde. -->
+      <li class="step reveal" id="vis-stabilize">
+        <div>
+          <h3 class="step__title">Gør et rystet klip roligt</h3>
+          <p class="step__body">
+            Længere nede i Inspector ligger <strong>Stabilization</strong>. Slå den
+            til, og klik <strong>Stabilize</strong>. Resolve analyserer klippet og
+            tager rysten ud.
+          </p>
+          <p class="step__body">
+            <strong>Camera Lock</strong> gør billedet helt stille, som stod kameraet
+            på stativ. <strong>Zoom</strong> zoomer lidt ind, så de sorte kanter, der
+            opstår, når billedet flyttes, ikke kan ses. Med <strong>Smooth</strong> og
+            <strong>Strength</strong> bestemmer du, hvor meget der rettes.
+          </p>
+          <figure class="shot shot--tall">
+            <div class="shot__frame">
+              <img src="assets/o4-3-stabilization.jpg"
+                   alt="Inspector med sektionen Stabilization: knappen Stabilize, Mode sat til Perspective, Camera Lock, Zoom og skyderne Cropping Ratio, Smooth og Strength."
+                   width="986" height="1208" loading="lazy">
+            </div>
+            <figcaption class="shot__caption">Stabilize-knappen øverst i sektionen. Resten kan stå på standard til at begynde med.</figcaption>
           </figure>
         </div>
       </li>
@@ -317,7 +344,8 @@
             billedet i viewer, og vælg Dynamic Zoom.
           </p>
         </details>
-        <p class="do__extra">Hurtigt færdig? <a href="#ekstra">Prøv ekstraopgaven nederst</a>.</p>
+        <p class="do__extra">Hurtigt færdig? <a href="#vis-stabilize">Stabilisér et rystet klip</a>,
+          eller <a href="#ekstra">prøv ekstraopgaven nederst</a>.</p>
       </div>
     </details>
 
