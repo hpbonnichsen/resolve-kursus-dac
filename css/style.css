@@ -1706,3 +1706,19 @@ kbd {
   a { color: var(--ink); text-decoration: none; }
   .print-url a { color: var(--amber); }
 }
+
+/* Kursus 2, 2026-10-25: opgavefolden står ikke længere åben som standard (den
+   skubbede indholdet ned på hver opgaveside). Derfor kan den på desktop nu
+   være en rigtig dropdown, der lægger sig oven på siden. Mobilmenuen beholder
+   normalt flow. */
+@media (min-width: 721px) {
+  .nav__list--desktop .nav__fold { position: relative; }
+  .nav__list--desktop .nav__sub {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 20;
+    min-width: 16rem;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+  }
+}
