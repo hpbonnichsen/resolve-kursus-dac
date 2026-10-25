@@ -92,8 +92,14 @@
 <!-- ===================================================================== -->
 <section class="section" id="start">
   <div class="wrap">
-    <p class="kicker">Før vi går i gang · 5 min</p>
+    <p class="kicker">Før vi går i gang · Vis 5</p>
     <h2 class="section__title">Facit og puzzle</h2>
+
+    <div class="phase phase--show">
+      <svg class="phase__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+      <p class="phase__label">Vis · 5 min</p>
+      <p class="phase__note">Kig med. Hænderne væk fra musen.</p>
+    </div>
 
     <div class="lead-in">
       <p>
@@ -104,8 +110,8 @@
       </p>
     </div>
 
-    <ol class="steps">
-      <li class="step reveal">
+    <ol class="steps steps--show">
+      <li class="step reveal" id="vis-start-1">
         <div>
           <h3 class="step__title">Spil Opg 3 FACIT igennem</h3>
           <p class="step__body">
@@ -122,7 +128,7 @@
         </div>
       </li>
 
-      <li class="step reveal">
+      <li class="step reveal" id="vis-start-2">
         <div>
           <h3 class="step__title">Åbn Opg 3 START</h3>
           <p class="step__body">
@@ -139,7 +145,7 @@
         </div>
       </li>
 
-      <li class="step reveal">
+      <li class="step reveal" id="vis-start-3">
         <div>
           <h3 class="step__title">Kend tre værktøjer</h3>
           <p class="step__body">
@@ -167,16 +173,28 @@
 <!-- ===================================================================== -->
 <section class="section" id="bid-a">
   <div class="wrap">
-    <p class="kicker">Delmål 3A · 15 min</p>
+    <p class="kicker">Delmål 3A · Gør 15</p>
     <h2 class="section__title">De første fem klip</h2>
 
-    <div class="task">
-      <p class="task__label">Gør selv</p>
-      <p class="task__body">
-        Fyld hullet fra starten: find det rigtige klip i Importeret, sæt In og Out,
-        og træk det ned. Sammenlign med FACIT. Delmålet er de første fem klip.
-      </p>
-    </div>
+    <details class="phase phase--do">
+      <summary>
+        <svg class="phase__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 9l5 12 1.8-5.2L21 14z"/><path d="M7.2 2.2 8 5.1"/><path d="M5.1 8l-2.9-.8"/><path d="M14 4.1 12 6"/><path d="M6 12l-1.9 2"/></svg>
+        <span class="phase__label">Gør · 15 min</span>
+        <span class="phase__note phase__note--closed">Åbn, når jeg siger nu</span>
+        <span class="phase__note phase__note--open">Nu er det dig</span>
+      </summary>
+      <div class="phase__body">
+        <p class="do__start"><span>Start i</span> Opg 3 START</p>
+        <p class="task__body">
+          Fyld hullet fra starten: find det rigtige klip i Importeret, sæt In og Out, og træk det ned. Sammenlign med FACIT. Delmålet er de første fem klip.
+        </p>
+        <p class="do__how-label">Sådan</p>
+        <ul class="do__how">
+          <li>Find klippet i <strong>Importeret</strong>, sæt In og Out, og træk det ned i hullet, som i Opgave 2.</li>
+          <li><strong>Selection</strong> (<kbd>A</kbd>) flytter, <strong>Blade</strong> (<kbd>B</kbd>) skærer, <strong>Snap</strong> (<kbd>N</kbd>) undgår huller. <a href="#vis-start-3">Se trinet</a></li>
+        </ul>
+      </div>
+    </details>
 
   </div>
 </section>
@@ -186,11 +204,17 @@
 <!-- ===================================================================== -->
 <section class="section" id="bid-b">
   <div class="wrap">
-    <p class="kicker">Delmål 3B · 4 + 15 min</p>
+    <p class="kicker">Delmål 3B · Vis 4 → Gør 15</p>
     <h2 class="section__title">Klip 6 til 10, og ret til undervejs</h2>
 
-    <ol class="steps">
-      <li class="step reveal">
+    <div class="phase phase--show">
+      <svg class="phase__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+      <p class="phase__label">Vis · 4 min</p>
+      <p class="phase__note">Kig med. Hænderne væk fra musen.</p>
+    </div>
+
+    <ol class="steps steps--show">
+      <li class="step reveal" id="vis-bid-b-1">
         <div>
           <h3 class="step__title">Byt om på rækkefølgen</h3>
           <p class="step__body">
@@ -202,7 +226,7 @@
         </div>
       </li>
 
-      <li class="step reveal">
+      <li class="step reveal" id="vis-bid-b-2">
         <div>
           <h3 class="step__title">Trim en kant</h3>
           <p class="step__body">
@@ -212,7 +236,7 @@
         </div>
       </li>
 
-      <li class="step reveal">
+      <li class="step reveal" id="vis-bid-b-3">
         <div>
           <h3 class="step__title">Lyd og billede hver for sig</h3>
           <p class="step__body">
@@ -224,10 +248,26 @@
       </li>
     </ol>
 
-    <div class="task">
-      <p class="task__label">Gør selv</p>
-      <p class="task__body">Klip 6 til 10 på plads. Brug swap og trim, hvor det driller.</p>
-    </div>
+    <details class="phase phase--do">
+      <summary>
+        <svg class="phase__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 9l5 12 1.8-5.2L21 14z"/><path d="M7.2 2.2 8 5.1"/><path d="M5.1 8l-2.9-.8"/><path d="M14 4.1 12 6"/><path d="M6 12l-1.9 2"/></svg>
+        <span class="phase__label">Gør · 15 min</span>
+        <span class="phase__note phase__note--closed">Åbn, når jeg siger nu</span>
+        <span class="phase__note phase__note--open">Nu er det dig</span>
+      </summary>
+      <div class="phase__body">
+        <p class="do__start"><span>Start i</span> samme timeline, du arbejder i</p>
+        <p class="task__body">
+          Klip 6 til 10 på plads. Brug swap og trim, hvor det driller.
+        </p>
+        <p class="do__how-label">Sådan</p>
+        <ul class="do__how">
+          <li>Byt om: marker klippet, og tryk <kbd>Shift</kbd> + <kbd>Ctrl/Cmd</kbd> + <kbd>,</kbd> (før) eller <kbd>.</kbd> (efter). <a href="#vis-bid-b-1">Se trinet</a></li>
+          <li>Trim en kant: <strong>Trim</strong> (<kbd>T</kbd>), og træk i klippets start eller slutning. <a href="#vis-bid-b-2">Se trinet</a></li>
+          <li>Kun lyd eller kun billede: højreklik → <strong>Unlink</strong>. <a href="#vis-bid-b-3">Se trinet</a></li>
+        </ul>
+      </div>
+    </details>
 
   </div>
 </section>
@@ -237,11 +277,17 @@
 <!-- ===================================================================== -->
 <section class="section" id="bid-c">
   <div class="wrap">
-    <p class="kicker">Delmål 3C · 3 + 15 min</p>
+    <p class="kicker">Delmål 3C · Vis 3 → Gør 15</p>
     <h2 class="section__title">De sidste fem klip</h2>
 
-    <ol class="steps">
-      <li class="step reveal">
+    <div class="phase phase--show">
+      <svg class="phase__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+      <p class="phase__label">Vis · 3 min</p>
+      <p class="phase__note">Kig med. Hænderne væk fra musen.</p>
+    </div>
+
+    <ol class="steps steps--show">
+      <li class="step reveal" id="vis-bid-c-1">
         <div>
           <h3 class="step__title">Zoom ind og ud af timelinen</h3>
           <p class="step__body">
@@ -261,28 +307,41 @@
       </li>
     </ol>
 
-    <div class="task">
-      <p class="task__label">Gør selv</p>
-      <p class="task__body">Klip 11 til 15. Spil det hele igennem, og sammenlign med FACIT.</p>
-    </div>
-
-    <details class="hint">
-      <summary>Jeg nåede ikke alle klip</summary>
-      <p>
-        Helt i orden. Det vigtige er at have prøvet håndgrebene på rigtigt
-        materiale, ikke at nå i mål. Efter frokost starter alle fra
-        <strong>Opg 4 START</strong>, hvor introen er færdig.
-      </p>
+    <details class="phase phase--do">
+      <summary>
+        <svg class="phase__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 9l5 12 1.8-5.2L21 14z"/><path d="M7.2 2.2 8 5.1"/><path d="M5.1 8l-2.9-.8"/><path d="M14 4.1 12 6"/><path d="M6 12l-1.9 2"/></svg>
+        <span class="phase__label">Gør · 15 min</span>
+        <span class="phase__note phase__note--closed">Åbn, når jeg siger nu</span>
+        <span class="phase__note phase__note--open">Nu er det dig</span>
+      </summary>
+      <div class="phase__body">
+        <p class="do__start"><span>Start i</span> samme timeline, du arbejder i</p>
+        <p class="task__body">
+          Klip 11 til 15. Spil det hele igennem, og sammenlign med FACIT.
+        </p>
+        <p class="do__how-label">Sådan</p>
+        <ul class="do__how">
+          <li>Zoom: <kbd>Alt</kbd>/<kbd>Option</kbd> + musehjul. Hele timelinen: <kbd>Shift</kbd> + <kbd>Z</kbd>. <a href="#vis-bid-c-1">Se trinet</a></li>
+        </ul>
+        <details class="hint">
+          <summary>Jeg nåede ikke alle klip</summary>
+          <p>
+            Helt i orden. Det vigtige er at have prøvet håndgrebene på rigtigt
+            materiale, ikke at nå i mål. Efter frokost starter alle fra
+            <strong>Opg 4 START</strong>, hvor introen er færdig.
+          </p>
+        </details>
+        <div class="extra">
+          <p class="extra__label">Hurtigt færdig?</p>
+          <p class="extra__body">
+            <strong>Læg lyden ind.</strong> Lydfilen ligger i Importeret sammen med
+            klippene. Læg den på et lydspor under billederne, og ram starten, så den
+            passer med FACIT. Bagefter kan du bygge videre på filmen efter introen.
+          </p>
+        </div>
+      </div>
     </details>
 
-    <div class="extra">
-      <p class="extra__label">Hurtigt færdig?</p>
-      <p class="extra__body">
-        <strong>Læg lyden ind.</strong> Lydfilen ligger i Importeret sammen med
-        klippene. Læg den på et lydspor under billederne, og ram starten, så den
-        passer med FACIT. Bagefter kan du bygge videre på filmen efter introen.
-      </p>
-    </div>
   </div>
 </section>
 

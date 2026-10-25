@@ -91,8 +91,14 @@
 <!-- ===================================================================== -->
 <section class="section" id="del1">
   <div class="wrap">
-    <p class="kicker">Første del · 5 min</p>
+    <p class="kicker">Første del · Vis 5</p>
     <h2 class="section__title">Sådan er siden bygget</h2>
+
+    <div class="phase phase--show">
+      <svg class="phase__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+      <p class="phase__label">Vis · 5 min</p>
+      <p class="phase__note">Kig med. Hænderne væk fra musen.</p>
+    </div>
 
     <div class="lead-in">
       <p>
@@ -102,8 +108,8 @@
       </p>
     </div>
 
-    <ol class="steps">
-      <li class="step reveal">
+    <ol class="steps steps--show">
+      <li class="step reveal" id="vis-del1-1">
         <div>
           <h3 class="step__title">Viewer</h3>
           <p class="step__body">Billedet, som det bliver. Under det ligger klippene som små billeder.</p>
@@ -115,7 +121,7 @@
         </div>
       </li>
 
-      <li class="step reveal">
+      <li class="step reveal" id="vis-del1-2">
         <div>
           <h3 class="step__title">Nodes</h3>
           <p class="step__body">
@@ -130,7 +136,7 @@
         </div>
       </li>
 
-      <li class="step reveal">
+      <li class="step reveal" id="vis-del1-3">
         <div>
           <h3 class="step__title"><img class="heading-icon" src="assets/icons/primarieslog-color-wheels.png" alt="" width="26" height="26">Primaries</h3>
           <p class="step__body">
@@ -146,7 +152,7 @@
         </div>
       </li>
 
-      <li class="step reveal">
+      <li class="step reveal" id="vis-del1-4">
         <div>
           <h3 class="step__title"><img class="heading-icon" src="assets/icons/scopes.png" alt="" width="26" height="26">Scopes</h3>
           <p class="step__body">
@@ -164,8 +170,14 @@
 <!-- ===================================================================== -->
 <section class="section" id="del2">
   <div class="wrap">
-    <p class="kicker">Anden del · 4 + 15 min</p>
+    <p class="kicker">Anden del · Vis 4 → Gør 15</p>
     <h2 class="section__title">Skift rosens farve</h2>
+
+    <div class="phase phase--show">
+      <svg class="phase__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+      <p class="phase__label">Vis · 4 min</p>
+      <p class="phase__note">Kig med. Hænderne væk fra musen.</p>
+    </div>
 
     <div class="lead-in">
       <p>
@@ -174,8 +186,8 @@
       </p>
     </div>
 
-    <ol class="steps">
-      <li class="step reveal">
+    <ol class="steps steps--show">
+      <li class="step reveal" id="vis-del2-1">
         <div>
           <h3 class="step__title">Find rosen, og lav en ny node</h3>
           <p class="step__body">
@@ -186,7 +198,7 @@
         </div>
       </li>
 
-      <li class="step reveal">
+      <li class="step reveal" id="vis-del2-2">
         <div>
           <h3 class="step__title">Klik på det røde med pipetten</h3>
           <p class="step__body">
@@ -204,7 +216,7 @@
         </div>
       </li>
 
-      <li class="step reveal">
+      <li class="step reveal" id="vis-del2-3">
         <div>
           <h3 class="step__title">Se, hvad du har valgt</h3>
           <p class="step__body">
@@ -222,7 +234,7 @@
         </div>
       </li>
 
-      <li class="step reveal">
+      <li class="step reveal" id="vis-del2-4">
         <div>
           <h3 class="step__title">Drej farven</h3>
           <p class="step__body">
@@ -250,38 +262,53 @@
       </li>
     </ol>
 
-    <div class="task">
-      <p class="task__label">Gør selv · 15 min</p>
-      <p class="task__body">Giv rosen en ny farve. Sammenlign med <strong>Opg 7 FACIT</strong>.</p>
-    </div>
-
-    <details class="hint">
-      <summary>Hele billedet skifter farve</summary>
-      <p>
-        Så er Qualifier ikke sat, eller pipetten ramte noget, der ikke er rødt. Tjek
-        med Highlight, hvad der faktisk er valgt.
-      </p>
+    <details class="phase phase--do">
+      <summary>
+        <svg class="phase__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 9l5 12 1.8-5.2L21 14z"/><path d="M7.2 2.2 8 5.1"/><path d="M5.1 8l-2.9-.8"/><path d="M14 4.1 12 6"/><path d="M6 12l-1.9 2"/></svg>
+        <span class="phase__label">Gør · 15 min</span>
+        <span class="phase__note phase__note--closed">Åbn, når jeg siger nu</span>
+        <span class="phase__note phase__note--open">Nu er det dig</span>
+      </summary>
+      <div class="phase__body">
+        <p class="do__start"><span>Start i</span> Opg 7 START</p>
+        <p class="task__body">
+          Giv rosen en ny farve. Sammenlign med <strong>Opg 7 FACIT</strong>.
+        </p>
+        <p class="do__how-label">Sådan</p>
+        <ul class="do__how">
+          <li>Klik på rosen under viewer, og lav en ny node: <kbd>Alt</kbd> + <kbd>S</kbd> (Windows) / <kbd>Option</kbd> + <kbd>S</kbd> (Mac). <a href="#vis-del2-1">Se trinet</a></li>
+          <li><strong>Qualifier</strong> → pipetten → klik og træk hen over rosen. <a href="#vis-del2-2">Se trinet</a></li>
+          <li>Tjek udvalget med <strong>Highlight</strong> (<kbd>Shift</kbd> + <kbd>H</kbd>). <a href="#vis-del2-3">Se trinet</a></li>
+          <li>Træk i <strong>Hue</strong> under farvehjulene. <a href="#vis-del2-4">Se trinet</a></li>
+        </ul>
+        <details class="hint">
+          <summary>Hele billedet skifter farve</summary>
+          <p>
+            Så er Qualifier ikke sat, eller pipetten ramte noget, der ikke er rødt. Tjek
+            med Highlight, hvad der faktisk er valgt.
+          </p>
+        </details>
+        <details class="hint">
+          <summary>Kanten af rosen ser ujævn ud</summary>
+          <p>
+            Det er normalt, og det er en del af pointen. Optagelsen er komprimeret
+            (H.264), og så er farverne i kanten en blanding af rødt og grønt, som
+            Qualifier ikke kan skille helt ad. Kanten kan blødes lidt op under
+            <strong>Matte Finesse</strong> i Qualifier-panelet, men den bliver aldrig
+            perfekt på dette materiale.
+          </p>
+        </details>
+        <div class="extra">
+          <p class="extra__label">Hurtigt færdig?</p>
+          <p class="extra__body">
+            Prøv en anden farve, eller gør rosen mere eller mindre mættet med
+            <strong>Sat</strong> ved siden af Hue. Eller find et andet klip i introen,
+            og skift farven på noget i det.
+          </p>
+        </div>
+      </div>
     </details>
 
-    <details class="hint">
-      <summary>Kanten af rosen ser ujævn ud</summary>
-      <p>
-        Det er normalt, og det er en del af pointen. Optagelsen er komprimeret
-        (H.264), og så er farverne i kanten en blanding af rødt og grønt, som
-        Qualifier ikke kan skille helt ad. Kanten kan blødes lidt op under
-        <strong>Matte Finesse</strong> i Qualifier-panelet, men den bliver aldrig
-        perfekt på dette materiale.
-      </p>
-    </details>
-
-    <div class="extra">
-      <p class="extra__label">Hurtigt færdig?</p>
-      <p class="extra__body">
-        Prøv en anden farve, eller gør rosen mere eller mindre mættet med
-        <strong>Sat</strong> ved siden af Hue. Eller find et andet klip i introen,
-        og skift farven på noget i det.
-      </p>
-    </div>
   </div>
 </section>
 

@@ -1508,3 +1508,128 @@ kbd {
    op til fuld spaltebredde og fyldte en hel skærm. De vises i stedet tæt på
    naturlig størrelse. Sættes automatisk på billeder, der er højere end brede. */
 .shot--tall { max-width: 440px; }
+
+/* --------------------------------------------------------------------------
+   Kursus 2 · Faser: VIS og GØR
+
+   Samme ord og samme rust som rytmefiguren på "Før vi går i gang", så det
+   visuelle sprog fra velkomsten går igen i hver opgave (konsistens, mapping).
+
+   VIS er et roligt bånd. Trinene under det er til opslag bagefter og står
+   dæmpet. GØR er en fold, der er lukket, indtil HP siger "nu": opgaven kan
+   ikke læses i forvejen (forcing function, regel 1). Når den åbnes, skifter
+   teksten fra "Åbn, når jeg siger nu" til "Nu er det dig" (feedback).
+   -------------------------------------------------------------------------- */
+
+.phase {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  column-gap: var(--s2);
+  margin: var(--s4) 0 0;
+  max-width: 46rem;
+  padding: var(--s2) var(--s3);
+  border-radius: 12px;
+}
+.phase__icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  grid-row: span 2;
+}
+.phase__label {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.phase__note { margin: 0; color: var(--ink-dim); font-size: 0.9375rem; }
+
+/* VIS: petroleum-bånd, farven fra hero-cirklen. Ikke amber: amber betyder
+   "klik her" på hele sitet, og VIS kan ikke klikkes. Petroleum = lyt og se,
+   rust = dit arbejde, amber = handling. --ink-soft er målt til AA mod petroleum. */
+.phase--show {
+  background: var(--petrol);
+  border: 1px solid rgba(236, 227, 214, 0.08);
+  color: var(--ink);
+}
+.phase--show .phase__note { color: var(--ink-soft); }
+
+/* Trin under et VIS-bånd: til opslag, så titlerne træder et skridt tilbage. */
+.steps--show .step__title { color: var(--ink-dim); font-weight: 600; }
+.steps--show .step::before { color: var(--ink-dim); }
+
+/* GØR: fremhævet fold. Den eneste flade på siden med rust-ramme og fyld. */
+.phase--do {
+  display: block;
+  padding: 0;
+  background: var(--surface);
+  border: 2px solid var(--rust);
+}
+.phase--do > summary {
+  display: grid;
+  grid-template-columns: auto auto 1fr auto;
+  align-items: center;
+  column-gap: var(--s2);
+  padding: var(--s3);
+  cursor: pointer;
+  list-style: none;
+  color: var(--rust);
+}
+.phase--do > summary::-webkit-details-marker { display: none; }
+.phase--do > summary .phase__icon { grid-row: auto; }
+.phase--do > summary::after {
+  content: "";
+  width: 0.55em;
+  height: 0.55em;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform 0.15s var(--ease);
+}
+.phase--do[open] > summary::after { transform: rotate(-135deg) translateY(-2px); }
+.phase--do > summary:hover { color: var(--amber); }
+.phase--do > summary .phase__note { color: var(--ink); }
+.phase__note--open { display: none; }
+.phase--do[open] .phase__note--closed { display: none; }
+.phase--do[open] .phase__note--open { display: inline; }
+.phase__body { padding: 0 var(--s3) var(--s3); }
+.phase__body > .task__body { margin: 0; }
+
+@media (max-width: 720px) {
+  .phase--do > summary { grid-template-columns: auto 1fr auto; row-gap: 0.15rem; }
+  .phase--do > summary .phase__note { grid-column: 2; }
+}
+
+/* Indholdet i en GØR-fold har fast rækkefølge: start i → opgaven → sådan →
+   hjælp → hurtigt færdig. "Sådan" gentager kun grebet i én linje og linker op
+   til det fulde VIS-trin, så kursisten ikke skal lede på siden. */
+.do__start { margin: 0 0 var(--s2); font-size: 0.9375rem; color: var(--ink-dim); }
+.do__start span {
+  margin-right: 0.4em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--rust);
+}
+.do__how-label {
+  margin: var(--s3) 0 var(--s1);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--rust);
+}
+.do__how { margin: 0; padding-left: 1.2em; max-width: var(--measure); color: var(--ink-dim); }
+.do__how li { margin-bottom: var(--s1); }
+.do__how li::marker { color: var(--rust); }
+.do__how strong { color: var(--ink); }
+.do__how a { font-size: 0.875rem; white-space: nowrap; }
+.do__extra { margin: var(--s3) 0 0; font-size: 0.9375rem; color: var(--ink-dim); }
+.phase__body > .hint { margin-top: var(--s3); }

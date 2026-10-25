@@ -91,11 +91,17 @@
 <!-- ===================================================================== -->
 <section class="section" id="del1">
   <div class="wrap">
-    <p class="kicker">Første del · 8 min</p>
+    <p class="kicker">Første del · Vis 3 → Gør 5</p>
     <h2 class="section__title">Gendan projektet</h2>
 
-    <ol class="steps">
-      <li class="step reveal">
+    <div class="phase phase--show">
+      <svg class="phase__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+      <p class="phase__label">Vis · 3 min</p>
+      <p class="phase__note">Kig med. Hænderne væk fra musen.</p>
+    </div>
+
+    <ol class="steps steps--show">
+      <li class="step reveal" id="vis-del1-1">
         <div>
           <h3 class="step__title">Åbn Resolve</h3>
           <p class="step__body">
@@ -113,7 +119,7 @@
         </div>
       </li>
 
-      <li class="step reveal">
+      <li class="step reveal" id="vis-del1-2">
         <div>
           <h3 class="step__title">Højreklik i det tomme felt, og vælg Restore Project Archive</h3>
           <figure class="shot shot--tall">
@@ -126,7 +132,7 @@
         </div>
       </li>
 
-      <li class="step reveal">
+      <li class="step reveal" id="vis-del1-3">
         <div>
           <h3 class="step__title">Vælg kursuspakken</h3>
           <p class="step__body">
@@ -136,7 +142,7 @@
         </div>
       </li>
 
-      <li class="step reveal">
+      <li class="step reveal" id="vis-del1-4">
         <div>
           <h3 class="step__title">Dobbeltklik på kursusprojektet</h3>
           <p class="step__body">
@@ -145,6 +151,42 @@
         </div>
       </li>
     </ol>
+
+    <details class="phase phase--do">
+      <summary>
+        <svg class="phase__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 9l5 12 1.8-5.2L21 14z"/><path d="M7.2 2.2 8 5.1"/><path d="M5.1 8l-2.9-.8"/><path d="M14 4.1 12 6"/><path d="M6 12l-1.9 2"/></svg>
+        <span class="phase__label">Gør · 5 min</span>
+        <span class="phase__note phase__note--closed">Åbn, når jeg siger nu</span>
+        <span class="phase__note phase__note--open">Nu er det dig</span>
+      </summary>
+      <div class="phase__body">
+        <p class="do__start"><span>Start i</span> Project Manager, med kursuspakken pakket ud</p>
+        <p class="task__body">
+          Gendan kursuspakken, og åbn projektet.
+        </p>
+        <p class="do__how-label">Sådan</p>
+        <ul class="do__how">
+          <li>Højreklik i det tomme felt → <strong>Restore Project Archive</strong>. <a href="#vis-del1-2">Se trinet</a></li>
+          <li>Vælg filen, der ender på <code>.dra</code>, og klik <strong>Open</strong>. <a href="#vis-del1-3">Se trinet</a></li>
+          <li>Dobbeltklik på projektet, når det dukker op. <a href="#vis-del1-4">Se trinet</a></li>
+        </ul>
+        <details class="hint">
+          <summary>Projektet kommer ikke frem</summary>
+          <p>
+            Så har du valgt mappen uden om <code>.dra</code>-filen. Gå ét niveau ned i
+            mappen, og prøv igen.
+          </p>
+        </details>
+        <details class="hint">
+          <summary>Projektet er væk fra skærmen</summary>
+          <p>
+            Klik på husikonet nederst til højre. Det fører tilbage til Project Manager,
+            og dit projekt ligger der stadig. Det er den hyppigste panik hos nye
+            brugere: troen på, at noget er væk.
+          </p>
+        </details>
+      </div>
+    </details>
 
     <div class="checkpoint" role="note">
       <p class="checkpoint__label">Checkpoint</p>
@@ -163,22 +205,6 @@
       </figure>
     </div>
 
-    <details class="hint">
-      <summary>Projektet kommer ikke frem</summary>
-      <p>
-        Så har du valgt mappen uden om <code>.dra</code>-filen. Gå ét niveau ned i
-        mappen, og prøv igen.
-      </p>
-    </details>
-
-    <details class="hint">
-      <summary>Projektet er væk fra skærmen</summary>
-      <p>
-        Klik på husikonet nederst til højre. Det fører tilbage til Project Manager,
-        og dit projekt ligger der stadig. Det er den hyppigste panik hos nye
-        brugere: troen på, at noget er væk.
-      </p>
-    </details>
   </div>
 </section>
 
@@ -187,8 +213,14 @@
 <!-- ===================================================================== -->
 <section class="section" id="del2">
   <div class="wrap">
-    <p class="kicker">Anden del · 4 min</p>
+    <p class="kicker">Anden del · Vis 4</p>
     <h2 class="section__title">Dagens fire sider</h2>
+
+    <div class="phase phase--show">
+      <svg class="phase__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+      <p class="phase__label">Vis · 4 min</p>
+      <p class="phase__note">Kig med. Hænderne væk fra musen.</p>
+    </div>
 
     <div class="lead-in">
       <p>
@@ -252,8 +284,14 @@
 <!-- ===================================================================== -->
 <section class="section" id="del3">
   <div class="wrap">
-    <p class="kicker">Tredje del · 5 min</p>
+    <p class="kicker">Tredje del · Vis 2 → Gør 3</p>
     <h2 class="section__title">Mist aldrig dit arbejde</h2>
+
+    <div class="phase phase--show">
+      <svg class="phase__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+      <p class="phase__label">Vis · 2 min</p>
+      <p class="phase__note">Kig med. Hænderne væk fra musen.</p>
+    </div>
 
     <div class="lead-in">
       <p>
@@ -261,8 +299,8 @@
       </p>
     </div>
 
-    <ol class="steps">
-      <li class="step reveal">
+    <ol class="steps steps--show">
+      <li class="step reveal" id="vis-del3-1">
         <div>
           <h3 class="step__title">Åbn Preferences</h3>
           <p class="step__body">
@@ -271,7 +309,7 @@
           </p>
         </div>
       </li>
-      <li class="step reveal">
+      <li class="step reveal" id="vis-del3-2">
         <div>
           <h3 class="step__title">Vælg User, og derefter Project Save and Load</h3>
           <p class="step__body">
@@ -280,7 +318,7 @@
           </p>
         </div>
       </li>
-      <li class="step reveal">
+      <li class="step reveal" id="vis-del3-3">
         <div>
           <h3 class="step__title">Sæt tre flueben, og klik Save</h3>
           <p class="step__body">
@@ -300,11 +338,6 @@
       </li>
     </ol>
 
-    <div class="checkpoint" role="note">
-      <p class="checkpoint__label">Checkpoint</p>
-      <p class="checkpoint__body">Der står tre flueben, og du har klikket Save.</p>
-    </div>
-
     <h3 class="subhead">Billedhastighed: det skal du vide</h3>
     <div class="lead-in">
       <p>
@@ -320,13 +353,39 @@
       </p>
     </div>
 
-    <div class="extra">
-      <p class="extra__label">Hurtigt færdig?</p>
-      <p class="extra__body">
-        Læs <a href="ressourcer.html#indstillinger">ressourcen om Project Settings og
-        billedhastighed</a>.
-      </p>
+    <details class="phase phase--do">
+      <summary>
+        <svg class="phase__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 9l5 12 1.8-5.2L21 14z"/><path d="M7.2 2.2 8 5.1"/><path d="M5.1 8l-2.9-.8"/><path d="M14 4.1 12 6"/><path d="M6 12l-1.9 2"/></svg>
+        <span class="phase__label">Gør · 3 min</span>
+        <span class="phase__note phase__note--closed">Åbn, når jeg siger nu</span>
+        <span class="phase__note phase__note--open">Nu er det dig</span>
+      </summary>
+      <div class="phase__body">
+        <p class="do__start"><span>Start i</span> Preferences</p>
+        <p class="task__body">
+          Slå Live save og backups til.
+        </p>
+        <p class="do__how-label">Sådan</p>
+        <ul class="do__how">
+          <li>Åbn Preferences: <kbd>Ctrl</kbd> + <kbd>,</kbd> (Windows) / <kbd>Cmd</kbd> + <kbd>,</kbd> (Mac). <a href="#vis-del3-1">Se trinet</a></li>
+          <li>Fanen <strong>User</strong> → <strong>Project Save and Load</strong>. <a href="#vis-del3-2">Se trinet</a></li>
+          <li>Flueben ved Live save, Project backups og Timeline backups → <strong>Save</strong>. <a href="#vis-del3-3">Se trinet</a></li>
+        </ul>
+        <div class="extra">
+          <p class="extra__label">Hurtigt færdig?</p>
+          <p class="extra__body">
+            Læs <a href="ressourcer.html#indstillinger">ressourcen om Project Settings og
+            billedhastighed</a>.
+          </p>
+        </div>
+      </div>
+    </details>
+
+    <div class="checkpoint" role="note">
+      <p class="checkpoint__label">Checkpoint</p>
+      <p class="checkpoint__body">Der står tre flueben, og du har klikket Save.</p>
     </div>
+
   </div>
 </section>
 

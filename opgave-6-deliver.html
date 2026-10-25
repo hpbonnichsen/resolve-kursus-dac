@@ -91,11 +91,17 @@
 <!-- ===================================================================== -->
 <section class="section" id="del1">
   <div class="wrap">
-    <p class="kicker">5 + 12 min</p>
+    <p class="kicker">Vis 5 → Gør 12</p>
     <h2 class="section__title"><img class="heading-icon" src="assets/icons/deliver.png" alt="" width="28" height="28">Fra timeline til fil</h2>
 
-    <ol class="steps">
-      <li class="step reveal">
+    <div class="phase phase--show">
+      <svg class="phase__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+      <p class="phase__label">Vis · 5 min</p>
+      <p class="phase__note">Kig med. Hænderne væk fra musen.</p>
+    </div>
+
+    <ol class="steps steps--show">
+      <li class="step reveal" id="vis-del1-1">
         <div>
           <h3 class="step__title">Gå til Deliver</h3>
           <p class="step__body">
@@ -113,7 +119,7 @@
         </div>
       </li>
 
-      <li class="step reveal">
+      <li class="step reveal" id="vis-del1-2">
         <div>
           <h3 class="step__title">Vælg et preset</h3>
           <p class="step__body">
@@ -124,7 +130,7 @@
         </div>
       </li>
 
-      <li class="step reveal">
+      <li class="step reveal" id="vis-del1-3">
         <div>
           <h3 class="step__title">Navngiv filen, og vælg hvor den skal ligge</h3>
           <p class="step__body">
@@ -135,7 +141,7 @@
         </div>
       </li>
 
-      <li class="step reveal">
+      <li class="step reveal" id="vis-del1-4">
         <div>
           <h3 class="step__title">Tilføj til køen, og render</h3>
           <p class="step__body">
@@ -153,10 +159,49 @@
       </li>
     </ol>
 
-    <div class="task">
-      <p class="task__label">Gør selv · 12 min</p>
-      <p class="task__body">Eksportér introen til skrivebordet, og afspil filen.</p>
-    </div>
+    <details class="phase phase--do">
+      <summary>
+        <svg class="phase__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 9l5 12 1.8-5.2L21 14z"/><path d="M7.2 2.2 8 5.1"/><path d="M5.1 8l-2.9-.8"/><path d="M14 4.1 12 6"/><path d="M6 12l-1.9 2"/></svg>
+        <span class="phase__label">Gør · 12 min</span>
+        <span class="phase__note phase__note--closed">Åbn, når jeg siger nu</span>
+        <span class="phase__note phase__note--open">Nu er det dig</span>
+      </summary>
+      <div class="phase__body">
+        <p class="do__start"><span>Start i</span> din egen timeline, eller <strong>Opg 6 START</strong>, hvis du er bagud</p>
+        <p class="task__body">
+          Eksportér introen til skrivebordet, og afspil filen.
+        </p>
+        <p class="do__how-label">Sådan</p>
+        <ul class="do__how">
+          <li>Klik på <strong>Deliver</strong> nederst. <a href="#vis-del1-1">Se trinet</a></li>
+          <li>Preset: <strong>YouTube 720p</strong>. <a href="#vis-del1-2">Se trinet</a></li>
+          <li>Navn under <strong>File Name</strong>, skrivebordet under <strong>Location</strong>. <a href="#vis-del1-3">Se trinet</a></li>
+          <li><strong>Add to Render Queue</strong> → <strong>Render All</strong>. <a href="#vis-del1-4">Se trinet</a></li>
+        </ul>
+        <details class="hint">
+          <summary>Render All er grå og kan ikke klikkes</summary>
+          <p>
+            Der ligger ikke noget job i Render Queue endnu. Klik
+            <strong>Add to Render Queue</strong> først.
+          </p>
+        </details>
+        <div class="extra">
+          <p class="extra__label">Hurtigt færdig?</p>
+          <p class="extra__body">
+            Prøv <strong>Custom Export</strong> i stedet for et preset. Her kan du
+            styre format, codec, opløsning og kvalitet selv. Eksportér en version med
+            en anden kvalitet, og sammenlign filstørrelsen med den første.
+          </p>
+          <figure class="shot shot--tall">
+            <div class="shot__frame">
+              <img src="assets/l6-2-custom-export.jpg"
+                   alt="Custom Export med indstillinger for format, codec og opløsning."
+                   width="450" height="985" loading="lazy">
+            </div>
+          </figure>
+        </div>
+      </div>
+    </details>
 
     <div class="checkpoint" role="note">
       <p class="checkpoint__label">Checkpoint</p>
@@ -167,14 +212,6 @@
     </div>
 
     <details class="hint">
-      <summary>Render All er grå og kan ikke klikkes</summary>
-      <p>
-        Der ligger ikke noget job i Render Queue endnu. Klik
-        <strong>Add to Render Queue</strong> først.
-      </p>
-    </details>
-
-    <details class="hint">
       <summary>Til undervisningen</summary>
       <p>
         Bestem på forhånd, hvor eleverne gemmer, og hvad filen skal hedde, fx
@@ -182,21 +219,6 @@
       </p>
     </details>
 
-    <div class="extra">
-      <p class="extra__label">Hurtigt færdig?</p>
-      <p class="extra__body">
-        Prøv <strong>Custom Export</strong> i stedet for et preset. Her kan du
-        styre format, codec, opløsning og kvalitet selv. Eksportér en version med
-        en anden kvalitet, og sammenlign filstørrelsen med den første.
-      </p>
-      <figure class="shot shot--tall">
-        <div class="shot__frame">
-          <img src="assets/l6-2-custom-export.jpg"
-               alt="Custom Export med indstillinger for format, codec og opløsning."
-               width="450" height="985" loading="lazy">
-        </div>
-      </figure>
-    </div>
   </div>
 </section>
 

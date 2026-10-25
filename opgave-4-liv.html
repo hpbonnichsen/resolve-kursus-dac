@@ -91,10 +91,16 @@
 <!-- ===================================================================== -->
 <section class="section" id="del1">
   <div class="wrap">
-    <p class="kicker">Første del · 4 min</p>
+    <p class="kicker">Første del · Vis 4</p>
     <h2 class="section__title">Inspector</h2>
 
-    <ol class="steps">
+    <div class="phase phase--show">
+      <svg class="phase__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+      <p class="phase__label">Vis · 4 min</p>
+      <p class="phase__note">Kig med. Hænderne væk fra musen.</p>
+    </div>
+
+    <ol class="steps steps--show">
       <li class="step reveal">
         <div>
           <h3 class="step__title">Åbn Inspector</h3>
@@ -126,11 +132,17 @@
 <!-- ===================================================================== -->
 <section class="section" id="del2">
   <div class="wrap">
-    <p class="kicker">Anden del · 4 + 8 min</p>
+    <p class="kicker">Anden del · Vis 4 → Gør 8</p>
     <h2 class="section__title">Overgange og fades</h2>
 
-    <ol class="steps">
-      <li class="step reveal">
+    <div class="phase phase--show">
+      <svg class="phase__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+      <p class="phase__label">Vis · 4 min</p>
+      <p class="phase__note">Kig med. Hænderne væk fra musen.</p>
+    </div>
+
+    <ol class="steps steps--show">
+      <li class="step reveal" id="vis-overgang">
         <div>
           <h3 class="step__title">Sæt en Cross Dissolve ind</h3>
           <p class="step__body">
@@ -151,7 +163,7 @@
         </div>
       </li>
 
-      <li class="step reveal">
+      <li class="step reveal" id="vis-fade">
         <div>
           <h3 class="step__title">Lav en fade med håndtaget</h3>
           <p class="step__body">
@@ -170,21 +182,36 @@
       </li>
     </ol>
 
-    <div class="task">
-      <p class="task__label">Gør selv · 8 min</p>
-      <p class="task__body">
-        Sæt 2-3 overgange ind i introen, der hvor stemningen skifter, og fade
-        introen ud til sidst.
-      </p>
-    </div>
-
-    <details class="hint">
-      <summary>Hvornår skal jeg bruge en overgang?</summary>
-      <p>
-        Sparsomt. En overgang markerer et tidsspring eller et stemningsskift. Brug
-        den ikke bare for at blødgøre et almindeligt klip. Det sender et forkert
-        signal til seeren, og det er et godt fif at give videre til eleverne.
-      </p>
+    <details class="phase phase--do">
+      <summary>
+        <svg class="phase__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 9l5 12 1.8-5.2L21 14z"/><path d="M7.2 2.2 8 5.1"/><path d="M5.1 8l-2.9-.8"/><path d="M14 4.1 12 6"/><path d="M6 12l-1.9 2"/></svg>
+        <span class="phase__label">Gør · 8 min</span>
+        <span class="phase__note phase__note--closed">Åbn, når jeg siger nu</span>
+        <span class="phase__note phase__note--open">Nu er det dig</span>
+      </summary>
+      <div class="phase__body">
+        <p class="do__start"><span>Start i</span> <strong>Opg 4 START</strong></p>
+        <p class="task__body">
+          Sæt 2-3 overgange ind i introen, der hvor stemningen skifter, og fade
+          introen ud til sidst.
+        </p>
+        <p class="do__how-label">Sådan</p>
+        <ul class="do__how">
+          <li><strong>Overgang:</strong> klik på klippepunktet, hvor to klip mødes, og tryk
+            <kbd>Ctrl</kbd> + <kbd>T</kbd> (Windows) / <kbd>Cmd</kbd> + <kbd>T</kbd> (Mac).
+            <a href="#vis-overgang">Se trinet</a></li>
+          <li><strong>Fade ud:</strong> træk den lille firkant i øverste hjørne af det
+            sidste klip ind mod midten. <a href="#vis-fade">Se trinet</a></li>
+        </ul>
+        <details class="hint">
+          <summary>Hvornår skal jeg bruge en overgang?</summary>
+          <p>
+            Sparsomt. En overgang markerer et tidsspring eller et stemningsskift. Brug
+            den ikke bare for at blødgøre et almindeligt klip. Det sender et forkert
+            signal til seeren, og det er et godt fif at give videre til eleverne.
+          </p>
+        </details>
+      </div>
     </details>
   </div>
 </section>
@@ -195,8 +222,14 @@
 <!-- NYT INDHOLD, ikke fra kursus 1. HP skal tjekke trinene i Resolve. -->
 <section class="section" id="del3">
   <div class="wrap">
-    <p class="kicker">Tredje del · 4 + 12 min</p>
+    <p class="kicker">Tredje del · Vis 4 → Gør 12</p>
     <h2 class="section__title">Dynamic Zoom</h2>
+
+    <div class="phase phase--show">
+      <svg class="phase__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+      <p class="phase__label">Vis · 4 min</p>
+      <p class="phase__note">Kig med. Hænderne væk fra musen.</p>
+    </div>
 
     <div class="lead-in">
       <p>
@@ -205,8 +238,8 @@
       </p>
     </div>
 
-    <ol class="steps">
-      <li class="step reveal">
+    <ol class="steps steps--show">
+      <li class="step reveal" id="vis-dz-til">
         <div>
           <h3 class="step__title">Slå Dynamic Zoom til</h3>
           <p class="step__body">
@@ -223,7 +256,7 @@
         </div>
       </li>
 
-      <li class="step reveal">
+      <li class="step reveal" id="vis-dz-rammer">
         <div>
           <h3 class="step__title">Sæt start og slut i billedet</h3>
           <p class="step__body">
@@ -243,7 +276,7 @@
         </div>
       </li>
 
-      <li class="step reveal">
+      <li class="step reveal" id="vis-dz-vend">
         <div>
           <h3 class="step__title">Vend og blødgør</h3>
           <p class="step__body">
@@ -255,12 +288,38 @@
       </li>
     </ol>
 
-    <div class="task">
-      <p class="task__label">Gør selv · 12 min</p>
-      <p class="task__body">
-        Dynamic Zoom på 2-3 rolige klip i introen. Prøv både ind og ud.
-      </p>
-    </div>
+    <details class="phase phase--do">
+      <summary>
+        <svg class="phase__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 9l5 12 1.8-5.2L21 14z"/><path d="M7.2 2.2 8 5.1"/><path d="M5.1 8l-2.9-.8"/><path d="M14 4.1 12 6"/><path d="M6 12l-1.9 2"/></svg>
+        <span class="phase__label">Gør · 12 min</span>
+        <span class="phase__note phase__note--closed">Åbn, når jeg siger nu</span>
+        <span class="phase__note phase__note--open">Nu er det dig</span>
+      </summary>
+      <div class="phase__body">
+        <p class="do__start"><span>Start i</span> samme timeline, du arbejder i</p>
+        <p class="task__body">
+          Dynamic Zoom på 2-3 rolige klip i introen. Prøv både ind og ud.
+        </p>
+        <p class="do__how-label">Sådan</p>
+        <ul class="do__how">
+          <li>Vælg et roligt klip, og slå <strong>Dynamic Zoom</strong> til i Inspector.
+            <a href="#vis-dz-til">Se trinet</a></li>
+          <li>Skift viewerens overlay til Dynamic Zoom, og træk i den
+            <strong>grønne</strong> ramme (start) og den <strong>røde</strong> (slut).
+            <a href="#vis-dz-rammer">Se trinet</a></li>
+          <li>Zoom ud i stedet for ind: <strong>Swap</strong>. Blødere bevægelse:
+            <strong>Ease In and Out</strong>. <a href="#vis-dz-vend">Se trinet</a></li>
+        </ul>
+        <details class="hint">
+          <summary>Jeg kan ikke se rammerne i billedet</summary>
+          <p>
+            Overlayet er ikke slået til. Brug menuen nederst til venstre under
+            billedet i viewer, og vælg Dynamic Zoom.
+          </p>
+        </details>
+        <p class="do__extra">Hurtigt færdig? <a href="#ekstra">Prøv ekstraopgaven nederst</a>.</p>
+      </div>
+    </details>
 
     <div class="checkpoint" role="note">
       <p class="checkpoint__label">Checkpoint</p>

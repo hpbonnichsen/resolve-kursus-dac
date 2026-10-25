@@ -91,8 +91,14 @@
 <!-- ===================================================================== -->
 <section class="section" id="del1">
   <div class="wrap">
-    <p class="kicker">Første del · 9 min</p>
+    <p class="kicker">Første del · Vis 4 → Gør 5</p>
     <h2 class="section__title">Klippene ind i projektet</h2>
+
+    <div class="phase phase--show">
+      <svg class="phase__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+      <p class="phase__label">Vis · 4 min</p>
+      <p class="phase__note">Kig med. Hænderne væk fra musen.</p>
+    </div>
 
     <div class="lead-in">
       <p>
@@ -102,8 +108,8 @@
       </p>
     </div>
 
-    <ol class="steps">
-      <li class="step reveal">
+    <ol class="steps steps--show">
+      <li class="step reveal" id="vis-del1-1">
         <div>
           <h3 class="step__title">Åbn mappen Importeret</h3>
           <p class="step__body">
@@ -119,7 +125,7 @@
         </div>
       </li>
 
-      <li class="step reveal">
+      <li class="step reveal" id="vis-del1-2">
         <div>
           <h3 class="step__title">Træk klippene ind</h3>
           <p class="step__body">
@@ -143,6 +149,33 @@
       </li>
     </ol>
 
+    <details class="phase phase--do">
+      <summary>
+        <svg class="phase__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 9l5 12 1.8-5.2L21 14z"/><path d="M7.2 2.2 8 5.1"/><path d="M5.1 8l-2.9-.8"/><path d="M14 4.1 12 6"/><path d="M6 12l-1.9 2"/></svg>
+        <span class="phase__label">Gør · 5 min</span>
+        <span class="phase__note phase__note--closed">Åbn, når jeg siger nu</span>
+        <span class="phase__note phase__note--open">Nu er det dig</span>
+      </summary>
+      <div class="phase__body">
+        <p class="do__start"><span>Start i</span> 02 OPGAVE 2 · Importeret</p>
+        <p class="task__body">
+          Importér klippene og lyden fra mappen <strong>Importer selv</strong>.
+        </p>
+        <p class="do__how-label">Sådan</p>
+        <ul class="do__how">
+          <li>Klik på mappen <strong>Importeret</strong> i 02 OPGAVE 2. <a href="#vis-del1-1">Se trinet</a></li>
+          <li>Træk alle filer fra Importer selv ind i det tomme felt, eller brug <kbd>Ctrl</kbd> + <kbd>I</kbd> (Windows) / <kbd>Cmd</kbd> + <kbd>I</kbd> (Mac). <a href="#vis-del1-2">Se trinet</a></li>
+        </ul>
+        <details class="hint">
+          <summary>Jeg kan ikke se Media Pool</summary>
+          <p>
+            Panelet kan slås fra. Kig efter knappen <strong>Media Pool</strong> øverst
+            til venstre, og klik på den.
+          </p>
+        </details>
+      </div>
+    </details>
+
     <div class="checkpoint" role="note">
       <p class="checkpoint__label">Checkpoint</p>
       <p class="checkpoint__body">
@@ -157,13 +190,6 @@
       </figure>
     </div>
 
-    <details class="hint">
-      <summary>Jeg kan ikke se Media Pool</summary>
-      <p>
-        Panelet kan slås fra. Kig efter knappen <strong>Media Pool</strong> øverst
-        til venstre, og klik på den.
-      </p>
-    </details>
   </div>
 </section>
 
@@ -172,8 +198,14 @@
 <!-- ===================================================================== -->
 <section class="section" id="del2">
   <div class="wrap">
-    <p class="kicker">Anden del · 15 min</p>
+    <p class="kicker">Anden del · Vis 5 → Gør 10</p>
     <h2 class="section__title">Lær klippene at kende</h2>
+
+    <div class="phase phase--show">
+      <svg class="phase__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+      <p class="phase__label">Vis · 5 min</p>
+      <p class="phase__note">Kig med. Hænderne væk fra musen.</p>
+    </div>
 
     <div class="lead-in">
       <p>
@@ -183,8 +215,8 @@
       </p>
     </div>
 
-    <ol class="steps">
-      <li class="step reveal">
+    <ol class="steps steps--show">
+      <li class="step reveal" id="vis-del2-1">
         <div>
           <h3 class="step__title">Forhåndsvis et klip</h3>
           <p class="step__body">
@@ -195,7 +227,7 @@
         </div>
       </li>
 
-      <li class="step reveal">
+      <li class="step reveal" id="vis-del2-2">
         <div>
           <h3 class="step__title">Åbn det i source viewer</h3>
           <p class="step__body">
@@ -213,7 +245,7 @@
         </div>
       </li>
 
-      <li class="step reveal">
+      <li class="step reveal" id="vis-del2-3">
         <div>
           <h3 class="step__title">Brug J, K og L i stedet for musen</h3>
           <p class="step__body">
@@ -225,7 +257,7 @@
         </div>
       </li>
 
-      <li class="step reveal">
+      <li class="step reveal" id="vis-del2-4">
         <div>
           <h3 class="step__title">Marker det bedste stykke</h3>
           <p class="step__body">
@@ -245,22 +277,35 @@
       </li>
     </ol>
 
-    <div class="task">
-      <p class="task__label">Gør selv · 10 min</p>
-      <p class="task__body">
-        Kig alle klippene igennem med J, K og L. Sæt In og Out på det bedste stykke
-        i hvert klip, du når.
-      </p>
-    </div>
-
-    <details class="hint">
-      <summary>J, K og L reagerer ikke</summary>
-      <p>
-        Klik først på selve billedet i source viewer, så tastaturet ved, hvilket
-        vindue det skal styre. Markøren kan stå i et andet panel, uden at du kan se
-        det.
-      </p>
+    <details class="phase phase--do">
+      <summary>
+        <svg class="phase__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 9l5 12 1.8-5.2L21 14z"/><path d="M7.2 2.2 8 5.1"/><path d="M5.1 8l-2.9-.8"/><path d="M14 4.1 12 6"/><path d="M6 12l-1.9 2"/></svg>
+        <span class="phase__label">Gør · 10 min</span>
+        <span class="phase__note phase__note--closed">Åbn, når jeg siger nu</span>
+        <span class="phase__note phase__note--open">Nu er det dig</span>
+      </summary>
+      <div class="phase__body">
+        <p class="do__start"><span>Start i</span> 02 OPGAVE 2 · Importeret</p>
+        <p class="task__body">
+          Kig alle klippene igennem med J, K og L. Sæt In og Out på det bedste stykke i hvert klip, du når.
+        </p>
+        <p class="do__how-label">Sådan</p>
+        <ul class="do__how">
+          <li>Dobbeltklik på et klip for at åbne det i source viewer. <a href="#vis-del2-2">Se trinet</a></li>
+          <li><kbd>L</kbd> frem, <kbd>K</kbd> stop, <kbd>J</kbd> tilbage. <a href="#vis-del2-3">Se trinet</a></li>
+          <li><kbd>I</kbd> ved starten af det bedste stykke, <kbd>O</kbd> ved slutningen. <a href="#vis-del2-4">Se trinet</a></li>
+        </ul>
+        <details class="hint">
+          <summary>J, K og L reagerer ikke</summary>
+          <p>
+            Klik først på selve billedet i source viewer, så tastaturet ved, hvilket
+            vindue det skal styre. Markøren kan stå i et andet panel, uden at du kan se
+            det.
+          </p>
+        </details>
+      </div>
     </details>
+
   </div>
 </section>
 
@@ -269,11 +314,17 @@
 <!-- ===================================================================== -->
 <section class="section" id="del3">
   <div class="wrap">
-    <p class="kicker">Tredje del · 12 min</p>
+    <p class="kicker">Tredje del · Vis 4 → Gør 8</p>
     <h2 class="section__title">De første klip ned på timelinen</h2>
 
-    <ol class="steps">
-      <li class="step reveal">
+    <div class="phase phase--show">
+      <svg class="phase__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+      <p class="phase__label">Vis · 4 min</p>
+      <p class="phase__note">Kig med. Hænderne væk fra musen.</p>
+    </div>
+
+    <ol class="steps steps--show">
+      <li class="step reveal" id="vis-del3-1">
         <div>
           <h3 class="step__title">Åbn timelinen Opg 2 ØVE</h3>
           <p class="step__body">
@@ -283,7 +334,7 @@
         </div>
       </li>
 
-      <li class="step reveal">
+      <li class="step reveal" id="vis-del3-2">
         <div>
           <h3 class="step__title">Træk klippet ned</h3>
           <p class="step__body">
@@ -305,6 +356,41 @@
       </li>
     </ol>
 
+    <details class="phase phase--do">
+      <summary>
+        <svg class="phase__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 9l5 12 1.8-5.2L21 14z"/><path d="M7.2 2.2 8 5.1"/><path d="M5.1 8l-2.9-.8"/><path d="M14 4.1 12 6"/><path d="M6 12l-1.9 2"/></svg>
+        <span class="phase__label">Gør · 8 min</span>
+        <span class="phase__note phase__note--closed">Åbn, når jeg siger nu</span>
+        <span class="phase__note phase__note--open">Nu er det dig</span>
+      </summary>
+      <div class="phase__body">
+        <p class="do__start"><span>Start i</span> Opg 2 ØVE</p>
+        <p class="task__body">
+          Læg tre klip ned efter hinanden på <strong>Opg 2 ØVE</strong>.
+        </p>
+        <p class="do__how-label">Sådan</p>
+        <ul class="do__how">
+          <li>Dobbeltklik på timelinen <strong>Opg 2 ØVE</strong> i 02 OPGAVE 2. <a href="#vis-del3-1">Se trinet</a></li>
+          <li>Sæt In og Out i source viewer, og træk billedet ned på timelinen. <kbd>Q</kbd> skifter mellem viewerne. <a href="#vis-del3-2">Se trinet</a></li>
+        </ul>
+        <div class="extra">
+          <p class="extra__label">Hurtigt færdig?</p>
+          <p class="extra__body">
+            Lav en ny mappe: højreklik i det tomme felt under mapperne, og vælg
+            <strong>New Bin</strong>. Giv den et navn, og sortér klippene i den, fx
+            efter motiv.
+          </p>
+          <figure class="shot shot--tall">
+            <div class="shot__frame">
+              <img src="assets/o2-3-import.jpg"
+                   alt="Højrekliksmenuen i Media Pool med New Bin og Import Media."
+                   width="720" height="887" loading="lazy">
+            </div>
+          </figure>
+        </div>
+      </div>
+    </details>
+
     <div class="checkpoint" role="note">
       <p class="checkpoint__label">Checkpoint</p>
       <p class="checkpoint__body">
@@ -312,21 +398,6 @@
       </p>
     </div>
 
-    <div class="extra">
-      <p class="extra__label">Hurtigt færdig?</p>
-      <p class="extra__body">
-        Lav en ny mappe: højreklik i det tomme felt under mapperne, og vælg
-        <strong>New Bin</strong>. Giv den et navn, og sortér klippene i den, fx
-        efter motiv.
-      </p>
-      <figure class="shot shot--tall">
-        <div class="shot__frame">
-          <img src="assets/o2-3-import.jpg"
-               alt="Højrekliksmenuen i Media Pool med New Bin og Import Media."
-               width="720" height="887" loading="lazy">
-        </div>
-      </figure>
-    </div>
   </div>
 </section>
 

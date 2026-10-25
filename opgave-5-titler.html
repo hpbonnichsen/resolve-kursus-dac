@@ -93,11 +93,17 @@
      til Text. Credits bruger stadig Scroll, som ruller af sig selv. -->
 <section class="section" id="del1">
   <div class="wrap">
-    <p class="kicker">Første del · 6 + 12 min</p>
+    <p class="kicker">Første del · Vis 6 → Gør 12</p>
     <h2 class="section__title">Filmens titel</h2>
 
-    <ol class="steps">
-      <li class="step reveal">
+    <div class="phase phase--show">
+      <svg class="phase__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+      <p class="phase__label">Vis · 6 min</p>
+      <p class="phase__note">Kig med. Hænderne væk fra musen.</p>
+    </div>
+
+    <ol class="steps steps--show">
+      <li class="step reveal" id="vis-del1-1">
         <div>
           <h3 class="step__title">Find titlerne i Effects</h3>
           <p class="step__body">
@@ -115,7 +121,7 @@
         </div>
       </li>
 
-      <li class="step reveal">
+      <li class="step reveal" id="vis-del1-2">
         <div>
           <h3 class="step__title">Gør plads i starten</h3>
           <!-- Rettelse fra HP 2026-10-21: de skal lære at vælge alt foran
@@ -133,7 +139,7 @@
         </div>
       </li>
 
-      <li class="step reveal">
+      <li class="step reveal" id="vis-del1-3">
         <div>
           <h3 class="step__title">Træk titlen ind i hullet</h3>
           <p class="step__body">
@@ -143,7 +149,7 @@
         </div>
       </li>
 
-      <li class="step reveal">
+      <li class="step reveal" id="vis-del1-4">
         <div>
           <h3 class="step__title">Skriv og formatér i Inspector</h3>
           <p class="step__body">
@@ -162,7 +168,7 @@
         </div>
       </li>
 
-      <li class="step reveal">
+      <li class="step reveal" id="vis-del1-5">
         <div>
           <h3 class="step__title">Bestem, hvor længe den står</h3>
           <p class="step__body">
@@ -188,15 +194,27 @@
       </p>
     </details>
 
-    <div class="task">
-      <p class="task__label">Gør selv · 12 min</p>
-      <p class="task__body">
-        Gør plads i starten med <kbd>Alt</kbd> + <kbd>Y</kbd> (Windows) /
-        <kbd>Option</kbd> + <kbd>Y</kbd> (Mac), og sæt titlen <em>Hund på
-        efterårstur</em> ind på sort før introen. Vælg en skrift, der passer til
-        filmen.
-      </p>
-    </div>
+    <details class="phase phase--do">
+      <summary>
+        <svg class="phase__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 9l5 12 1.8-5.2L21 14z"/><path d="M7.2 2.2 8 5.1"/><path d="M5.1 8l-2.9-.8"/><path d="M14 4.1 12 6"/><path d="M6 12l-1.9 2"/></svg>
+        <span class="phase__label">Gør · 12 min</span>
+        <span class="phase__note phase__note--closed">Åbn, når jeg siger nu</span>
+        <span class="phase__note phase__note--open">Nu er det dig</span>
+      </summary>
+      <div class="phase__body">
+        <p class="do__start"><span>Start i</span> Opg 5 START</p>
+        <p class="task__body">
+          Gør plads i starten med <kbd>Alt</kbd> + <kbd>Y</kbd> (Windows) / <kbd>Option</kbd> + <kbd>Y</kbd> (Mac), og sæt titlen <em>Hund på efterårstur</em> ind på sort før introen. Vælg en skrift, der passer til filmen.
+        </p>
+        <p class="do__how-label">Sådan</p>
+        <ul class="do__how">
+          <li>Playhead i starten → <kbd>Alt</kbd> + <kbd>Y</kbd> (Windows) / <kbd>Option</kbd> + <kbd>Y</kbd> (Mac), og træk alt et par sekunder til højre. <a href="#vis-del1-2">Se trinet</a></li>
+          <li><strong>Effects → Titles → Text+</strong>: træk den ind i hullet. <a href="#vis-del1-3">Se trinet</a></li>
+          <li>Skriv teksten i Inspector. Placeringen ligger under fanen <strong>Layout</strong>. <a href="#vis-del1-4">Se trinet</a></li>
+        </ul>
+      </div>
+    </details>
+
   </div>
 </section>
 
@@ -206,11 +224,17 @@
 <!-- NYT INDHOLD, ikke fra kursus 1. HP skal tjekke trinene i Resolve. -->
 <section class="section" id="del2">
   <div class="wrap">
-    <p class="kicker">Anden del · 5 + 12 min</p>
+    <p class="kicker">Anden del · Vis 5 → Gør 12</p>
     <h2 class="section__title">Credits</h2>
 
-    <ol class="steps">
-      <li class="step reveal">
+    <div class="phase phase--show">
+      <svg class="phase__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+      <p class="phase__label">Vis · 5 min</p>
+      <p class="phase__note">Kig med. Hænderne væk fra musen.</p>
+    </div>
+
+    <ol class="steps steps--show">
+      <li class="step reveal" id="vis-del2-1">
         <div>
           <h3 class="step__title">Træk en Scroll-titel ind til sidst</h3>
           <p class="step__body">
@@ -228,7 +252,7 @@
         </div>
       </li>
 
-      <li class="step reveal">
+      <li class="step reveal" id="vis-del2-2">
         <div>
           <h3 class="step__title">Skriv én rolle pr. linje</h3>
           <p class="step__body">
@@ -245,7 +269,7 @@
         </div>
       </li>
 
-      <li class="step reveal">
+      <li class="step reveal" id="vis-del2-3">
         <div>
           <h3 class="step__title">Længden er farten</h3>
           <p class="step__body">
@@ -256,14 +280,6 @@
       </li>
     </ol>
 
-    <div class="task">
-      <p class="task__label">Gør selv · 12 min</p>
-      <p class="task__body">
-        Lav credits til introen: instruktør, klipper, musik og medvirkende. Find en
-        fart, så man kan nå at læse dem.
-      </p>
-    </div>
-
     <details class="hint">
       <summary>Til undervisningen</summary>
       <p>
@@ -273,18 +289,39 @@
       </p>
     </details>
 
+    <details class="phase phase--do">
+      <summary>
+        <svg class="phase__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 9l5 12 1.8-5.2L21 14z"/><path d="M7.2 2.2 8 5.1"/><path d="M5.1 8l-2.9-.8"/><path d="M14 4.1 12 6"/><path d="M6 12l-1.9 2"/></svg>
+        <span class="phase__label">Gør · 12 min</span>
+        <span class="phase__note phase__note--closed">Åbn, når jeg siger nu</span>
+        <span class="phase__note phase__note--open">Nu er det dig</span>
+      </summary>
+      <div class="phase__body">
+        <p class="do__start"><span>Start i</span> samme timeline, du arbejder i</p>
+        <p class="task__body">
+          Lav credits til introen: instruktør, klipper, musik og medvirkende. Find en fart, så man kan nå at læse dem.
+        </p>
+        <p class="do__how-label">Sådan</p>
+        <ul class="do__how">
+          <li><strong>Effects → Titles → Scroll</strong>: træk den ind efter introens sidste klip. <a href="#vis-del2-1">Se trinet</a></li>
+          <li>Én rolle pr. linje i Inspector, og centrér teksten. <a href="#vis-del2-2">Se trinet</a></li>
+          <li>Længere klip giver langsommere rulning. <a href="#vis-del2-3">Se trinet</a></li>
+        </ul>
+        <div class="extra">
+          <p class="extra__label">Hurtigt færdig?</p>
+          <p class="extra__body">
+            Fade titlen ind og ud med håndtagene fra Opgave 4, eller sæt en Cross
+            Dissolve i begge ender af den.
+          </p>
+        </div>
+      </div>
+    </details>
+
     <div class="checkpoint" role="note">
       <p class="checkpoint__label">Checkpoint</p>
       <p class="checkpoint__body">Næste opgave starter i <strong>Opg 6 START</strong>.</p>
     </div>
 
-    <div class="extra">
-      <p class="extra__label">Hurtigt færdig?</p>
-      <p class="extra__body">
-        Fade titlen ind og ud med håndtagene fra Opgave 4, eller sæt en Cross
-        Dissolve i begge ender af den.
-      </p>
-    </div>
   </div>
 </section>
 
