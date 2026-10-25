@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Opgave 1 · Åbn projektet – kursus i DaVinci Resolve</title>
+<meta name="description" content="Opgave 1: gendan kursusprojektet, find dagens fire sider, og sørg for at du aldrig mister dit arbejde.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip" href="#del1">Spring til opgaven</a>
+
+<nav class="nav" aria-label="Kursets sider">
+  <div class="wrap">
+  <ul class="nav__list nav__list--desktop">
+    <li><a class="nav__link" href="index.html">Inden dagen</a></li>
+    <li><a class="nav__link" href="program.html">Program</a></li>
+    <li><a class="nav__link" href="velkommen.html">Før vi går i gang</a></li>
+    <li>
+      <details class="nav__fold nav__fold--active" open>
+        <summary>Opgaver</summary>
+        <ul class="nav__sub">
+          <li><a href="opgave-1-projektet.html" aria-current="page">01 Åbn projektet</a></li>
+          <li><a href="opgave-2-import.html">02 Import og udvælgelse</a></li>
+          <li><a href="opgave-3-introen.html">03 Genskab introen</a></li>
+          <li><a href="opgave-4-liv.html">04 Introen får liv</a></li>
+          <li><a href="opgave-5-titler.html">05 Titel og credits</a></li>
+          <li><a href="opgave-6-deliver.html">06 Eksport</a></li>
+          <li><a href="opgave-7-color.html">07 Color</a></li>
+        </ul>
+      </details>
+    </li>
+    <li><a class="nav__link" href="ressourcer.html">Ressourcer</a></li>
+  </ul>
+  <details class="nav__toggle">
+    <summary class="nav__toggle-btn">Menu <span class="nav__toggle-current">&middot; 01 Åbn projektet</span></summary>
+    <ul class="nav__list">
+      <li><a class="nav__link" href="index.html">Inden dagen</a></li>
+      <li><a class="nav__link" href="program.html">Program</a></li>
+      <li><a class="nav__link" href="velkommen.html">Før vi går i gang</a></li>
+      <li>
+        <details class="nav__fold nav__fold--active" open>
+          <summary>Opgaver</summary>
+          <ul class="nav__sub">
+            <li><a href="opgave-1-projektet.html" aria-current="page">01 Åbn projektet</a></li>
+            <li><a href="opgave-2-import.html">02 Import og udvælgelse</a></li>
+            <li><a href="opgave-3-introen.html">03 Genskab introen</a></li>
+            <li><a href="opgave-4-liv.html">04 Introen får liv</a></li>
+            <li><a href="opgave-5-titler.html">05 Titel og credits</a></li>
+            <li><a href="opgave-6-deliver.html">06 Eksport</a></li>
+            <li><a href="opgave-7-color.html">07 Color</a></li>
+          </ul>
+        </details>
+      </li>
+      <li><a class="nav__link" href="ressourcer.html">Ressourcer</a></li>
+    </ul>
+  </details>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header class="pagehead">
+    <p class="kicker">Opgave 1</p>
+    <h1 class="pagehead__title">Åbn projektet</h1>
+    <p class="pagehead__intro">
+      Projektet ind i programmet, de fire sider vi bruger i dag, og to minutter,
+      der sørger for, at du aldrig mister dit arbejde.
+    </p>
+
+    <div class="meta">
+      <div>
+        <p class="meta__key">Varighed</p>
+        <p class="meta__val">20 minutter</p>
+      </div>
+      <div>
+        <p class="meta__key">Du skal bruge</p>
+        <p class="meta__val">Resolve 21.1.1 eller nyere og den udpakkede kursuspakke</p>
+      </div>
+    </div>
+  </header>
+</div>
+
+<hr class="rule">
+
+<main>
+
+<!-- ===================================================================== -->
+<section class="section" id="del1">
+  <div class="wrap">
+    <p class="kicker">Første del · 8 min</p>
+    <h2 class="section__title">Gendan projektet</h2>
+
+    <ol class="steps">
+      <li class="step reveal">
+        <div>
+          <h3 class="step__title">Åbn Resolve</h3>
+          <p class="step__body">
+            Programmet åbner i <strong>Project Manager</strong>: vinduet med alle
+            dine projekter. Det er her, projekterne bor, og det er her, du altid kan
+            komme tilbage til.
+          </p>
+          <figure class="shot">
+            <div class="shot__frame">
+              <img src="assets/l1-2-project-manager.jpg"
+                   alt="Project Manager med et projekt vist som et enkelt felt."
+                   width="1800" height="1263" loading="lazy">
+            </div>
+          </figure>
+        </div>
+      </li>
+
+      <li class="step reveal">
+        <div>
+          <h3 class="step__title">Højreklik i det tomme felt, og vælg Restore Project Archive</h3>
+          <figure class="shot shot--tall">
+            <div class="shot__frame">
+              <img src="assets/o1-1-restore.jpg"
+                   alt="Højrekliksmenuen i Project Manager med blandt andet New Project, Import Project og Restore Project Archive."
+                   width="420" height="400" loading="lazy">
+            </div>
+          </figure>
+        </div>
+      </li>
+
+      <li class="step reveal">
+        <div>
+          <h3 class="step__title">Vælg kursuspakken</h3>
+          <p class="step__body">
+            Find mappen, du pakkede ud, og vælg filen, der ender på
+            <code>.dra</code>. Klik <strong>Open</strong>.
+          </p>
+        </div>
+      </li>
+
+      <li class="step reveal">
+        <div>
+          <h3 class="step__title">Dobbeltklik på kursusprojektet</h3>
+          <p class="step__body">
+            Det dukker op i Project Manager, når det er gendannet.
+          </p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="checkpoint" role="note">
+      <p class="checkpoint__label">Checkpoint</p>
+      <p class="checkpoint__body">
+        Edit-siden står fremme, og i Media Pool til venstre kan du se mapperne
+        01 til 08. Åbn <strong>01 OPGAVE 1</strong>, dobbeltklik på timelinen
+        <strong>Hele filmen · eksporteret</strong>, og spil filmen. Det er starten
+        af den, du skal genskabe i dag.
+      </p>
+      <figure class="shot shot--tall">
+        <div class="shot__frame">
+          <img src="assets/o1-2-bins.jpg"
+               alt="Bin-listen i Media Pool: opgaverne 01 til 07 og 08 Råmateriale."
+               width="652" height="660" loading="lazy">
+        </div>
+      </figure>
+    </div>
+
+    <details class="hint">
+      <summary>Projektet kommer ikke frem</summary>
+      <p>
+        Så har du valgt mappen uden om <code>.dra</code>-filen. Gå ét niveau ned i
+        mappen, og prøv igen.
+      </p>
+    </details>
+
+    <details class="hint">
+      <summary>Projektet er væk fra skærmen</summary>
+      <p>
+        Klik på husikonet nederst til højre. Det fører tilbage til Project Manager,
+        og dit projekt ligger der stadig. Det er den hyppigste panik hos nye
+        brugere: troen på, at noget er væk.
+      </p>
+    </details>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ===================================================================== -->
+<section class="section" id="del2">
+  <div class="wrap">
+    <p class="kicker">Anden del · 4 min</p>
+    <h2 class="section__title">Dagens fire sider</h2>
+
+    <div class="lead-in">
+      <p>
+        Nederst i programmet står en række knapper. Hver af dem skifter reelt til et
+        andet program inde i Resolve, og rækkefølgen følger den vej, en film bliver
+        til. I dag bruger vi fire af dem.
+      </p>
+    </div>
+
+    <figure class="shot shot--wide">
+      <div class="shot__frame">
+        <img src="assets/l1-1-bundlinjen.jpg"
+             alt="Nederste kant af DaVinci Resolve med en række sideknapper, et husikon og et tandhjul."
+             width="1800" height="62" loading="lazy">
+      </div>
+      <figcaption class="shot__caption">
+        Sideknapperne. Husikonet yderst til højre fører til Project Manager.
+      </figcaption>
+    </figure>
+
+    <div class="pages">
+      <div class="pages__item">
+        <div class="pages__head">
+          <img class="pages__icon" src="assets/icons/media.png" alt="" width="40" height="40">
+          <p class="pages__name">Media</p>
+        </div>
+        <p class="pages__body">Hvor optagelserne kommer ind. Man kan gøre det samme fra Edit, og det gør vi i dag.</p>
+      </div>
+      <div class="pages__item">
+        <div class="pages__head">
+          <img class="pages__icon" src="assets/icons/edit.png" alt="" width="40" height="40">
+          <p class="pages__name">Edit</p>
+        </div>
+        <p class="pages__body">Klippebordet. Her sætter vi klippene sammen, og her er vi det meste af dagen.</p>
+      </div>
+      <div class="pages__item">
+        <div class="pages__head">
+          <img class="pages__icon" src="assets/icons/deliver.png" alt="" width="40" height="40">
+          <p class="pages__name">Deliver</p>
+        </div>
+        <p class="pages__body">Udgangen. Her bliver filmen til en fil, andre kan se.</p>
+      </div>
+      <div class="pages__item">
+        <div class="pages__head">
+          <img class="pages__icon" src="assets/icons/color.png" alt="" width="40" height="40">
+          <p class="pages__name">Color</p>
+        </div>
+        <p class="pages__body">Lys og farve. Den side, programmet er berømt for. Vi slutter dagen her.</p>
+      </div>
+    </div>
+
+    <p class="section__intro">
+      Cut, Fusion og Fairlight bruger vi ikke i dag. Du finder gode videoer om dem
+      under <a href="ressourcer.html#videoer">Ressourcer</a>.
+    </p>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ===================================================================== -->
+<section class="section" id="del3">
+  <div class="wrap">
+    <p class="kicker">Tredje del · 5 min</p>
+    <h2 class="section__title">Mist aldrig dit arbejde</h2>
+
+    <div class="lead-in">
+      <p>
+        Resolve gemmer løbende af sig selv, men kun hvis det er slået til.
+      </p>
+    </div>
+
+    <ol class="steps">
+      <li class="step reveal">
+        <div>
+          <h3 class="step__title">Åbn Preferences</h3>
+          <p class="step__body">
+            <kbd>Ctrl</kbd> + <kbd>,</kbd> på Windows, <kbd>Cmd</kbd> + <kbd>,</kbd>
+            på Mac.
+          </p>
+        </div>
+      </li>
+      <li class="step reveal">
+        <div>
+          <h3 class="step__title">Vælg User, og derefter Project Save and Load</h3>
+          <p class="step__body">
+            <strong>User</strong> er fanen øverst. Preferences har to faner, og
+            halvdelen af alle leder i den forkerte.
+          </p>
+        </div>
+      </li>
+      <li class="step reveal">
+        <div>
+          <h3 class="step__title">Sæt tre flueben, og klik Save</h3>
+          <p class="step__body">
+            <strong>Live save</strong> gemmer løbende. <strong>Project backups</strong>
+            og <strong>Timeline backups</strong> gemmer versioner tilbage i tiden. Det
+            er dem, der redder dig, når noget går galt.
+          </p>
+          <figure class="shot">
+            <div class="shot__frame">
+              <img src="assets/l1-5-live-save.jpg"
+                   alt="Preferences på fanen User med Project Save and Load valgt. Live save, Project backups og Timeline backups er slået til."
+                   width="1800" height="1521" loading="lazy">
+            </div>
+            <figcaption class="shot__caption">Fanen User, tre flueben.</figcaption>
+          </figure>
+        </div>
+      </li>
+    </ol>
+
+    <div class="checkpoint" role="note">
+      <p class="checkpoint__label">Checkpoint</p>
+      <p class="checkpoint__body">Der står tre flueben, og du har klikket Save.</p>
+    </div>
+
+    <h3 class="subhead">Billedhastighed: det skal du vide</h3>
+    <div class="lead-in">
+      <p>
+        Et projekt har en billedhastighed. Importerer du det første klip i et tomt
+        projekt, og passer klippets billedhastighed ikke med projektets, spørger
+        Resolve, om projektet skal skifte. Sig ja. Når der først ligger noget på en
+        timeline, er billedhastigheden låst.
+      </p>
+      <p>
+        I dag er den sat i pakken, så du skal ikke røre den. Men det er her, dine
+        elever falder i: bed dem om at optage med samme billedhastighed på
+        telefonen hver gang.
+      </p>
+    </div>
+
+    <div class="extra">
+      <p class="extra__label">Hurtigt færdig?</p>
+      <p class="extra__body">
+        Læs <a href="ressourcer.html#indstillinger">ressourcen om Project Settings og
+        billedhastighed</a>.
+      </p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================================================================== -->
+<div class="wrap">
+  <nav class="lesson-nav" aria-label="Mellem siderne">
+    <a class="nav__link" href="velkommen.html">Forrige: Før vi går i gang</a>
+    <span class="lesson-nav__where">Opgave 1 af 7</span>
+    <a class="nav__link" href="opgave-2-import.html">Næste: Opgave 2</a>
+  </nav>
+</div>
+
+<footer class="footer">
+  <div class="wrap">
+    <p>Står du fast: siden først, så sidemanden, så mig.</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1426,3 +1426,85 @@ kbd {
   font-variant-numeric: tabular-nums;
   color: var(--ink);
 }
+
+/* --------------------------------------------------------------------------
+   Kursus 2 · Opgavesider
+
+   .checkpoint  hvor hele holdet samles. Rust-ramme som rytme-figuren på
+                "Før vi går i gang", så formen genkendes.
+   .extra       ekstraopgaven til de hurtige (regel 5). Flade uden ramme, så den
+                ikke konkurrerer med opgaven selv.
+   .shot__placeholder  skærmbillede, der mangler. Stiplet, så det ses med det
+                samme, og hver forekomst står i lektioner/pladsholdere.md.
+   -------------------------------------------------------------------------- */
+
+.checkpoint {
+  margin: var(--s4) 0 0;
+  padding: var(--s3);
+  max-width: 46rem;
+  border: 2px solid var(--rust);
+  border-radius: 14px;
+}
+.checkpoint__label,
+.extra__label {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--rust);
+}
+.checkpoint__body { margin: var(--s1) 0 0; font-weight: 600; color: var(--ink); }
+.checkpoint .shot__placeholder { margin-top: var(--s2); }
+
+.extra {
+  margin: var(--s4) 0 0;
+  padding: var(--s3);
+  max-width: 46rem;
+  background: var(--surface);
+  border-radius: 14px;
+}
+.extra__body { margin: var(--s1) 0 0; color: var(--ink-dim); }
+
+.shot__placeholder {
+  margin-top: var(--s3);
+  max-width: 760px;
+  aspect-ratio: 16 / 9;
+  display: grid;
+  place-items: center;
+  padding: var(--s3);
+  text-align: center;
+  border: 2px dashed var(--line);
+  border-radius: 10px;
+  color: var(--ink-dim);
+  font-size: 0.9375rem;
+}
+
+.subhead {
+  margin: var(--s5) 0 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+/* "Gør selv" er arbejde, checkpoint er samlingspunkt. To roller, to former:
+   gør selv har kun en rust-kant til venstre, checkpoint har hel ramme. */
+.task {
+  margin: var(--s4) 0 0;
+  padding: var(--s1) 0 var(--s1) var(--s3);
+  max-width: 46rem;
+  border-left: 4px solid var(--rust);
+}
+.task__label {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--rust);
+}
+.task__body { margin: var(--s1) 0 0; font-size: 1.0625rem; font-weight: 600; color: var(--ink); }
+
+/* Høje paneler og menuer (Inspector, højrekliksmenuer, node-træer) blev blæst
+   op til fuld spaltebredde og fyldte en hel skærm. De vises i stedet tæt på
+   naturlig størrelse. Sættes automatisk på billeder, der er højere end brede. */
+.shot--tall { max-width: 440px; }

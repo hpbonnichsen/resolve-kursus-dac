@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ressourcer – kursus i DaVinci Resolve</title>
+<meta name="description" content="Til efter kurset: indstillinger, Retime Controls, keyframing, genveje og de bedste videoer om DaVinci Resolve.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip" href="#vejledninger">Spring til indholdet</a>
+
+<nav class="nav" aria-label="Kursets sider">
+  <div class="wrap">
+  <ul class="nav__list nav__list--desktop">
+    <li><a class="nav__link" href="index.html">Inden dagen</a></li>
+    <li><a class="nav__link" href="program.html">Program</a></li>
+    <li><a class="nav__link" href="velkommen.html">Før vi går i gang</a></li>
+    <li>
+      <details class="nav__fold">
+        <summary>Opgaver</summary>
+        <ul class="nav__sub">
+          <li><a href="opgave-1-projektet.html">01 Åbn projektet</a></li>
+          <li><a href="opgave-2-import.html">02 Import og udvælgelse</a></li>
+          <li><a href="opgave-3-introen.html">03 Genskab introen</a></li>
+          <li><a href="opgave-4-liv.html">04 Introen får liv</a></li>
+          <li><a href="opgave-5-titler.html">05 Titel og credits</a></li>
+          <li><a href="opgave-6-deliver.html">06 Eksport</a></li>
+          <li><a href="opgave-7-color.html">07 Color</a></li>
+        </ul>
+      </details>
+    </li>
+    <li><a class="nav__link" href="ressourcer.html" aria-current="page">Ressourcer</a></li>
+  </ul>
+  <details class="nav__toggle">
+    <summary class="nav__toggle-btn">Menu <span class="nav__toggle-current">&middot; Ressourcer</span></summary>
+    <ul class="nav__list">
+      <li><a class="nav__link" href="index.html">Inden dagen</a></li>
+      <li><a class="nav__link" href="program.html">Program</a></li>
+      <li><a class="nav__link" href="velkommen.html">Før vi går i gang</a></li>
+      <li>
+        <details class="nav__fold">
+          <summary>Opgaver</summary>
+          <ul class="nav__sub">
+            <li><a href="opgave-1-projektet.html">01 Åbn projektet</a></li>
+            <li><a href="opgave-2-import.html">02 Import og udvælgelse</a></li>
+            <li><a href="opgave-3-introen.html">03 Genskab introen</a></li>
+            <li><a href="opgave-4-liv.html">04 Introen får liv</a></li>
+            <li><a href="opgave-5-titler.html">05 Titel og credits</a></li>
+            <li><a href="opgave-6-deliver.html">06 Eksport</a></li>
+            <li><a href="opgave-7-color.html">07 Color</a></li>
+          </ul>
+        </details>
+      </li>
+      <li><a class="nav__link" href="ressourcer.html" aria-current="page">Ressourcer</a></li>
+    </ul>
+  </details>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header class="pagehead">
+    <p class="kicker">Til bagefter</p>
+    <h1 class="pagehead__title">Ressourcer</h1>
+    <p class="pagehead__intro">
+      Det, vi ikke nåede på dagen, og hvor du lærer videre. Læg et projekt med dine
+      egne optagelser ved siden af, og prøv tingene af, mens du læser.
+    </p>
+  </header>
+</div>
+
+<hr class="rule">
+
+<main>
+
+<!-- ===================================================================== -->
+<section class="section" id="vejledninger">
+  <div class="wrap">
+    <p class="kicker">Vejledninger</p>
+    <h2 class="section__title">Videre fra dagens opgaver</h2>
+
+    <!-- ----------------------------------------------------------------- -->
+    <details class="unfold" id="indstillinger">
+      <summary>
+        Project Settings og billedhastighed
+        <span class="unfold__note">Når du laver dit eget projekt fra bunden</span>
+      </summary>
+      <div class="unfold__body">
+        <div class="lead-in">
+          <p>
+            Et projekt har en opløsning og en billedhastighed. De to tal beskriver den
+            film, du laver, ikke de klip, du lægger ind. Opløsningen kan rettes
+            bagefter. Billedhastigheden kan ikke: <strong>den låser sig, så snart der
+            ligger noget på en timeline.</strong>
+          </p>
+        </div>
+
+        <ol class="steps">
+          <li class="step">
+            <div>
+              <h3 class="step__title">Lad det første klip bestemme</h3>
+              <p class="step__body">
+                Importerer du det første klip i et tomt projekt, og passer dets
+                billedhastighed ikke med projektets, spørger Resolve, om projektet skal
+                skifte. Sig ja. Så følger projektet det, du har optaget.
+              </p>
+            </div>
+          </li>
+          <li class="step">
+            <div>
+              <h3 class="step__title">Eller sæt det selv</h3>
+              <p class="step__body">
+                Klik på tandhjulet nederst til højre. Under <strong>Master
+                Settings</strong> står <strong>Timeline resolution</strong> (fx
+                1280 x 720 HD, som kursusprojektet bruger) og <strong>Timeline frame
+                rate</strong>. Klik Save.
+              </p>
+              <figure class="shot">
+                <div class="shot__frame">
+                  <img src="assets/r-1-project-settings.jpg"
+                       alt="Project Settings på siden Master Settings: Timeline resolution 1280 x 720 og Timeline frame rate 23.976, som er gråtonet."
+                       width="1400" height="576" loading="lazy">
+                </div>
+                <figcaption class="shot__caption">Billedhastigheden er grå, fordi den låses, så snart der ligger klip i projektet.</figcaption>
+              </figure>
+            </div>
+          </li>
+          <li class="step">
+            <div>
+              <h3 class="step__title">Tjek, hvor arbejdsfilerne ligger</h3>
+              <p class="step__body">
+                Preferences (<kbd>Ctrl/Cmd</kbd> + <kbd>,</kbd>) → fanen
+                <strong>System</strong> → <strong>Media Storage</strong>. Den øverste
+                disk er den, Resolve bruger til midlertidige filer. Det skal være en
+                disk, der altid er tilsluttet.
+              </p>
+              <figure class="shot">
+                <div class="shot__frame">
+                  <img src="assets/l1-4-media-storage.jpg"
+                       alt="Preferences på fanen System med Media Storage valgt og en liste over diske."
+                       width="1800" height="1530" loading="lazy">
+                </div>
+              </figure>
+            </div>
+          </li>
+        </ol>
+
+        <details class="hint">
+          <summary>Til undervisningen</summary>
+          <p>
+            Det er her, eleverne falder i. Bed dem om at optage med samme
+            billedhastighed på telefonen hver gang, og tjek det, før de importerer.
+            Et klip i 30 fps på en timeline i 25 fps hakker, og det er besværligt at
+            rette bagefter.
+          </p>
+        </details>
+
+        <details class="hint">
+          <summary>Dine egne optagelser</summary>
+          <p>
+            Læg dem ikke ind i kursusprojektet. Det er låst til 23,976 fps, og din
+            telefon optager sikkert i 30 eller 60. Lav i stedet et nyt projekt i
+            Project Manager, og importér dit første klip, før du lægger noget på en
+            timeline. Så får projektet samme billedhastighed som dine optagelser.
+          </p>
+        </details>
+      </div>
+    </details>
+
+    <!-- ----------------------------------------------------------------- -->
+    <details class="unfold" id="retime">
+      <summary>
+        Retime Controls: slow motion, freeze frame og speed ramps
+        <span class="unfold__note">Når et klip skal gå hurtigere, langsommere eller stå stille</span>
+      </summary>
+      <div class="unfold__body">
+        <ol class="steps">
+          <li class="step">
+            <div>
+              <h3 class="step__title">Speed Change og Freeze Frame</h3>
+              <p class="step__body">
+                Højreklik på et klip, og vælg <strong>Change Clip Speed</strong>. Under
+                100 % giver slow motion, over 100 % hurtigere afspilning. Flueben ved
+                <strong>Freeze Frame</strong> i samme dialog gør klippet til et
+                stillbillede.
+              </p>
+              <figure class="shot">
+                <div class="shot__frame">
+                  <img src="assets/l3-12-speed-freeze.jpg" alt="Dialogen Change Clip Speed med Speed og Freeze Frame." width="469" height="317" loading="lazy">
+                </div>
+              </figure>
+              <figure class="shot">
+                <div class="shot__frame">
+                  <img src="assets/l3-16-speed-badge.jpg" alt="Et klip på timelinen med et mærke, der viser ændret hastighed." width="369" height="135" loading="lazy">
+                </div>
+                <figcaption class="shot__caption">Sådan ser klippet ud, når hastigheden er ændret.</figcaption>
+              </figure>
+            </div>
+          </li>
+          <li class="step">
+            <div>
+              <h3 class="step__title">Clip Attributes</h3>
+              <p class="step__body">
+                En anden vej til slow motion: højreklik → <strong>Clip
+                Attributes</strong> → fanen Video. Sæt <strong>Video Frame
+                Rate</strong> til timelinens hastighed. Er klippet optaget i 60 fps på
+                en timeline i 25, spiller det så automatisk i slow motion.
+              </p>
+              <figure class="shot shot--tall">
+                <div class="shot__frame">
+                  <img src="assets/l3-17-clip-attributes.jpg" alt="Clip Attributes med feltet Video Frame Rate." width="610" height="707" loading="lazy">
+                </div>
+              </figure>
+            </div>
+          </li>
+          <!-- NYT INDHOLD, ikke fra kursus 1. HP tjekker i Resolve. -->
+          <li class="step">
+            <div>
+              <h3 class="step__title">Speed ramps</h3>
+              <p class="step__body">
+                Højreklik på klippet, og vælg <strong>Retime Controls</strong>
+                (<kbd>Ctrl/Cmd</kbd> + <kbd>R</kbd>). Sæt et speed point, hvor farten
+                skal skifte, og træk hastigheden op eller ned på hver side af det. Så
+                kan et klip gå fra normal fart til slow motion midt i et skud.
+              </p>
+            </div>
+          </li>
+        </ol>
+
+        <details class="hint">
+          <summary>Hvornår bruger jeg hvilken?</summary>
+          <p>
+            Speed Change, når du selv vil bestemme en procent. Clip Attributes, når
+            klippet allerede er optaget i en høj billedhastighed. Freeze Frame, når
+            billedet skal stå stille. Speed ramps, når farten skal skifte midt i klippet.
+          </p>
+        </details>
+      </div>
+    </details>
+
+    <!-- ----------------------------------------------------------------- -->
+    <details class="unfold" id="keyframes">
+      <summary>
+        Keyframing
+        <span class="unfold__note">Når noget skal bevæge sig eller ændre sig over tid</span>
+      </summary>
+      <div class="unfold__body">
+        <ol class="steps">
+          <li class="step">
+            <div>
+              <h3 class="step__title">Sæt det første keyframe</h3>
+              <p class="step__body">
+                Vælg et klip, åbn Inspector → <strong>Transform</strong>, og sæt
+                playheadet ved klippets start. Klik på diamanten ud for
+                <strong>Position</strong>.
+              </p>
+            </div>
+          </li>
+          <li class="step">
+            <div>
+              <h3 class="step__title">Flyt playheadet, og ændr værdien</h3>
+              <p class="step__body">
+                Flyt playheadet et stykke frem, og ændr Position. Resolve sætter selv et
+                nyt keyframe, og billedet bevæger sig fra den ene position til den anden.
+              </p>
+              <figure class="shot">
+                <div class="shot__frame">
+                  <img src="assets/l3-15-keyframe-marker.jpg" alt="En diamant på klippet på timelinen, der viser keyframes." width="236" height="135" loading="lazy">
+                </div>
+                <figcaption class="shot__caption">Diamanten på klippet viser, at der er keyframes.</figcaption>
+              </figure>
+            </div>
+          </li>
+        </ol>
+
+        <details class="hint">
+          <summary>Der sker ikke noget, når jeg ændrer værdien</summary>
+          <p>
+            Står playheadet samme sted som det første keyframe, opdaterer du bare det.
+            Flyt playheadet først.
+          </p>
+        </details>
+      </div>
+    </details>
+
+    <p class="section__intro">
+      Genvejene fra dagen står på <a href="program.html#genveje">programsiden</a>.
+    </p>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ===================================================================== -->
+<section class="section" id="videoer">
+  <div class="wrap">
+    <p class="kicker">Videoer</p>
+    <h2 class="section__title">Lær videre på YouTube</h2>
+    <p class="section__intro">Alle på engelsk. Udvalgt af HP.</p>
+
+    <h3 class="subhead">Hele programmet</h3>
+    <ul class="ideas">
+      <li><a href="https://www.youtube.com/watch?v=gjxiH2Tm4JE" target="_blank" rel="noopener">Making Videos in Resolve 21: Full Course for Beginners</a> · Casey Faris. Det lange kursus fra start til slut.</li>
+      <li><a href="https://www.youtube.com/watch?v=znBHzeXpsUw" target="_blank" rel="noopener">Ultimate Beginners Tutorial: Media, Edit, Color, Fusion</a> · Team 2 Films. En rolig rundtur i alle siderne.</li>
+      <li><a href="https://www.youtube.com/watch?v=eTZ5i4Cvyno" target="_blank" rel="noopener">Top Timeline Tips &amp; Tricks for Beginners</a> · MrAlexTech</li>
+    </ul>
+
+    <h3 class="subhead">Fusion</h3>
+    <ul class="ideas">
+      <li><a href="https://www.youtube.com/watch?v=fOKKZKSISQk" target="_blank" rel="noopener">Everything You Need to Start Using Fusion</a> · Casey Faris. Lavet i version 19, men grundprincipperne er de samme.</li>
+      <li><a href="https://www.youtube.com/watch?v=E_P-8nRbtOk" target="_blank" rel="noopener">9 Epic DaVinci Resolve Effects in 100 Seconds</a> · Jamie Fenn. Til inspiration.</li>
+      <li><a href="https://www.youtube.com/watch?v=-Tg9M_z0Yd0" target="_blank" rel="noopener">How to Do the Invisibility Effect</a> · Jamie Fenn. Ekstraopgaven fra Opgave 4, på hans måde.</li>
+    </ul>
+
+    <h3 class="subhead">Fairlight (lyd)</h3>
+    <ul class="ideas">
+      <li><a href="https://www.youtube.com/watch?v=SpDvYgUC01w" target="_blank" rel="noopener">Better Audio in DaVinci Resolve for Beginners</a> · Casey Faris. Dialog, mix og musik.</li>
+      <li><a href="https://www.youtube.com/watch?v=yXK90cwpa3o" target="_blank" rel="noopener">Get Perfect Audio for YouTube</a> · MrAlexTech</li>
+    </ul>
+
+    <h3 class="subhead">Cut</h3>
+    <ul class="ideas">
+      <li><a href="https://www.youtube.com/watch?v=ol6h3E0Oheg" target="_blank" rel="noopener">The Surprisingly Good Cut Page Features</a> · MrAlexTech</li>
+    </ul>
+
+    <h3 class="subhead">Color</h3>
+    <ul class="ideas">
+      <li><a href="https://www.youtube.com/watch?v=d4dAEWCmL1M" target="_blank" rel="noopener">Resolve's Color Page in Plain Language</a> · Casey Faris</li>
+    </ul>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ===================================================================== -->
+<section class="section" id="kanaler">
+  <div class="wrap">
+    <p class="kicker">Kanaler</p>
+    <h2 class="section__title">Fire at følge</h2>
+
+    <ul class="ideas">
+      <li><a href="https://www.youtube.com/@CaseyFaris" target="_blank" rel="noopener"><strong>Casey Faris</strong></a>. Et meget langt begynderkursus og rigtig mange gode fif.</li>
+      <li><a href="https://www.youtube.com/@MrAlexTech" target="_blank" rel="noopener"><strong>MrAlexTech</strong></a>. Stærk i programmet, og han formidler det rigtig godt.</li>
+      <li><a href="https://www.youtube.com/@team2films" target="_blank" rel="noopener"><strong>Team 2 Films</strong></a>. Viser forskellige sider af programmet på en pædagogisk og mindre hypet måde. Mere ro og mere fokus på viden.</li>
+      <li><a href="https://www.youtube.com/@JamieFenn" target="_blank" rel="noopener"><strong>Jamie Fenn</strong></a>. Smarte effekter, når du vil videre.</li>
+    </ul>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ===================================================================== -->
+<section class="section" id="pdf">
+  <div class="wrap">
+    <p class="kicker">Til undervisningen</p>
+    <h2 class="section__title">Fif til at undervise elever i Resolve</h2>
+    <!-- PLADSHOLDER: PDF'en. Knap til download, når den findes. -->
+    <p class="section__intro">PDF'en kommer her.</p>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================================================================== -->
+<div class="wrap">
+  <nav class="lesson-nav" aria-label="Mellem siderne">
+    <a class="nav__link" href="opgave-7-color.html">Forrige: Opgave 7</a>
+    <span class="lesson-nav__where">Ressourcer</span>
+    <span class="lesson-nav__spacer">Sidste side</span>
+  </nav>
+</div>
+
+<footer class="footer">
+  <div class="wrap">
+    <p>Feedback på kurset tager jeg meget gerne imod på mail.</p>
+  </div>
+</footer>
+
+</body>
+</html>

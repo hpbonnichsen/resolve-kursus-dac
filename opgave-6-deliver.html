@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Opgave 6 · Eksport – kursus i DaVinci Resolve</title>
+<meta name="description" content="Opgave 6: gør introen til en fil på Deliver-siden.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip" href="#del1">Spring til opgaven</a>
+
+<nav class="nav" aria-label="Kursets sider">
+  <div class="wrap">
+  <ul class="nav__list nav__list--desktop">
+    <li><a class="nav__link" href="index.html">Inden dagen</a></li>
+    <li><a class="nav__link" href="program.html">Program</a></li>
+    <li><a class="nav__link" href="velkommen.html">Før vi går i gang</a></li>
+    <li>
+      <details class="nav__fold nav__fold--active" open>
+        <summary>Opgaver</summary>
+        <ul class="nav__sub">
+          <li><a href="opgave-1-projektet.html">01 Åbn projektet</a></li>
+          <li><a href="opgave-2-import.html">02 Import og udvælgelse</a></li>
+          <li><a href="opgave-3-introen.html">03 Genskab introen</a></li>
+          <li><a href="opgave-4-liv.html">04 Introen får liv</a></li>
+          <li><a href="opgave-5-titler.html">05 Titel og credits</a></li>
+          <li><a href="opgave-6-deliver.html" aria-current="page">06 Eksport</a></li>
+          <li><a href="opgave-7-color.html">07 Color</a></li>
+        </ul>
+      </details>
+    </li>
+    <li><a class="nav__link" href="ressourcer.html">Ressourcer</a></li>
+  </ul>
+  <details class="nav__toggle">
+    <summary class="nav__toggle-btn">Menu <span class="nav__toggle-current">&middot; 06 Eksport</span></summary>
+    <ul class="nav__list">
+      <li><a class="nav__link" href="index.html">Inden dagen</a></li>
+      <li><a class="nav__link" href="program.html">Program</a></li>
+      <li><a class="nav__link" href="velkommen.html">Før vi går i gang</a></li>
+      <li>
+        <details class="nav__fold nav__fold--active" open>
+          <summary>Opgaver</summary>
+          <ul class="nav__sub">
+            <li><a href="opgave-1-projektet.html">01 Åbn projektet</a></li>
+            <li><a href="opgave-2-import.html">02 Import og udvælgelse</a></li>
+            <li><a href="opgave-3-introen.html">03 Genskab introen</a></li>
+            <li><a href="opgave-4-liv.html">04 Introen får liv</a></li>
+            <li><a href="opgave-5-titler.html">05 Titel og credits</a></li>
+            <li><a href="opgave-6-deliver.html" aria-current="page">06 Eksport</a></li>
+            <li><a href="opgave-7-color.html">07 Color</a></li>
+          </ul>
+        </details>
+      </li>
+      <li><a class="nav__link" href="ressourcer.html">Ressourcer</a></li>
+    </ul>
+  </details>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header class="pagehead">
+    <p class="kicker">Opgave 6</p>
+    <h1 class="pagehead__title">Eksport</h1>
+    <p class="pagehead__intro">
+      Det, du har bygget, skal ud af Resolve og ind i en fil, du kan sende eller
+      vise frem. Det foregår på Deliver-siden.
+    </p>
+
+    <div class="meta">
+      <div>
+        <p class="meta__key">Varighed</p>
+        <p class="meta__val">20 minutter</p>
+      </div>
+      <div>
+        <p class="meta__key">Eksportér</p>
+        <p class="meta__val">Din egen timeline, eller <strong>Opg 6 START</strong>, hvis du er bagud</p>
+      </div>
+    </div>
+  </header>
+</div>
+
+<hr class="rule">
+
+<main>
+
+<!-- ===================================================================== -->
+<section class="section" id="del1">
+  <div class="wrap">
+    <p class="kicker">5 + 12 min</p>
+    <h2 class="section__title"><img class="heading-icon" src="assets/icons/deliver.png" alt="" width="28" height="28">Fra timeline til fil</h2>
+
+    <ol class="steps">
+      <li class="step reveal">
+        <div>
+          <h3 class="step__title">Gå til Deliver</h3>
+          <p class="step__body">
+            Klik på <strong>Deliver</strong> i sidelinjen nederst. Timelinen, du har
+            åben, følger med.
+          </p>
+          <figure class="shot">
+            <div class="shot__frame">
+              <img src="assets/o6-1-deliver-side.jpg"
+                   alt="Deliver-siden med Opg 6 START: Render Settings med presetet YouTube 720p til venstre, viewer med rosen i midten og Render Queue til højre."
+                   width="1400" height="859" loading="lazy">
+            </div>
+            <figcaption class="shot__caption">Render Settings til venstre, Render Queue til højre.</figcaption>
+          </figure>
+        </div>
+      </li>
+
+      <li class="step reveal">
+        <div>
+          <h3 class="step__title">Vælg et preset</h3>
+          <p class="step__body">
+            Øverst i <strong>Render Settings</strong> vælger du et preset:
+            <strong>YouTube 720p</strong>. Det sætter format og codec til noget, der
+            virker de fleste steder, og opløsningen til den samme som projektet, 1280 x 720.
+          </p>
+        </div>
+      </li>
+
+      <li class="step reveal">
+        <div>
+          <h3 class="step__title">Navngiv filen, og vælg hvor den skal ligge</h3>
+          <p class="step__body">
+            Skriv et navn under <strong>File Name</strong>. Under
+            <strong>Location</strong> vælger du skrivebordet, så du kan finde filen
+            igen.
+          </p>
+        </div>
+      </li>
+
+      <li class="step reveal">
+        <div>
+          <h3 class="step__title">Tilføj til køen, og render</h3>
+          <p class="step__body">
+            Klik <strong>Add to Render Queue</strong> nederst. Jobbet lægger sig i
+            Render Queue til højre. Klik <strong>Render All</strong> for at starte.
+          </p>
+          <figure class="shot shot--tall">
+            <div class="shot__frame">
+              <img src="assets/o6-3-render-queue.jpg"
+                   alt="Render Queue med et job, Opg 6 START, der bliver til filen Hund på efterårstur.mp4, og knappen Render All."
+                   width="837" height="1180" loading="lazy">
+            </div>
+          </figure>
+        </div>
+      </li>
+    </ol>
+
+    <div class="task">
+      <p class="task__label">Gør selv · 12 min</p>
+      <p class="task__body">Eksportér introen til skrivebordet, og afspil filen.</p>
+    </div>
+
+    <div class="checkpoint" role="note">
+      <p class="checkpoint__label">Checkpoint</p>
+      <p class="checkpoint__body">
+        Filen ligger på skrivebordet og kan afspilles. Næste opgave starter i
+        <strong>Opg 7 START</strong>.
+      </p>
+    </div>
+
+    <details class="hint">
+      <summary>Render All er grå og kan ikke klikkes</summary>
+      <p>
+        Der ligger ikke noget job i Render Queue endnu. Klik
+        <strong>Add to Render Queue</strong> først.
+      </p>
+    </details>
+
+    <details class="hint">
+      <summary>Til undervisningen</summary>
+      <p>
+        Bestem på forhånd, hvor eleverne gemmer, og hvad filen skal hedde, fx
+        klasse og navn. Ellers bruger I afleveringstimen på at lede efter filer.
+      </p>
+    </details>
+
+    <div class="extra">
+      <p class="extra__label">Hurtigt færdig?</p>
+      <p class="extra__body">
+        Prøv <strong>Custom Export</strong> i stedet for et preset. Her kan du
+        styre format, codec, opløsning og kvalitet selv. Eksportér en version med
+        en anden kvalitet, og sammenlign filstørrelsen med den første.
+      </p>
+      <figure class="shot shot--tall">
+        <div class="shot__frame">
+          <img src="assets/l6-2-custom-export.jpg"
+               alt="Custom Export med indstillinger for format, codec og opløsning."
+               width="450" height="985" loading="lazy">
+        </div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================================================================== -->
+<div class="wrap">
+  <nav class="lesson-nav" aria-label="Mellem siderne">
+    <a class="nav__link" href="opgave-5-titler.html">Forrige: Opgave 5</a>
+    <span class="lesson-nav__where">Opgave 6 af 7</span>
+    <a class="nav__link" href="opgave-7-color.html">Næste: Opgave 7</a>
+  </nav>
+</div>
+
+<footer class="footer">
+  <div class="wrap">
+    <p>Står du fast: siden først, så sidemanden, så mig.</p>
+  </div>
+</footer>
+
+</body>
+</html>

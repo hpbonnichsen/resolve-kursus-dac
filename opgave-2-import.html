@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Opgave 2 · Import og udvælgelse – kursus i DaVinci Resolve</title>
+<meta name="description" content="Opgave 2: importer klippene til introen, lær dem at kende med J, K og L, og læg de første ned på en timeline.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip" href="#del1">Spring til opgaven</a>
+
+<nav class="nav" aria-label="Kursets sider">
+  <div class="wrap">
+  <ul class="nav__list nav__list--desktop">
+    <li><a class="nav__link" href="index.html">Inden dagen</a></li>
+    <li><a class="nav__link" href="program.html">Program</a></li>
+    <li><a class="nav__link" href="velkommen.html">Før vi går i gang</a></li>
+    <li>
+      <details class="nav__fold nav__fold--active" open>
+        <summary>Opgaver</summary>
+        <ul class="nav__sub">
+          <li><a href="opgave-1-projektet.html">01 Åbn projektet</a></li>
+          <li><a href="opgave-2-import.html" aria-current="page">02 Import og udvælgelse</a></li>
+          <li><a href="opgave-3-introen.html">03 Genskab introen</a></li>
+          <li><a href="opgave-4-liv.html">04 Introen får liv</a></li>
+          <li><a href="opgave-5-titler.html">05 Titel og credits</a></li>
+          <li><a href="opgave-6-deliver.html">06 Eksport</a></li>
+          <li><a href="opgave-7-color.html">07 Color</a></li>
+        </ul>
+      </details>
+    </li>
+    <li><a class="nav__link" href="ressourcer.html">Ressourcer</a></li>
+  </ul>
+  <details class="nav__toggle">
+    <summary class="nav__toggle-btn">Menu <span class="nav__toggle-current">&middot; 02 Import og udvælgelse</span></summary>
+    <ul class="nav__list">
+      <li><a class="nav__link" href="index.html">Inden dagen</a></li>
+      <li><a class="nav__link" href="program.html">Program</a></li>
+      <li><a class="nav__link" href="velkommen.html">Før vi går i gang</a></li>
+      <li>
+        <details class="nav__fold nav__fold--active" open>
+          <summary>Opgaver</summary>
+          <ul class="nav__sub">
+            <li><a href="opgave-1-projektet.html">01 Åbn projektet</a></li>
+            <li><a href="opgave-2-import.html" aria-current="page">02 Import og udvælgelse</a></li>
+            <li><a href="opgave-3-introen.html">03 Genskab introen</a></li>
+            <li><a href="opgave-4-liv.html">04 Introen får liv</a></li>
+            <li><a href="opgave-5-titler.html">05 Titel og credits</a></li>
+            <li><a href="opgave-6-deliver.html">06 Eksport</a></li>
+            <li><a href="opgave-7-color.html">07 Color</a></li>
+          </ul>
+        </details>
+      </li>
+      <li><a class="nav__link" href="ressourcer.html">Ressourcer</a></li>
+    </ul>
+  </details>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header class="pagehead">
+    <p class="kicker">Opgave 2</p>
+    <h1 class="pagehead__title">Import og udvælgelse</h1>
+    <p class="pagehead__intro">
+      Klippene til introen skal ind i projektet. Bagefter lærer du dem at kende, og
+      lægger de første ned på en timeline. Det er dem, du bruger i Opgave 3.
+    </p>
+
+    <div class="meta">
+      <div>
+        <p class="meta__key">Varighed</p>
+        <p class="meta__val">40 minutter</p>
+      </div>
+      <div>
+        <p class="meta__key">Du skal bruge</p>
+        <p class="meta__val">Mappen <strong>Importer selv</strong> fra kursuspakken</p>
+      </div>
+    </div>
+  </header>
+</div>
+
+<hr class="rule">
+
+<main>
+
+<!-- ===================================================================== -->
+<section class="section" id="del1">
+  <div class="wrap">
+    <p class="kicker">Første del · 9 min</p>
+    <h2 class="section__title">Klippene ind i projektet</h2>
+
+    <div class="lead-in">
+      <p>
+        Panelet til venstre hedder <strong>Media Pool</strong>. Mapperne i det hedder
+        bins i Resolve, men det er mapper. Hver opgave har sin egen, med samme nummer
+        som på siden her.
+      </p>
+    </div>
+
+    <ol class="steps">
+      <li class="step reveal">
+        <div>
+          <h3 class="step__title">Åbn mappen Importeret</h3>
+          <p class="step__body">
+            Den ligger i <strong>02 OPGAVE 2</strong>, og den er tom med vilje.
+          </p>
+          <figure class="shot">
+            <div class="shot__frame">
+              <img src="assets/o2-1-bins.jpg"
+                   alt="Media Pool med mapperne 01 til 08 og Importeret under 02 OPGAVE 2 valgt. Mappen er tom."
+                   width="940" height="790" loading="lazy">
+            </div>
+          </figure>
+        </div>
+      </li>
+
+      <li class="step reveal">
+        <div>
+          <h3 class="step__title">Træk klippene ind</h3>
+          <p class="step__body">
+            Åbn mappen <strong>Importer selv</strong> på din computer, marker alle
+            filerne, og træk dem ind i det tomme felt i Media Pool.
+          </p>
+          <p class="step__body">
+            Vil du hellere bruge en menu: højreklik i det tomme felt, og vælg
+            <strong>Import Media</strong>, eller tryk <kbd>Ctrl</kbd> + <kbd>I</kbd>
+            (Windows) / <kbd>Cmd</kbd> + <kbd>I</kbd> (Mac).
+          </p>
+          <figure class="shot shot--tall">
+            <div class="shot__frame">
+              <img src="assets/o2-3-import.jpg"
+                   alt="Højrekliksmenuen i Media Pool med blandt andet New Bin og Import Media."
+                   width="720" height="887" loading="lazy">
+            </div>
+            <figcaption class="shot__caption">Import Media sidder midt i menuen. Genvejen står ud for den.</figcaption>
+          </figure>
+        </div>
+      </li>
+    </ol>
+
+    <div class="checkpoint" role="note">
+      <p class="checkpoint__label">Checkpoint</p>
+      <p class="checkpoint__body">
+        Der ligger 15 klip og en lydfil i Importeret.
+      </p>
+      <figure class="shot shot--tall">
+        <div class="shot__frame">
+          <img src="assets/o2-4-importeret.jpg"
+               alt="Mappen Importeret med de 15 klip brik-01 til brik-15 og lydfilen lyd-intro.wav."
+               width="940" height="940" loading="lazy">
+        </div>
+      </figure>
+    </div>
+
+    <details class="hint">
+      <summary>Jeg kan ikke se Media Pool</summary>
+      <p>
+        Panelet kan slås fra. Kig efter knappen <strong>Media Pool</strong> øverst
+        til venstre, og klik på den.
+      </p>
+    </details>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ===================================================================== -->
+<section class="section" id="del2">
+  <div class="wrap">
+    <p class="kicker">Anden del · 15 min</p>
+    <h2 class="section__title">Lær klippene at kende</h2>
+
+    <div class="lead-in">
+      <p>
+        Før man kan klippe, skal man vide, hvad man har. Det er det trin, folk
+        springer over, og så bruger de en time på at lede efter et klip, de kun
+        halvt kan huske.
+      </p>
+    </div>
+
+    <ol class="steps">
+      <li class="step reveal">
+        <div>
+          <h3 class="step__title">Forhåndsvis et klip</h3>
+          <p class="step__body">
+            Før musen hen over et klip i Media Pool uden at klikke. Klippet spiller
+            med, mens musen bevæger sig. Det hedder at scrubbe, og det er den
+            hurtigste måde at få et indtryk af et klip på.
+          </p>
+        </div>
+      </li>
+
+      <li class="step reveal">
+        <div>
+          <h3 class="step__title">Åbn det i source viewer</h3>
+          <p class="step__body">
+            Dobbeltklik på klippet. Det lægger sig i <strong>source viewer</strong>,
+            vinduet til venstre. Vinduet til højre viser filmen, som den bliver.
+            Venstre er råvarerne, højre er retten.
+          </p>
+          <figure class="shot">
+            <div class="shot__frame">
+              <img src="assets/o2-2-source-viewer.jpg"
+                   alt="brik-08 valgt i Media Pool og åbnet i source viewer, vinduet til venstre for timeline viewer."
+                   width="1400" height="850" loading="lazy">
+            </div>
+          </figure>
+        </div>
+      </li>
+
+      <li class="step reveal">
+        <div>
+          <h3 class="step__title">Brug J, K og L i stedet for musen</h3>
+          <p class="step__body">
+            <kbd>L</kbd> spiller fremad. <kbd>K</kbd> stopper. <kbd>J</kbd> spiller
+            baglæns. Flere tryk på <kbd>L</kbd> eller <kbd>J</kbd> giver højere fart.
+            Hånden bliver på tastaturet, og det er den vane, der adskiller en, der
+            klipper hurtigt, fra en, der ikke gør.
+          </p>
+        </div>
+      </li>
+
+      <li class="step reveal">
+        <div>
+          <h3 class="step__title">Marker det bedste stykke</h3>
+          <p class="step__body">
+            Find stedet, hvor klippet skal starte, og tryk <kbd>I</kbd>. Spil videre
+            til det skal slutte, og tryk <kbd>O</kbd>. Det markerede stykke er det,
+            der lander på timelinen, ikke resten af klippet.
+          </p>
+          <figure class="shot">
+            <div class="shot__frame">
+              <img src="assets/o2-5-io-markering.jpg"
+                   alt="Source viewer med brik-08 og et markeret stykke mellem In og Out i bunden. Øverst til venstre står længden på det markerede."
+                   width="1000" height="917" loading="lazy">
+            </div>
+            <figcaption class="shot__caption">Det markerede felt i bunden er stykket mellem I og O.</figcaption>
+          </figure>
+        </div>
+      </li>
+    </ol>
+
+    <div class="task">
+      <p class="task__label">Gør selv · 10 min</p>
+      <p class="task__body">
+        Kig alle klippene igennem med J, K og L. Sæt In og Out på det bedste stykke
+        i hvert klip, du når.
+      </p>
+    </div>
+
+    <details class="hint">
+      <summary>J, K og L reagerer ikke</summary>
+      <p>
+        Klik først på selve billedet i source viewer, så tastaturet ved, hvilket
+        vindue det skal styre. Markøren kan stå i et andet panel, uden at du kan se
+        det.
+      </p>
+    </details>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ===================================================================== -->
+<section class="section" id="del3">
+  <div class="wrap">
+    <p class="kicker">Tredje del · 12 min</p>
+    <h2 class="section__title">De første klip ned på timelinen</h2>
+
+    <ol class="steps">
+      <li class="step reveal">
+        <div>
+          <h3 class="step__title">Åbn timelinen Opg 2 ØVE</h3>
+          <p class="step__body">
+            Den ligger i <strong>02 OPGAVE 2</strong>. Dobbeltklik for at åbne den.
+            Den er tom og kun til at øve på, så det gør ikke noget, hvis du roder.
+          </p>
+        </div>
+      </li>
+
+      <li class="step reveal">
+        <div>
+          <h3 class="step__title">Træk klippet ned</h3>
+          <p class="step__body">
+            Klik midt i source viewer, og træk ned på timelinen. Det markerede
+            stykke lander der, hvor du slipper det.
+          </p>
+          <figure class="shot">
+            <div class="shot__frame">
+              <img src="assets/o2-6-traek-til-timeline.jpg"
+                   alt="Timelinen Opg 2 ØVE med tre brikker lagt ned efter hinanden."
+                   width="1400" height="375" loading="lazy">
+            </div>
+          </figure>
+          <p class="step__body">
+            Et fif: <kbd>Q</kbd> skifter mellem source viewer og timeline viewer.
+            Det er hurtigere end at klikke.
+          </p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="checkpoint" role="note">
+      <p class="checkpoint__label">Checkpoint</p>
+      <p class="checkpoint__body">
+        Tre klip ligger efter hinanden på Opg 2 ØVE.
+      </p>
+    </div>
+
+    <div class="extra">
+      <p class="extra__label">Hurtigt færdig?</p>
+      <p class="extra__body">
+        Lav en ny mappe: højreklik i det tomme felt under mapperne, og vælg
+        <strong>New Bin</strong>. Giv den et navn, og sortér klippene i den, fx
+        efter motiv.
+      </p>
+      <figure class="shot shot--tall">
+        <div class="shot__frame">
+          <img src="assets/o2-3-import.jpg"
+               alt="Højrekliksmenuen i Media Pool med New Bin og Import Media."
+               width="720" height="887" loading="lazy">
+        </div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================================================================== -->
+<div class="wrap">
+  <nav class="lesson-nav" aria-label="Mellem siderne">
+    <a class="nav__link" href="opgave-1-projektet.html">Forrige: Opgave 1</a>
+    <span class="lesson-nav__where">Opgave 2 af 7</span>
+    <a class="nav__link" href="opgave-3-introen.html">Næste: Opgave 3</a>
+  </nav>
+</div>
+
+<footer class="footer">
+  <div class="wrap">
+    <p>Står du fast: siden først, så sidemanden, så mig.</p>
+  </div>
+</footer>
+
+</body>
+</html>

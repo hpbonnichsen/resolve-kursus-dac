@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Opgave 7 · Color – kursus i DaVinci Resolve</title>
+<meta name="description" content="Opgave 7: Color-sidens opbygning, og rosen i introen skifter farve med en Qualifier.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip" href="#del1">Spring til opgaven</a>
+
+<nav class="nav" aria-label="Kursets sider">
+  <div class="wrap">
+  <ul class="nav__list nav__list--desktop">
+    <li><a class="nav__link" href="index.html">Inden dagen</a></li>
+    <li><a class="nav__link" href="program.html">Program</a></li>
+    <li><a class="nav__link" href="velkommen.html">Før vi går i gang</a></li>
+    <li>
+      <details class="nav__fold nav__fold--active" open>
+        <summary>Opgaver</summary>
+        <ul class="nav__sub">
+          <li><a href="opgave-1-projektet.html">01 Åbn projektet</a></li>
+          <li><a href="opgave-2-import.html">02 Import og udvælgelse</a></li>
+          <li><a href="opgave-3-introen.html">03 Genskab introen</a></li>
+          <li><a href="opgave-4-liv.html">04 Introen får liv</a></li>
+          <li><a href="opgave-5-titler.html">05 Titel og credits</a></li>
+          <li><a href="opgave-6-deliver.html">06 Eksport</a></li>
+          <li><a href="opgave-7-color.html" aria-current="page">07 Color</a></li>
+        </ul>
+      </details>
+    </li>
+    <li><a class="nav__link" href="ressourcer.html">Ressourcer</a></li>
+  </ul>
+  <details class="nav__toggle">
+    <summary class="nav__toggle-btn">Menu <span class="nav__toggle-current">&middot; 07 Color</span></summary>
+    <ul class="nav__list">
+      <li><a class="nav__link" href="index.html">Inden dagen</a></li>
+      <li><a class="nav__link" href="program.html">Program</a></li>
+      <li><a class="nav__link" href="velkommen.html">Før vi går i gang</a></li>
+      <li>
+        <details class="nav__fold nav__fold--active" open>
+          <summary>Opgaver</summary>
+          <ul class="nav__sub">
+            <li><a href="opgave-1-projektet.html">01 Åbn projektet</a></li>
+            <li><a href="opgave-2-import.html">02 Import og udvælgelse</a></li>
+            <li><a href="opgave-3-introen.html">03 Genskab introen</a></li>
+            <li><a href="opgave-4-liv.html">04 Introen får liv</a></li>
+            <li><a href="opgave-5-titler.html">05 Titel og credits</a></li>
+            <li><a href="opgave-6-deliver.html">06 Eksport</a></li>
+            <li><a href="opgave-7-color.html" aria-current="page">07 Color</a></li>
+          </ul>
+        </details>
+      </li>
+      <li><a class="nav__link" href="ressourcer.html">Ressourcer</a></li>
+    </ul>
+  </details>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header class="pagehead">
+    <p class="kicker">Opgave 7</p>
+    <h1 class="pagehead__title">Color</h1>
+    <p class="pagehead__intro">
+      Den side, Resolve er berømt for. Et hurtigt kig på, hvordan den er bygget, og
+      så skifter rosen i introen farve.
+    </p>
+
+    <div class="meta">
+      <div>
+        <p class="meta__key">Varighed</p>
+        <p class="meta__val">30 minutter</p>
+      </div>
+      <div>
+        <p class="meta__key">Start i</p>
+        <p class="meta__val"><strong>Opg 7 START</strong> i 07 OPGAVE 7</p>
+      </div>
+    </div>
+  </header>
+</div>
+
+<hr class="rule">
+
+<main>
+
+<!-- ===================================================================== -->
+<section class="section" id="del1">
+  <div class="wrap">
+    <p class="kicker">Første del · 5 min</p>
+    <h2 class="section__title">Sådan er siden bygget</h2>
+
+    <div class="lead-in">
+      <p>
+        Du skal ikke kunne det hele. Du skal vide, hvad tingene hedder, og hvor de
+        bor. Og én regel: <strong>ret billedet, før du styler det.</strong> Først
+        skal lys og farve være teknisk rigtige, så kommer det kreative.
+      </p>
+    </div>
+
+    <ol class="steps">
+      <li class="step reveal">
+        <div>
+          <h3 class="step__title">Viewer</h3>
+          <p class="step__body">Billedet, som det bliver. Under det ligger klippene som små billeder.</p>
+          <figure class="shot">
+            <div class="shot__frame">
+              <img src="assets/o7-5-viewer.jpg" alt="Viewer på Color-siden med rosen fra introen, og under den rækken af klip som små billeder." width="1400" height="820" loading="lazy">
+            </div>
+          </figure>
+        </div>
+      </li>
+
+      <li class="step reveal">
+        <div>
+          <h3 class="step__title">Nodes</h3>
+          <p class="step__body">
+            Alt, du gør på Color-siden, lever inde i en node. Vil du gøre noget mere,
+            tilføjer du en node mere. Så kan hver ændring slås fra og til for sig.
+          </p>
+          <figure class="shot shot--tall">
+            <div class="shot__frame">
+              <img src="assets/o7-6-nodes.jpg" alt="Node-panelet med to noder forbundet i serie: den første med Qualifier, den anden med den samlede farvekorrektion." width="743" height="1204" loading="lazy">
+            </div>
+          </figure>
+        </div>
+      </li>
+
+      <li class="step reveal">
+        <div>
+          <h3 class="step__title"><img class="heading-icon" src="assets/icons/primarieslog-color-wheels.png" alt="" width="26" height="26">Primaries</h3>
+          <p class="step__body">
+            Fire farvehjul: <strong>Lift</strong> (skygger), <strong>Gamma</strong>
+            (mellemtoner), <strong>Gain</strong> (højlys) og <strong>Offset</strong>
+            (hele billedet). Det er her, man bruger mest tid.
+          </p>
+          <figure class="shot">
+            <div class="shot__frame">
+              <img src="assets/l4-1-primaries.jpg" alt="De fire farvehjul i Primaries." width="718" height="343" loading="lazy">
+            </div>
+          </figure>
+        </div>
+      </li>
+
+      <li class="step reveal">
+        <div>
+          <h3 class="step__title"><img class="heading-icon" src="assets/icons/scopes.png" alt="" width="26" height="26">Scopes</h3>
+          <p class="step__body">
+            Grafer over billedets lys og farve, mere præcise end øjet. Det er dem,
+            man retter efter.
+          </p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ===================================================================== -->
+<section class="section" id="del2">
+  <div class="wrap">
+    <p class="kicker">Anden del · 4 + 15 min</p>
+    <h2 class="section__title">Skift rosens farve</h2>
+
+    <div class="lead-in">
+      <p>
+        En <strong>Qualifier</strong> vælger pixels ud fra farve. Du vælger kun det
+        røde i rosen, og så ændrer du kun det.
+      </p>
+    </div>
+
+    <ol class="steps">
+      <li class="step reveal">
+        <div>
+          <h3 class="step__title">Find rosen, og lav en ny node</h3>
+          <p class="step__body">
+            Klik på klippet med rosen i rækken under viewer. Højreklik i Nodes, og
+            vælg <strong>Add Node → Add Serial</strong>, eller tryk <kbd>Alt</kbd> +
+            <kbd>S</kbd> (Windows) / <kbd>Option</kbd> + <kbd>S</kbd> (Mac).
+          </p>
+        </div>
+      </li>
+
+      <li class="step reveal">
+        <div>
+          <h3 class="step__title">Klik på det røde med pipetten</h3>
+          <p class="step__body">
+            Åbn <strong>Qualifier</strong>, vælg pipetten, og klik på rosen i viewer.
+            Træk pipetten hen over rosen, så du får flere nuancer af rødt med.
+          </p>
+          <figure class="shot">
+            <div class="shot__frame">
+              <img src="assets/o7-1-picker.jpg"
+                   alt="Qualifier-panelet efter klik på rosen: pipetterne øverst til venstre og et rødt udsnit valgt i Hue-bjælken."
+                   width="1200" height="645" loading="lazy">
+            </div>
+            <figcaption class="shot__caption">Pipetterne sidder øverst til venstre i panelet. Det markerede stykke af Hue-bjælken er de røde nuancer, du har valgt.</figcaption>
+          </figure>
+        </div>
+      </li>
+
+      <li class="step reveal">
+        <div>
+          <h3 class="step__title">Se, hvad du har valgt</h3>
+          <p class="step__body">
+            Slå <strong>Highlight</strong> til med ikonet øverst til venstre i viewer,
+            eller tryk <kbd>Shift</kbd> + <kbd>H</kbd>. Nu er alt andet end dit udvalg
+            gråt. Er der huller i rosen, så træk pipetten over dem også.
+          </p>
+          <figure class="shot">
+            <div class="shot__frame">
+              <img src="assets/o7-2-highlight.jpg"
+                   alt="Highlight slået til: rosen står frem, resten af billedet er gråt."
+                   width="1400" height="659" loading="lazy">
+            </div>
+          </figure>
+        </div>
+      </li>
+
+      <li class="step reveal">
+        <div>
+          <h3 class="step__title">Drej farven</h3>
+          <p class="step__body">
+            Slå Highlight fra igen. Under farvehjulene i Primaries sidder
+            <strong>Hue</strong>. Træk i tallet, og rosen skifter farve. Resten af
+            billedet bliver, som det var.
+          </p>
+          <figure class="shot">
+            <div class="shot__frame">
+              <img src="assets/o7-3-hue.jpg"
+                   alt="Primaries med de fire farvehjul og rækken under dem, hvor Hue står på 72.80."
+                   width="1200" height="639" loading="lazy">
+            </div>
+            <figcaption class="shot__caption">Hue sidder i rækken under farvehjulene. 50 er udgangspunktet.</figcaption>
+          </figure>
+          <figure class="shot">
+            <div class="shot__frame">
+              <img src="assets/o7-4-foer-efter.jpg"
+                   alt="Rosen før og efter: til venstre rød, til højre blå, mens baggrunden er uændret."
+                   width="1416" height="388" loading="lazy">
+            </div>
+            <figcaption class="shot__caption">Før og efter. Kun det røde har skiftet farve.</figcaption>
+          </figure>
+        </div>
+      </li>
+    </ol>
+
+    <div class="task">
+      <p class="task__label">Gør selv · 15 min</p>
+      <p class="task__body">Giv rosen en ny farve. Sammenlign med <strong>Opg 7 FACIT</strong>.</p>
+    </div>
+
+    <details class="hint">
+      <summary>Hele billedet skifter farve</summary>
+      <p>
+        Så er Qualifier ikke sat, eller pipetten ramte noget, der ikke er rødt. Tjek
+        med Highlight, hvad der faktisk er valgt.
+      </p>
+    </details>
+
+    <details class="hint">
+      <summary>Kanten af rosen ser ujævn ud</summary>
+      <p>
+        Det er normalt, og det er en del af pointen. Optagelsen er komprimeret
+        (H.264), og så er farverne i kanten en blanding af rødt og grønt, som
+        Qualifier ikke kan skille helt ad. Kanten kan blødes lidt op under
+        <strong>Matte Finesse</strong> i Qualifier-panelet, men den bliver aldrig
+        perfekt på dette materiale.
+      </p>
+    </details>
+
+    <div class="extra">
+      <p class="extra__label">Hurtigt færdig?</p>
+      <p class="extra__body">
+        Prøv en anden farve, eller gør rosen mere eller mindre mættet med
+        <strong>Sat</strong> ved siden af Hue. Eller find et andet klip i introen,
+        og skift farven på noget i det.
+      </p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================================================================== -->
+<div class="wrap">
+  <nav class="lesson-nav" aria-label="Mellem siderne">
+    <a class="nav__link" href="opgave-6-deliver.html">Forrige: Opgave 6</a>
+    <span class="lesson-nav__where">Opgave 7 af 7</span>
+    <a class="nav__link" href="ressourcer.html">Næste: Ressourcer</a>
+  </nav>
+</div>
+
+<footer class="footer">
+  <div class="wrap">
+    <p>Står du fast: siden først, så sidemanden, så mig.</p>
+  </div>
+</footer>
+
+</body>
+</html>

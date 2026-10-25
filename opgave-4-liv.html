@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Opgave 4 · Introen får liv – kursus i DaVinci Resolve</title>
+<meta name="description" content="Opgave 4: Inspector, overgange, fades og Dynamic Zoom på introen. Composite som ekstraopgave.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip" href="#del1">Spring til opgaven</a>
+
+<nav class="nav" aria-label="Kursets sider">
+  <div class="wrap">
+  <ul class="nav__list nav__list--desktop">
+    <li><a class="nav__link" href="index.html">Inden dagen</a></li>
+    <li><a class="nav__link" href="program.html">Program</a></li>
+    <li><a class="nav__link" href="velkommen.html">Før vi går i gang</a></li>
+    <li>
+      <details class="nav__fold nav__fold--active" open>
+        <summary>Opgaver</summary>
+        <ul class="nav__sub">
+          <li><a href="opgave-1-projektet.html">01 Åbn projektet</a></li>
+          <li><a href="opgave-2-import.html">02 Import og udvælgelse</a></li>
+          <li><a href="opgave-3-introen.html">03 Genskab introen</a></li>
+          <li><a href="opgave-4-liv.html" aria-current="page">04 Introen får liv</a></li>
+          <li><a href="opgave-5-titler.html">05 Titel og credits</a></li>
+          <li><a href="opgave-6-deliver.html">06 Eksport</a></li>
+          <li><a href="opgave-7-color.html">07 Color</a></li>
+        </ul>
+      </details>
+    </li>
+    <li><a class="nav__link" href="ressourcer.html">Ressourcer</a></li>
+  </ul>
+  <details class="nav__toggle">
+    <summary class="nav__toggle-btn">Menu <span class="nav__toggle-current">&middot; 04 Introen får liv</span></summary>
+    <ul class="nav__list">
+      <li><a class="nav__link" href="index.html">Inden dagen</a></li>
+      <li><a class="nav__link" href="program.html">Program</a></li>
+      <li><a class="nav__link" href="velkommen.html">Før vi går i gang</a></li>
+      <li>
+        <details class="nav__fold nav__fold--active" open>
+          <summary>Opgaver</summary>
+          <ul class="nav__sub">
+            <li><a href="opgave-1-projektet.html">01 Åbn projektet</a></li>
+            <li><a href="opgave-2-import.html">02 Import og udvælgelse</a></li>
+            <li><a href="opgave-3-introen.html">03 Genskab introen</a></li>
+            <li><a href="opgave-4-liv.html" aria-current="page">04 Introen får liv</a></li>
+            <li><a href="opgave-5-titler.html">05 Titel og credits</a></li>
+            <li><a href="opgave-6-deliver.html">06 Eksport</a></li>
+            <li><a href="opgave-7-color.html">07 Color</a></li>
+          </ul>
+        </details>
+      </li>
+      <li><a class="nav__link" href="ressourcer.html">Ressourcer</a></li>
+    </ul>
+  </details>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header class="pagehead">
+    <p class="kicker">Opgave 4</p>
+    <h1 class="pagehead__title">Introen får liv</h1>
+    <p class="pagehead__intro">
+      Introen er klippet. Nu får den overgange, fades og bevægelse, og det hele
+      sker i ét panel: Inspector.
+    </p>
+
+    <div class="meta">
+      <div>
+        <p class="meta__key">Varighed</p>
+        <p class="meta__val">40 minutter</p>
+      </div>
+      <div>
+        <p class="meta__key">Start i</p>
+        <p class="meta__val"><strong>Opg 4 START</strong> i 04 OPGAVE 4</p>
+      </div>
+    </div>
+  </header>
+</div>
+
+<hr class="rule">
+
+<main>
+
+<!-- ===================================================================== -->
+<section class="section" id="del1">
+  <div class="wrap">
+    <p class="kicker">Første del · 4 min</p>
+    <h2 class="section__title">Inspector</h2>
+
+    <ol class="steps">
+      <li class="step reveal">
+        <div>
+          <h3 class="step__title">Åbn Inspector</h3>
+          <p class="step__body">
+            Vælg et klip på timelinen, og klik på <strong>Inspector</strong> i
+            øverste højre hjørne. Her styrer du klippets egne indstillinger.
+            I dag bruger du <strong>Transform</strong>: zoom, position og rotation.
+          </p>
+          <p class="step__body">
+            Er du kommet for langt ud? Den lille pil ud for hver indstilling sætter
+            den tilbage til udgangspunktet.
+          </p>
+          <figure class="shot shot--tall">
+            <div class="shot__frame">
+              <img src="assets/l3-6-inspector.jpg"
+                   alt="Inspector med sektionen Transform foldet ud."
+                   width="413" height="521" loading="lazy">
+            </div>
+            <figcaption class="shot__caption">Der er mange sektioner. I dag bruger du kun Transform og Dynamic Zoom.</figcaption>
+          </figure>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ===================================================================== -->
+<section class="section" id="del2">
+  <div class="wrap">
+    <p class="kicker">Anden del · 4 + 8 min</p>
+    <h2 class="section__title">Overgange og fades</h2>
+
+    <ol class="steps">
+      <li class="step reveal">
+        <div>
+          <h3 class="step__title">Sæt en Cross Dissolve ind</h3>
+          <p class="step__body">
+            Klik på klippepunktet, hvor to klip mødes på timelinen, højreklik, og vælg
+            <strong>Add Transition</strong>. Eller tryk <kbd>Ctrl</kbd> +
+            <kbd>T</kbd> (Windows) / <kbd>Cmd</kbd> + <kbd>T</kbd> (Mac).
+            Standarden er Cross Dissolve. Flere ligger under
+            <strong>Effects → Video Transitions</strong>.
+          </p>
+          <figure class="shot">
+            <div class="shot__frame">
+              <img src="assets/l3-14-transition.jpg"
+                   alt="En overgang mellem to klip på timelinen, vist som en sommerfugleform."
+                   width="495" height="97" loading="lazy">
+            </div>
+            <figcaption class="shot__caption">Overgangen tegnes direkte på timelinen.</figcaption>
+          </figure>
+        </div>
+      </li>
+
+      <li class="step reveal">
+        <div>
+          <h3 class="step__title">Lav en fade med håndtaget</h3>
+          <p class="step__body">
+            Den hurtigste fade, ingen menuer. Før musen hen over det øverste hjørne
+            af et klip, og træk den lille firkant ind mod midten. Det virker i
+            begge ender af klippet.
+          </p>
+          <figure class="shot">
+            <div class="shot__frame">
+              <img src="assets/l3-13-handles.jpg"
+                   alt="Et klip på timelinen med de to små fade-håndtag i de øverste hjørner."
+                   width="736" height="123" loading="lazy">
+            </div>
+          </figure>
+        </div>
+      </li>
+    </ol>
+
+    <div class="task">
+      <p class="task__label">Gør selv · 8 min</p>
+      <p class="task__body">
+        Sæt 2-3 overgange ind i introen, der hvor stemningen skifter, og fade
+        introen ud til sidst.
+      </p>
+    </div>
+
+    <details class="hint">
+      <summary>Hvornår skal jeg bruge en overgang?</summary>
+      <p>
+        Sparsomt. En overgang markerer et tidsspring eller et stemningsskift. Brug
+        den ikke bare for at blødgøre et almindeligt klip. Det sender et forkert
+        signal til seeren, og det er et godt fif at give videre til eleverne.
+      </p>
+    </details>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ===================================================================== -->
+<!-- NYT INDHOLD, ikke fra kursus 1. HP skal tjekke trinene i Resolve. -->
+<section class="section" id="del3">
+  <div class="wrap">
+    <p class="kicker">Tredje del · 4 + 12 min</p>
+    <h2 class="section__title">Dynamic Zoom</h2>
+
+    <div class="lead-in">
+      <p>
+        Et langsomt zoom ind eller ud på et stillestående billede. Det giver liv til
+        et roligt klip, og det kræver ingen keyframes.
+      </p>
+    </div>
+
+    <ol class="steps">
+      <li class="step reveal">
+        <div>
+          <h3 class="step__title">Slå Dynamic Zoom til</h3>
+          <p class="step__body">
+            Vælg et klip, og find <strong>Dynamic Zoom</strong> i Inspector. Slå
+            den til med kontakten ud for overskriften.
+          </p>
+          <figure class="shot shot--tall">
+            <div class="shot__frame">
+              <img src="assets/o4-1-dynamic-zoom.jpg"
+                   alt="Inspector med Dynamic Zoom slået til, menuen Dynamic Zoom Ease og knappen Swap."
+                   width="837" height="1075" loading="lazy">
+            </div>
+          </figure>
+        </div>
+      </li>
+
+      <li class="step reveal">
+        <div>
+          <h3 class="step__title">Sæt start og slut i billedet</h3>
+          <p class="step__body">
+            Skift viewerens overlay til <strong>Dynamic Zoom</strong> med menuen i
+            nederste venstre hjørne af viewer. Den <strong>grønne</strong> ramme er,
+            hvor klippet starter, den <strong>røde</strong>, hvor det slutter. Træk i
+            rammerne, og spil klippet.
+          </p>
+          <figure class="shot">
+            <div class="shot__frame">
+              <img src="assets/o4-2-dynamic-zoom-viewer.jpg"
+                   alt="Viewer med Dynamic Zoom-overlay: en grøn ramme inde i billedet og en rød ramme langs kanten."
+                   width="1160" height="867" loading="lazy">
+            </div>
+            <figcaption class="shot__caption">Overlay-menuen sidder nederst til venstre under billedet.</figcaption>
+          </figure>
+        </div>
+      </li>
+
+      <li class="step reveal">
+        <div>
+          <h3 class="step__title">Vend og blødgør</h3>
+          <p class="step__body">
+            <strong>Swap</strong> i Inspector bytter start og slut, så et zoom ind
+            bliver et zoom ud. Vælg <strong>Ease In and Out</strong> i menuen
+            <strong>Dynamic Zoom Ease</strong>, så bevægelsen starter og slutter blødt.
+          </p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="task">
+      <p class="task__label">Gør selv · 12 min</p>
+      <p class="task__body">
+        Dynamic Zoom på 2-3 rolige klip i introen. Prøv både ind og ud.
+      </p>
+    </div>
+
+    <div class="checkpoint" role="note">
+      <p class="checkpoint__label">Checkpoint</p>
+      <p class="checkpoint__body">Næste opgave starter i <strong>Opg 5 START</strong>.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ===================================================================== -->
+<section class="section" id="ekstra">
+  <div class="wrap">
+    <div class="extra">
+      <p class="extra__label">Hurtigt færdig?</p>
+      <p class="extra__body">
+        <strong>Få en person til at forsvinde.</strong> Åbn mappen
+        <strong>04 OPGAVE 4 · Liv / Ekstra · Composite</strong>, og spil timelinen
+        <strong>Opg 4 Ekstra FACIT</strong>. Byg derefter effekten selv i
+        <strong>Opg 4 Ekstra START</strong>. Der ligger to stykker af samme optagelse:
+        ét med personen og ét uden. Læg dem oven på hinanden på hver sit spor.
+        Kameraet stod stille under hele optagelsen.
+      </p>
+    </div>
+
+    <figure class="shot">
+      <div class="shot__frame">
+        <img src="assets/l3-20-synlig.jpg" alt="Personen er fuldt synlig." width="433" height="239" loading="lazy">
+      </div>
+      <figcaption class="shot__caption">Start: fuldt synlig.</figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="shot__frame">
+        <img src="assets/l3-22-vaek.jpg" alt="Personen er væk, baggrunden er den samme." width="430" height="241" loading="lazy">
+      </div>
+      <figcaption class="shot__caption">Slut: helt væk.</figcaption>
+    </figure>
+
+    <details class="hint">
+      <summary>Jeg aner ikke, hvor jeg skal starte</summary>
+      <p>
+        Baggrunden er den samme fra start til slut. Se hele klippet i source viewer:
+        er der et tidspunkt, hvor personen slet ikke er i billedet?
+      </p>
+    </details>
+
+    <details class="unfold">
+      <summary>
+        Sådan er den lavet
+        <span class="unfold__note">Klik, når du har prøvet selv, eller er gået i stå</span>
+      </summary>
+      <div class="unfold__body">
+        <ol class="steps">
+          <li class="step">
+            <div>
+              <h3 class="step__title">Læg klippet ned to gange</h3>
+              <p class="step__body">
+                Samme kildeklip på to spor oven på hinanden. Øverst: trimmet til
+                stykket, hvor personen står. Nederst: trimmet til et senere
+                tidspunkt, hvor personen er gået.
+              </p>
+              <figure class="shot">
+                <div class="shot__frame">
+                  <img src="assets/l3-19-to-spor.jpg" alt="Samme klip på to spor oven på hinanden." width="442" height="280" loading="lazy">
+                </div>
+              </figure>
+            </div>
+          </li>
+          <li class="step">
+            <div>
+              <h3 class="step__title">Keyframe Opacity på det øverste lag</h3>
+              <p class="step__body">
+                Inspector → <strong>Composite</strong>. Sæt playheadet ved starten,
+                og klik diamanten ud for <strong>Opacity</strong> ved 100 %. Flyt
+                playheadet et par sekunder frem, og sæt Opacity til 0 %.
+              </p>
+              <figure class="shot">
+                <div class="shot__frame">
+                  <img src="assets/l3-24-opacity-keyframe.jpg" alt="Opacity i Inspector midt i en overgang." width="410" height="303" loading="lazy">
+                </div>
+              </figure>
+            </div>
+          </li>
+          <li class="step">
+            <div>
+              <h3 class="step__title">Saml det i et Compound Clip</h3>
+              <p class="step__body">
+                Marker begge klip, højreklik, og vælg <strong>New Compound Clip</strong>.
+                Nu er det ét klip på timelinen. Dobbeltklik for at redigere lagene igen.
+              </p>
+              <figure class="shot">
+                <div class="shot__frame">
+                  <img src="assets/l3-23-new-compound-clip.jpg" alt="Højrekliksmenuen med New Compound Clip." width="280" height="135" loading="lazy">
+                </div>
+              </figure>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </details>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================================================================== -->
+<div class="wrap">
+  <nav class="lesson-nav" aria-label="Mellem siderne">
+    <a class="nav__link" href="opgave-3-introen.html">Forrige: Opgave 3</a>
+    <span class="lesson-nav__where">Opgave 4 af 7</span>
+    <a class="nav__link" href="opgave-5-titler.html">Næste: Opgave 5</a>
+  </nav>
+</div>
+
+<footer class="footer">
+  <div class="wrap">
+    <p>Står du fast: siden først, så sidemanden, så mig.</p>
+  </div>
+</footer>
+
+</body>
+</html>
